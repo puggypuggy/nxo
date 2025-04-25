@@ -1,0 +1,2394 @@
+/* --- Estilo de los componentes base --- */
+body {
+    font-family: Helvetica;
+    color: #3766AF;
+    font-size: 11px;
+    margin-top: -10px;
+    -webkit-transform: translateZ(0);
+}
+
+#header {
+    background: url("/empresas_files/header.png.png") repeat-x;
+    color: #333;
+    text-shadow: 0 1px #FFF;
+    height: 188px;
+}
+
+
+.inputUpper
+{
+    width: 212px;
+    text-transform: uppercase;
+}
+
+#content {
+
+    padding-bottom: 30px;
+}
+
+#footer {
+    color: #333;
+    display: block;
+    margin-top: 34px;
+}
+
+/* --- Fin de estilo de los componentes base --- */
+
+/* --- Override de estilos --- */
+input {
+    border: solid 1px #FFF;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    text-shadow: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    background: #E0E0E0;
+    padding: 5px 10px !important;
+    color: #3766AF;
+}
+
+.ui-inputfield {
+    margin: 0;
+    outline: medium none;
+    padding: 4px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+input:focus {
+    border: solid 1px #999;
+}
+
+.input_seleccionado {
+    border: solid 1px #999 !important;
+}
+
+a {
+    color:  #F4722B;
+    text-decoration: none;
+    font-size: 11.5px !important;
+}
+
+a:hover {
+    color:  #F4722B;
+    text-decoration: underline;
+}
+
+table a {
+    color: #3766AF;
+    text-decoration: none;
+    font-size: 11px !important;
+    font-weight: bold;
+}
+
+/*
+tbody:before {
+    line-height:0.5em;
+    content:"-";
+    color:rgba(0,0,0,0);
+    display:block;
+}*/
+
+
+.ui-accordion .ui-accordion-header .ui-icon-triangle-1-s {
+    background-position: -18px -190px;
+    height: 20px;
+    width: 15px;
+    background-image: url("/portaljuridico/javax.faces.resource//ui-icons_616161_256x240.png.xhtml?ln=images");
+}
+
+.ui-accordion .ui-accordion-header .ui-icon {
+    position: absolute !important;
+    left: 16px !important;
+}
+
+.ui-accordion .ui-accordion-header .ui-icon-triangle-1-e {
+    background-position: -2px -190px;
+    height: 20px;
+    width: 15px;
+    background-image: url("/portaljuridico/javax.faces.resource//ui-icons_616161_256x240.png.xhtml?ln=images");
+
+}
+
+.botonArchivo
+{
+    height: 22px;
+    padding-top: 1px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.cajaArchivo
+{
+    background:none;
+    border:solid 0px #000;
+    display: inline-block;
+    width: 60%;
+    padding: 0px;
+    text-align: left;
+}
+
+.cajaArchivo span
+{
+    padding: 0px !important;
+}
+.radioCheck {
+    position: absolute;
+    width: 8px !important;
+    height: 8px !important;
+    color: #FFF;
+    text-align: center;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid  #F4722B !important;
+
+}
+
+
+.ui-state-active {
+
+}
+
+.check {
+    position: absolute;
+    margin: 0;
+    width: 30px;
+    height: 30px;
+    /*hide the radio button*/
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    opacity: 0;
+    cursor: pointer;
+    overflow: auto !important;
+}
+
+
+.ui-radiobutton .ui-radiobutton-relative {
+    position: relative;
+    float: left;
+    margin-right: 3px;
+}
+.ui-radiobutton .ui-radiobutton-box {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    border-radius: 10px;
+}
+.ui-radiobutton .ui-radiobutton-relative {
+    position: relative !important;
+    float: left !important;
+    margin-right: 3px !important;
+}
+.ui-radiobutton .ui-state-active {
+    width: 8px !important;
+    height: 8px !important;
+    border: 1px solid rgb(255, 255, 255) !important;
+    background: none repeat scroll 0% 0% rgb(244, 114, 43);
+}
+.ui-radiobutton .ui-radiobutton-box {
+    width: 8px !important;
+    height: 8px !important;
+    border: 1px solid rgb(244, 114, 43) !important;
+    cursor: pointer;
+}
+.ui-state-active {
+   }
+.ui-radiobutton {
+    line-height: 16px;
+}
+.ui-radiobutton {
+    line-height: 12px !important;
+}
+
+
+input[type="radio"] + span {
+    /*the span element that immediately follow the radio button */
+    visibility: hidden; /*temporarily hide the "YES" label*/
+    background: #F4722B;
+    border: 1px solid #ffffff !important;
+}
+
+input[type="radio"]:checked + span {
+    visibility: visible; /*show the "YES" label only if the radio button is checked*/
+}
+
+.header_info {
+    color: #3766AF;
+}
+
+.header_info.bold{
+    font-weight: bold;
+    padding-top: 2%;
+}
+
+.linea_tope {
+    color: #F4722B;
+    margin: 10px 0;
+    padding: 0px 5px 5px 5px;
+}
+
+.body_info {
+    color: #4D4D4D;
+    font-weight: bold;
+}
+
+.body_info_afiliacion {
+    color: #4D4D4D !important;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.panel_info {
+    text-align: left;
+    padding: 10px 0px 25px 0px !important;
+}
+
+.body_info p {
+    font-size: 11px;
+    display: block;
+    margin: 0;
+}
+
+
+/* --- Fin de Override de estilos --- */
+
+/* --- Estilo --- */
+.contenido, .header {
+    padding: 10px;
+}
+
+/* --- --- Header --- --- */
+.header {
+    height: 136px;
+}
+
+.header_afiliacion {
+    height: 136px;
+    color: black;
+}
+
+.titulo_header {
+    margin-top: 50px;
+}
+
+.titulo_bienvenida {
+    color: #3766AF;
+    font-size: 18px;
+    text-align: right;
+    margin-bottom: 5px;
+}
+
+.titulo_bienvenida2 {
+    color:  #F4722B;
+    font-size: 18px;
+}
+
+.separador_header, .separador_header_logged {
+    height: 3px;
+    background:  #F4722B;
+    margin: 0px 10px 10px 10px;
+}
+
+.separador_header_logged {
+    margin: -16px 10px 0px 10px;
+}
+
+.logo, .logo_bienvenida {
+    display: block;
+    background: url("/empresas_files/logo-exterior-15.png.png") no-repeat;
+    width: 311px;
+    height: 45px;
+    text-indent: -9999999px;
+}
+
+.logo_bienvenida {
+    margin: 20px 0 0 -10px;
+}
+
+.logo {
+    margin: 20px 0 0 -20px;
+}
+
+.recibo {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+/* --- --- Fin de Header --- --- */
+
+/* --- --- Footer --- --- */
+.footer {
+    position: relative;
+}
+
+.parrafo_footer {
+    color: #999;
+    font-size: 10px;
+    margin: 0;
+}
+
+.datos_footer {
+    border-top: solid 1px #999;
+}
+
+.imagen_footer {
+    margin-right: 20px;
+    margin-bottom: 10px;
+    float: right;
+}
+
+/* --- --- Fin de Footer --- --- */
+.menuItem {
+
+}
+
+.texto_sidebar {
+    font-size: 11.5px;
+    color: #3766AF;
+    margin: 10px;
+}
+
+.titulo_sidebar {
+    font-size: 12px;
+    color:  #F4722B;
+    margin: 10px;
+}
+
+/* --- --- Tablas --- --- */
+
+/* --- --- --- Tabla Login --- --- ---*/
+.tabla_login {
+
+}
+
+.tabla_login thead {
+    color: #FFF;
+    font-size: 14px;
+}
+
+.tabla_login tbody {
+    color: #3766AF;
+    font-size: 12px;
+}
+
+.tabla_login tbody td {
+    padding: 5px;
+}
+
+.usuario_nuevo, .usuario_registrado {
+    display: block;
+    padding: 5px;
+    text-align: center;
+    color: #FFF;
+    font-size: 14px;
+}
+
+.usuario_nuevo {
+    background: #3766AF;
+}
+
+.usuario_registrado {
+    background:  #F4722B;
+}
+
+/* --- --- --- Fin de Tabla Login --- --- ---*/
+
+/* --- Estilos DataTable --- */
+.tablaGrande {
+    width: 100%;
+}
+
+.tablaGrande table {
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+}
+
+.tablaGrande {
+    font: normal 12px/150% Arial, Helvetica, sans-serif;
+    background: #fff;
+    /*overflow: hidden;*/
+}
+
+.tablaGrande table td, .tablaGrande table th {
+    padding: 3px 10px;
+}
+
+.tablaGrande table thead th {
+    background-color:  #F4722B;
+    color: #FFFFFF;
+    font-size: 7px;
+    font-weight: bold;
+    text-align: center !important;
+}
+
+.tablaGrande table thead th:first-child {
+    border: none;
+}
+
+/*.tablaGrande table tr:nth-child(odd) {
+    background-color: #E0E0E0;
+}*/
+
+.tablaGrande table tbody td {
+    color: #00496B;
+    font-size: 7px;
+    border-bottom: 1px solid #E1EEF4;
+    font-weight: normal;
+    text-align: center;
+    border-style: none !important;
+}
+
+.tablaGrande table tbody {
+
+}
+
+.tablaGrande table tbody td:first-child {
+    border-left: none;
+}
+
+.tablaGrande table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+.tablaProveedore {
+    width: 100%;
+    padding: 0;
+}
+
+.tablaProveedore table {
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+}
+
+.tablaProveedore {
+    font: normal 12px/150% Arial, Helvetica, sans-serif;
+    background: #fff;
+
+}
+
+.tablaProveedore table td, .tablaGrande table th {
+    padding: 0;
+}
+
+.tablaProveedore table thead th {
+    background-color:  #F4722B;
+    color: #FFFFFF;
+    white-space: normal;
+    font-size: 9px;
+    font-weight: bold;
+    text-align: center !important;
+}
+
+.tablaProveedore table thead th:first-child {
+    border: none;
+}
+
+/*.tablaGrande table tr:nth-child(odd) {
+    background-color: #E0E0E0;
+}*/
+
+.tablaProveedore table tbody td {
+    color: #00496B;
+    font-size: 9px;
+    border-bottom: 1px solid #E1EEF4;
+    font-weight: normal;
+    text-align: center;
+    border-style: none !important;
+}
+
+.tablaProveedore table tbody {
+
+}
+
+.tablaProveedore table tbody td:first-child {
+    border-left: none;
+}
+
+.tablaProveedore table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.tablaEstandar {
+    width: 100%;
+}
+
+.tablaEstandar table {
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+}
+
+.tablaEstandar {
+    font: normal 12px/150% Arial, Helvetica, sans-serif;
+    background: #fff;
+    /*overflow: hidden*/;
+}
+
+.tablaEstandar table td, .tablaEstandar table th {
+    padding: 3px 10px;
+}
+
+.tablaEstandar table thead th {
+    background-color:  #F4722B;
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: bold;
+    border-left: solid 1px #ffffff;
+    text-align: center !important;
+    padding: 0;
+}
+
+.tablaEstandar table thead th:first-child {
+    border: none;
+}
+
+/*.tablaEstandar table tr:nth-child(odd) {
+    background-color: #E0E0E0;
+}*/
+
+
+
+.tablaEstandar table tbody td {
+    color: #00496B;
+    font-size: 11px;
+    border-bottom: 1px solid #E1EEF4;
+    font-weight: normal;
+    text-align: center;
+    border-style: none !important;
+    text-align: center !important;
+}
+
+.tablaEstandar table tbody {
+
+}
+
+.tablaEstandar table tbody td:first-child {
+    border-left: none;
+}
+
+.tablaEstandar table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.tablaResumen {
+    width: 100%;
+}
+
+.tablaResumen table {
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+}
+
+.tablaResumen {
+    font: normal 12px/150% Arial, Helvetica, sans-serif;
+    background: #fff;
+    /*overflow: hidden*/;
+}
+
+.tablaResumen table td, .tablaResumen table th {
+    padding: 3px 0px;
+}
+
+.tablaResumen table thead th {
+    background-color: #FFFFFF;
+    color: #3766AF;
+    font-size: 11px;
+    font-weight: bold;
+    border-left: solid 1px  #F4722B;
+    text-align: center !important;
+}
+
+.tablaResumen table thead th:first-child {
+    border-left: none;
+}
+
+/*.tablaResumen table tr:nth-child(odd) {
+    background-color: #E0E0E0 !important;
+}*/
+.ui-datatable-even {
+     background-color: #E0E0E0;
+ }
+
+.tablaResumen table tr.slvzr-nth-child40odd41{
+    background-color: #ffffff;
+}
+
+.tablaResumen table tbody td {
+    color: #00496B;
+    font-size: 11px;
+    border-bottom: 1px solid #E1EEF4;
+    font-weight: normal;
+    text-align: center;
+    border-style: none !important;
+    text-align: left !important;
+}
+
+.tablaResumen table tbody {
+
+}
+
+.tablaResumen table tbody td:first-child {
+    border-left: none;
+}
+
+.tablaResumen table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.tablaResumen  .ui-datatable .ui-paginator, .ui-datatable .ui-paginator {
+    padding: 2px;
+    background-color: white;
+    color: black;
+}
+
+.tabla_resumen {
+    margin-bottom: 10px;
+}
+
+.ui-paginator-top {
+    text-align: right !important;
+}
+
+.tablaResumen thead .ui-paginator .ui-paginator-first {
+    display: none;
+}
+
+.tablaResumen thead .ui-paginator .ui-paginator-current {
+    display: none;
+}
+
+.tablaResumen tfoot .ui-paginator .ui-paginator-current {
+    color:#F4722B;
+}
+
+.tablaResumen thead .ui-paginator .ui-paginator-prev {
+    display: none;
+}
+
+.tablaResumen thead .ui-paginator .ui-paginator-pages {
+    display: none;
+}
+
+.tablaResumen thead .ui-paginator .ui-paginator-next {
+    display: none;
+}
+
+.tablaResumen thead .ui-paginator .ui-paginator-last {
+    display: none;
+}
+.tablaEstandar tfoot .ui-paginator .ui-paginator-current {
+    color:#F4722B;
+}
+
+.tablaEstandar  .ui-datatable .ui-paginator, .ui-datatable .ui-paginator {
+    padding: 2px;
+    background-color: white;
+    color: black;
+}
+
+.tablaEstandar thead .ui-paginator .ui-paginator-first {
+    display: none;
+}
+
+.tablaEstandar thead .ui-paginator .ui-paginator-current {
+    display: none;
+}
+
+.tablaEstandar thead .ui-paginator .ui-paginator-prev {
+    display: none;
+}
+
+.tablaEstandar thead .ui-paginator .ui-paginator-pages {
+    display: none;
+}
+
+.tablaEstandar thead .ui-paginator .ui-paginator-next {
+    display: none;
+}
+
+.tablaEstandar thead .ui-paginator .ui-paginator-last {
+    display: none;
+}
+
+.tablaGrande  .ui-datatable .ui-paginator, .ui-datatable .ui-paginator {
+    padding: 2px;
+    background-color: white;
+    color: black;
+}
+
+.tablaGrande thead .ui-paginator .ui-paginator-first {
+    display: none;
+}
+
+.tablaGrande thead .ui-paginator .ui-paginator-current {
+    display: none;
+}
+
+.tablaGrande thead .ui-paginator .ui-paginator-prev {
+    display: none;
+}
+
+.tablaGrande thead .ui-paginator .ui-paginator-pages {
+    display: none;
+}
+
+.tablaGrande thead .ui-paginator .ui-paginator-next {
+    display: none;
+}
+
+.tablaGrande thead .ui-paginator .ui-paginator-last {
+    display: none;
+}
+
+
+.tablaProveedore  .ui-datatable .ui-paginator, .ui-datatable .ui-paginator {
+    padding: 0px;
+    background-color: white;
+    color: black;
+}
+
+.tablaProveedore thead .ui-paginator .ui-paginator-first {
+    display: none;
+}
+
+.tablaProveedore thead .ui-paginator .ui-paginator-current {
+    display: none;
+}
+
+.tablaProveedore thead .ui-paginator .ui-paginator-prev {
+    display: none;
+}
+
+.tablaProveedore thead .ui-paginator .ui-paginator-pages {
+    display: none;
+}
+
+.tablaProveedore thead .ui-paginator .ui-paginator-next {
+    display: none;
+}
+
+.tablaProveedore thead .ui-paginator .ui-paginator-last {
+    display: none;
+}
+
+
+.ui-paginator .ui-paginator-first {
+    background-image: url("/portaljuridico/javax.faces.resource//ui-icons_616161_256x240.png.xhtml?ln=images");
+    background-position: -83px 83px !important;
+}
+
+.ui-paginator .ui-paginator-prev {
+    background-image: url("/portaljuridico/javax.faces.resource//ui-icons_616161_256x240.png.xhtml?ln=images");
+    background-position: -51px 83px !important;
+}
+
+.ui-paginator .ui-paginator-next {
+    background-image: url("/portaljuridico/javax.faces.resource//ui-icons_616161_256x240.png.xhtml?ln=images");
+    background-position: -35px 83px !important;
+
+}
+
+.ui-paginator .ui-paginator-last {
+    background-image: url("/portaljuridico/javax.faces.resource//ui-icons_616161_256x240.png.xhtml?ln=images");
+    background-position: -66px 83px !important;
+
+}
+
+.tablaSinBordes {
+}
+
+.tablaSinBordes table {
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.tablaSinBordes {
+    font: normal 12px/150% Arial, Helvetica, sans-serif;
+    background: #fff;
+    /*overflow: hidden*/;
+}
+
+.tablaSinBordes table td, .tablaSinBordes table th {
+    padding: 3px 10px;
+}
+
+.tablaSinBordes table thead th {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.tablaSinBordes table thead th:first-child {
+    border: none;
+}
+
+.tablaSinBordes table tr:nth-child(odd) {
+}
+
+.tablaSinBordes table tbody td {
+    color: #00496B;
+    font-size: 11px;
+    border-bottom: none;
+    font-weight: normal;
+    text-align: center;
+    border-style: none !important;
+    background-color: #ffffff !important;
+}
+
+.tablaSinBordes table tbody {
+
+}
+
+.tablaSinBordes table tbody td:first-child {
+    border-left: none;
+}
+
+.tablaSinBordes table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* --- Fin Estilos DataTable --- */
+.columna_centrada {
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 12px;
+    text-align: center;
+    width: 60%;
+}
+
+/* --- --- --- Tabla Creacion Usuario --- --- ---*/
+.tabla_usuario {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.inlineBlock{
+    display: inline !important;
+}
+
+.tabla_usuario thead {
+    color: #FFF;
+    font-size: 11px;
+}
+
+.tabla_usuario tbody {
+    color: #3766AF;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.tabla_usuario tbody td {
+    padding: 5px;
+}
+
+.tabla_confirmacion_operacion {
+    width: 75%;
+}
+
+.tabla_confirmacion_operacion thead {
+    background:  #F4722B;
+    color: #FFF;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.tabla_confirmacion_operacion tbody {
+    background: #FFF;
+    color: #3766AF;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.tabla_confirmacion_operacion tbody tr td {
+    padding: 5px;
+}
+
+.tabla_confirmacion_operacion thead tr td {
+    padding: 5px;
+    background:  #F4722B;
+}
+
+/*.tabla_confirmacion_operacion tr:nth-child(odd) {
+    background: #D4D4D4;
+}*/
+
+.recibo_numero_referencia {
+    width: 75%;
+    text-align: right;
+    color: #3766AF;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.tituloConfirmacion {
+    font-size: 12px;
+    font-weight: bold;
+    color:  #F4722B;
+}
+
+.titulo {
+    font-size: 12px;
+    font-weight: bold;
+    color: #000000;
+
+}
+
+/* --- --- --- Fin Tabla Creacion Usuario --- --- ---*/
+
+/* --- --- Fin de Tablas --- --- */
+
+/*--- --- Botones --- ---*/
+
+
+.botonera_centrada{
+    position:absolute !important;
+    bottom:-20px;
+    left:50%;
+
+}
+
+.boton_azul {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background: url("/empresas_files/Triangulo-blanco-20.png.png") no-repeat right bottom #3766AF;
+    text-shadow: 0 1px #000;
+    color: #FFF;
+    font-size: 10px !important;
+    border: none;
+    cursor: pointer;
+    font-size: 11px;
+    margin-right: 10px !important;
+    outline:none;
+
+}
+
+.boton_azul:hover:enabled {
+    background: url("/portaljuridico/javax.faces.resource//Triangulo-blanco-20.png.xhtml?ln=images") no-repeat right bottom  #F4722B;
+}
+
+.boton_azul_esquinado {
+    margin-left: 16px;
+    margin-top: -15px;
+    width:200px;
+    background: url("/portaljuridico/javax.faces.resource//Triangulo-blanco-20.png.xhtml?ln=images") no-repeat right bottom  #656565;
+}
+
+.boton_azul_esquina_derecha {
+    position: absolute;
+    bottom: -111px;
+    right: 68px;
+}
+
+.boton_azul:active:enabled {
+    background: #ED8863 url("/portaljuridico/javax.faces.resource//Triangulo-blanco-20.png.xhtml?ln=images") no-repeat right bottom !important;
+}
+
+.boton_teclado_virtual, .boton_numpad_virtual {
+    display: inline-block;
+    text-decoration: none;
+    border: solid 1px #999;
+    color: #666;
+    text-decoration: none;
+    margin: 0 2px 2px 2px;
+    font-size: 11px;
+    width: 25px;
+    height: 20px;
+    text-align: center;
+    background: #FFF;
+    cursor: pointer;
+    padding: 0 !important;
+    outline: none;
+}
+
+.boton_teclado_virtual:hover, .boton_numpad_virtual:hover {
+    color: #333;
+    background: #DDD;
+}
+
+.primer_boton_teclado_virtual_fila_1 {
+    margin-left: 8px;
+}
+
+.ultimo_boton_teclado_virtual {
+    margin-right: 10px;
+}
+
+.primer_boton_teclado_virtual_fila_2 {
+    margin-left: 16px;
+}
+
+.ultimo_boton_numpad_virtual {
+    margin-left: 31px;
+}
+
+/*--- --- Fin de Botones --- ---*/
+
+/*--- Divs ---*/
+.teclado_virtual {
+    float: left;
+    width: 290px;
+    margin-top:10px;
+}
+
+.numpad_virtual {
+    float: left;
+    width: 87px;
+    margin-top:10px;
+}
+
+.password {
+    width: 215px;
+    float: left;
+    border: none;
+    background: #DDD;
+    padding: 6px;
+    margin-bottom: 10px;
+    border: solid 1px #FFF;
+}
+
+.span {
+    display: block;
+    font-size: 12px;
+}
+
+/* --- --- Estilos de DropDownlist --- --- */
+.unaLetra {
+    background-color: white;
+}
+
+.unaLetra input {
+    width: 20px;
+}
+
+/* --- --- Fin de DropDownlist --- --- */
+
+/* --- Ventana de Dialogo --- */
+.ventana_dialogo {
+    box-shadow: none !important;
+    top: 200px !important;
+    left: 380px !important;
+    width: 719px !important;
+}
+
+.header_dialogo {
+    margin-bottom: 18px;
+}
+
+.texto_header {
+    font-size: 13px;
+    color:  #F4722B;
+}
+
+.contenido_dialogo {
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    background: #F2F2F2;
+    font-size: 14px;
+    padding: 10px;
+    position: relative;
+    display: block;
+}
+
+.contenido_info {
+    border-radius: 15px;
+    background: #F2F2F2;
+    font-size: 13px;
+    padding: 20px;
+    position: relative;
+}
+
+#botones {
+    right: 30px;
+    bottom: -10px;
+    margin-top: 20px;
+}
+
+.ui-widget-overlay {
+    background: #FFFFFF;
+    opacity: .50;
+}
+
+/* --- Fin de ventana Dialogo --- */
+
+/* --- Vista de Dialogo --- */
+.vista_wizard {
+    margin-top: 10px;
+}
+
+.vista_dialogo {
+    min-height: 250px;
+    background-color: gainsboro;
+    font-size: 17px;
+    border-radius: 10px;
+}
+
+.vista_text {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.vista_dialogo table {
+
+}
+
+.subTitulo_wizard {
+    font-size: 22px;
+}
+
+.mensajeInfo_wizard {
+    font-size: 14px;
+    background-color: #F2F2F2;
+    border-radius: 5px;
+    text-align: justify;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.telefono_background {
+    font-size: 14px;
+    background-color: lightgray;
+    text-align: center;
+    border-radius: 5px;
+    color: black;
+    padding: 20px;
+}
+
+/* --- Vista de Dialogo --- */
+.panel_menu {
+    width: 150px !important;
+}
+
+.menu_contenedor m {
+    display: block;
+    width: 187px !important;
+    height: 20px;
+    outline: none;
+    text-decoration: none;
+    border: solid 2px #E0E0E0;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    margin-bottom: 3px;
+    float: left;
+    line-height: 16px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.menu_contenedor m:hover {
+    border: solid 2px #3766AF !important;
+    border-radius: 5px !important;
+    -webkit-border-radius: 5px !important;
+    color: #FFF !important;
+    outline: none !important;
+    margin-bottom: 3px !important;
+    background: #3766AF !important;
+    text-decoration: none !important;
+}
+
+.menu_item {
+    color: #3766AF;
+    font-weight: bold;
+    padding: 1px 0px 0px 24px;
+}
+
+.item_raiz h3  a, .item_raiz_cerrar {
+    font-size: 10px !important;
+    border: solid 2px #E0E0E0 !important;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    color: #3766AF;
+    outline: none !important;
+    margin-bottom: 3px;
+    background: url("/portaljuridico/javax.faces.resource/Triangulo-naranja-19.png.xhtml?ln=images") no-repeat right bottom;
+    padding-left: 10px !important;
+}
+
+.item_raiz h3  a:hover, .item_raiz_cerrar:hover {
+    font-size: 10px !important;
+    border: solid 2px #3766AF !important;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    color: #FFF;
+    outline: none !important;
+    margin-bottom: 3px;
+    text-decoration: none;
+    background: url("/portaljuridico/javax.faces.resource/Triangulo-blanco-20.png.xhtml?ln=images") no-repeat right bottom #3766AF;
+}
+
+.item_raiz h3  a:focus, .item_raiz_cerrar:focus {
+    font-size: 10px !important;
+    border: solid 2px #3766AF !important;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    color: #FFF;
+    outline: none !important;
+    margin-bottom: 3px;
+    text-decoration: none;
+    background: url("/portaljuridico/javax.faces.resource/Triangulo-blanco-20.png.xhtml?ln=images") no-repeat right bottom #3766AF;
+}
+
+.item_raiz_cerrar {
+    padding: 0px 10px 0px 0 !important;
+}
+
+.item_raiz_cerrar span {
+    font-weight: bold;
+    width: 117px;
+    text-align: left;
+}
+
+.item_submenu a {
+    border-top: none !important;
+    border-right: none !important;
+    border-left: none !important;
+    border-bottom: solid 1px #999 !important;
+    color: #3766AF !important;
+    border-radius: 0px !important;
+    -webkit-border-radius: 0px !important;
+    background: url("/portaljuridico/javax.faces.resource/Triangulo-naranja-19.png.xhtml?ln=images") no-repeat right bottom;
+    font-size: 10px !important;
+    display: block;
+    width: 97%;
+    text-align: left;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+
+.item_submenu a:hover {
+    color: #FFF !important;
+    background: url("/portaljuridico/javax.faces.resource/Triangulo-blanco-20.png.xhtml?ln=images") no-repeat right bottom  #F4722B;
+    border: none !important;
+    border-bottom: solid 1px #999 !important;
+}
+
+.item {
+    border-top: none !important;
+    border-right: none !important;
+    border-left: none !important;
+    border-bottom: solid 1px #DDD !important;
+    color: #3766AF !important;
+    border-radius: 0px !important;
+    -webkit-border-radius: 0px !important;
+    background: #f4f4f4 !important;
+    font-size: 10px !important;
+    display: block;
+    width: 97%;
+    text-align: left;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.item:hover {
+    color: #333 !important;
+    background: #DDD !important;
+}
+
+/*Estilo de Select Box*/
+.select_box {
+    -webkit-appearance: menulist;
+    -webkit-box-align: center;
+    border: 1px solid;
+    border-color: #E0E0E0;
+    border-image: initial;
+    border-radius: 0;
+    white-space: pre;
+    font-family: Helvetica;
+    font-size: 11px;
+    color: #3766AF;
+    height: 26px;
+    font-size: 12px;
+}
+
+/*Fin Estilo de Select Box*/
+
+/*Estilo ToolTip*/
+
+.ui-tooltip{
+    border:solid 1px #999 !important;
+    background: #F2F2F2 !important;
+}
+
+.ui-tooltip-content{
+    border: 0 !important;
+    padding:15px !important
+}
+
+.imagen_tooltip {
+    width: 15px !important;
+    height: 15px !important;
+    margin-top: 5px !important;
+    cursor: pointer !important;
+}
+
+.top_tooltip {
+    margin-top: -16px !important;
+    width: 150px !important;
+    height: 15px !important;
+    background:#F4722B !important;
+    margin-bottom: 5px !important;
+}
+
+.tooltip {
+    padding: 10px !important;
+    background: #E0E0E0 !important;
+    color: #4D4D4D !important;
+    width: 130px !important;
+    font-size: 10px !important;
+}
+
+/*Fin Estilo ToolTip*/
+.titulo_parrafo {
+    color: #3766AF;
+    font-weight: bold;
+}
+
+.posicion_titulo {
+    font-size: 11px;
+    padding-bottom: 25px;
+}
+
+.parrafo_header_tabla {
+    font-weight: bold;
+    color: #4D4D4D;
+    line-height: 20px;
+}
+
+.mensaje_validacion {
+    font-size: 10px;
+    color:  red;
+    list-style-type: none;
+    padding: 0px;
+    position:relative;
+}
+
+.imagen_obligatorio_columna {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    top:7px;
+    left:-10px;
+
+
+}
+
+.position_rel_float_left {
+    position: relative;
+    float: left;
+}
+
+.position_rel_float_right {
+    position: relative;
+    float: right;
+}
+
+.position_rel_campo_obligatorio {
+    position: relative;
+    float: right;
+    margin-right: 110px;
+}
+
+.position_rel_admin_usuarios{
+    position: relative;
+    float: right;
+}
+
+.botones_creacion_usuario {
+    margin-top: 30px;
+    position: relative;
+    float: right;
+}
+
+.botones_wizard {
+    margin-top: 20px;
+}
+
+.boton_atras {
+    position: relative;
+    float: left;
+    margin-right: 5px;
+}
+
+.imagen_obligatorio_campo {
+    margin-right: 4px;
+    margin-bottom: 2px;
+}
+
+.campo_obligatorio
+{
+    font-weight: bold;
+    font-size: 9px;
+    color: #4D4D4D;
+}
+
+/*Estilo Radio Button*/
+.ui-selectoneradio label {
+    display: block !important;
+    margin-top: 0px !important;
+}
+
+.ui-radiobutton {
+    position: relative !important;
+    margin: 3px !important;
+    width: 10px !important;
+    line-height: 12px !important;
+}
+
+.ui-radiobutton .ui-radiobutton-inputwrapper {
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+}
+
+.ui-radiobutton .ui-radiobutton-box {
+    width: 8px !important;
+    height: 8px !important;
+    border: 1px solid  #F4722B !important;
+    cursor: pointer;
+}
+
+.ui-radiobutton .ui-state-active {
+    width: 8px !important;
+    height: 8px !important;
+    border: 1px solid #FFF !important;
+    background:  #F4722B;
+}
+
+.ui-radiobutton .ui-radiobutton-relative {
+    position: relative !important;
+    float: left !important;
+    margin-right: 3px !important;
+}
+
+.ui-radiobutton-icon {
+    margin-left: 1px !important;
+}
+
+/*Fin Estilo Radio Button */
+
+/*Estilo CheckBox*/
+.ui-chkbox {
+    display: inline-block !important;
+}
+
+.ui-chkbox .ui-chkbox-box {
+    float: left !important;
+    width: 12px !important;
+    height: 12px !important;
+    -webkit-border-radius: 2px !important;
+    border-radius: 2px !important;
+    margin-right: 3px !important;
+    margin-top: 1px;
+    border: 1px solid #4D4D4D !important;
+}
+
+.ui-chkbox .ui-chkbox-label {
+    cursor: pointer !important;
+    display: block !important;
+    margin: 0 3px !important;
+    outline: medium none !important;
+    z-index: 1 !important;
+    float: left !important;
+}
+
+.ui-selectmanycheckbox label, .ui-selectoneradio label {
+    display: block;
+    margin-top: 4px;
+}
+
+.ui-chkbox-icon .ui-icon .ui-icon-check {
+    display: block !important;
+    text-indent: -99999px !important;
+    overflow: hidden !important;
+    background-repeat: no-repeat !important;
+}
+
+.ui-icon-check {
+    background-position: -64px -144px !important;
+    margin-left: -1px !important;
+    margin-top: -2px !important;
+}
+
+.ui-selectmanycheckbox label, .ui-selectoneradio label {
+    display: block;
+    margin-top: 4px;
+}
+
+.ui-icon-minus {
+    background-position: -48px -128px;
+    margin-top: -2px;
+    margin-left: -2px;
+}
+
+.ui-chkbox .ui-state-active {
+    width: 12px !important;
+    height: 12px !important;
+    border: 1px solid #808080 !important;
+    background-image: url("/portaljuridico/javax.faces.resource//ui-icons_616161_256x240.png.xhtml?ln=images");
+    background-position: -65px -147px !important;
+}
+
+.ui-chkbox .ui-state-disabled {
+
+    width: 12px !important;
+    height: 12px !important;
+    border: 1px solid #FFF !important;
+    background-color: #C2B2FD;
+}
+
+
+/*Fin Estilo CheckBox*/
+
+/*Estilo Tree Node*/
+.ui-tree .ui-tree-container {
+    height: 100% !important;
+    margin: 0 !important;
+    overflow: inherit !important;
+    padding: 3px !important;
+    white-space: nowrap !important;
+    width: 100% !important;
+}
+
+.ui-tree .ui-tree-toggler {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.ui-tree-container .ui-icon-triangle-1-e {
+    background-position: -32px -16px;
+}
+
+.ui-tree-container .ui-icon {
+    width: 16px;
+    height: 16px;
+    background-image: url("/portaljuridico/javax.faces.resource//ui-icons_616161_256x240.png.xhtml?ln=images");
+}
+
+.bloque_desplegado {
+    background-position: -16px 290px;
+    display: block;
+    height: 20px;
+    width: 15px;
+    background-image: url("/portaljuridico/javax.faces.resource//ui-icons_616161_256x240.png.xhtml?ln=images");
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    float: left
+}
+
+.bloque_contraido {
+    background-position: 0px 290px;
+    display: block;
+    height: 20px;
+    width: 15px;
+    background-image: url("/portaljuridico/javax.faces.resource//ui-icons_616161_256x240.png.xhtml?ln=images");
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    float: left
+}
+
+.checkeado {
+    background-position: -64px 97px;
+    display: inline-block;
+    height: 20px;
+    width: 15px;
+    background-image: url("/portaljuridico/javax.faces.resource//ui-icons_616161_256x240.png.xhtml?ln=images");
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.ui-tree, .ui-treenode {
+    background-attachment: scroll !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    background-position: 0 0 !important;
+    background-repeat: repeat-y !important;
+    list-style: none outside none !important;
+    margin: 0 !important;
+    padding: 8px 0 0 !important;
+    width: 100% !important;
+}
+
+.ui-tree-container {
+    width: 100% !important;
+}
+
+/*Fin Estilo Tree Node*/
+
+/*Estilo TabView*/
+
+.ui-tabs .ui-tabs-nav .ui-tabs-selected {
+    background:  #F4722B !important;
+    border-bottom: none !important;
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    -webkit-border-radius: 5px !important;
+    box-shadow: none !important;
+    text-align: center !important;
+}
+
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited {
+    text-decoration: none;
+    outline: none;
+}
+
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+
+}
+
+.ui-state-activo{
+    font-size: 10px !important;
+    border-radius: 5px !important;
+    -webkit-border-radius: 5px;
+    color: #FFF !important;
+    outline: none !important;
+    margin-bottom: 3px !important;
+    text-decoration: none !important;
+    background: url("/portaljuridico/javax.faces.resource/Triangulo-blanco-20.png.xhtml?ln=images") no-repeat right bottom #3766AF !important;
+}
+
+.ui-state-activo h3 a {
+    font-size: 10px !important;
+    border-radius: 5px !important;
+    -webkit-border-radius: 5px;
+    color: #FFF !important;
+    outline: none !important;
+    margin-bottom: 3px !important;
+    text-decoration: none !important;
+    background: url("/portaljuridico/javax.faces.resource/Triangulo-blanco-20.png.xhtml?ln=images") no-repeat right bottom #3766AF !important;
+}
+
+.al {
+    color : #ffffff !important;
+}
+.ui-tabs .ui-tabs-panel {
+    border-width: 0px !important;
+    padding: 0px 0px 0px 40px !important;
+    background: none !important;
+}
+
+/*Fin Estilo TabView*/
+
+#serviciosCuentas ul li ul li ul {
+    white-space: pre-wrap;
+    width: 600px;
+    margin: 10px 0px 10px 40px !important;
+}
+
+#serviciosCuentas ul li ul li ul li {
+    display: inline;
+    margin: 0px 100px 0px 0px !important;
+    padding-bottom: 10px !important;
+}
+
+.info_usuario_sesion {
+    padding: 10px;
+    color: #3766AF;
+    font-size: 14px;
+    margin-top: -46px;
+    z-index: 9999;
+    height:50px;
+    display: block;
+    padding-bottom: 20px;
+}
+
+.mensaje_buenas {
+    display: block;
+}
+
+.mensaje_buenas_usuario {
+    font-weight: bold;
+    display: block;
+}
+
+.seccion_actual {
+    padding: 0px 5px 5px 5px;
+    background:  #F4722B;
+    text-align: center;
+    width: 100px;
+    margin-right: 20px;
+    float: right;
+    margin-top: -35px;
+    font-weight: bold;
+}
+
+.seccion_actual label {
+    color: #FFF;
+    text-shadow: none !important;
+    font-size: 11px;
+}
+
+.tope_seccion {
+    display: block;
+    width: 114px;
+    height: 10px;
+    background: url("/portaljuridico/javax.faces.resource/boton-seccion-16.png.xhtml?ln=images") no-repeat;
+    float: right;
+    margin-top: -44px;
+    margin-right: 18px;
+}
+
+.salir {
+    display: block;
+    width: 30px;
+    height: 31px;
+    background: url("/portaljuridico/javax.faces.resource/boton-salir-14.png.xhtml?ln=images") no-repeat;
+}
+
+.salir_e {
+    margin: 20px 5px 0 0;
+    float: right;
+    height: 156px;
+}
+
+.info_sesion {
+    color: #3766AF;
+    font-size: 12px;
+    display: block;
+    float: right;
+    margin: -80px 20px 0 0;
+}
+
+.info_sesion label {
+    display: block;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.columnaSoloTexto {
+    padding-left: 20px;
+}
+
+.item_seleccionado
+{
+
+    border-top: none !important;
+    border-right: none !important;
+    border-left: none !important;
+    border-bottom: solid 1px #999 !important;
+    color: #FFF !important;
+    background:  #F4722B !important;
+    border-radius: 0px !important;
+    -webkit-border-radius: 0px !important;
+    font-size: 10px !important;
+    display: block;
+    width: 97%;
+    text-align: left;
+    margin-left: 5px;
+    cursor: pointer;
+    outline:none;
+}
+
+.item_unico {
+    border-top: none !important;
+    border-right: none !important;
+    border-left: none !important;
+    border-bottom: solid 1px #999 !important;
+    color: #3766AF !important;
+    border-radius: 0px !important;
+    -webkit-border-radius: 0px !important;
+    background: #FFF !important;
+    font-size: 10px !important;
+    display: block;
+    width: 97%;
+    text-align: left;
+    margin-left: 5px;
+    cursor: pointer;
+    outline:none;
+}
+
+.item_unico:focus {
+    background:  #F4722B !important;
+    font-size: 10px !important;
+    color: #FFF !important;
+    opacity:0.6;
+}
+.item_unico:hover {
+    color: #FFF !important;
+    background:  #F4722B !important;
+    font-size: 10px !important;
+    opacity:0.6;
+}
+
+.mensaje_confirmacion {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #CFCFCF;
+    color: #3766AF;
+    font-size: 13px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    font-size: 12px;
+}
+
+.detalle_transaccion {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid;
+    font-size: 13px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    font-size: 12px;
+}
+
+.seleccion_antiphishing_galeria {
+    margin: 0 auto;
+}
+
+.seleccion_antiphishing_galeria > .imagen_antiphishing_seleccionable {
+    padding: 10px;
+    width: 136px;
+    float: left;
+}
+
+.seleccion_antiphishing_galeria  img {
+    width: 100%;
+}
+
+.boton_centrado {
+    margin-top: 5px;
+    margin-left: 33px;
+}
+
+.link {
+    padding: 5px 10px;
+    display: block;
+    color:#F4722B;
+}
+
+.link:hover {
+    color: #3766AF;
+}
+
+.contrato {
+    padding: 10px;
+    background:#FFF;
+    overflow-y:scroll;
+    height:400px;
+}
+
+.contrato_vista {
+    margin-left: 15%;
+    width: 70%
+}
+
+.contrato.texto {
+    text-align: justify;
+}
+
+.contrato_check {
+    margin-left: 7px;
+}
+
+.contrato h1 {
+    border-bottom: solid 1px #3766AF;
+    font-size:32px;
+}
+
+.contrato_border{
+    border-bottom: solid 2px #3766AF;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.contrato p {
+    font-size:12px;
+}
+
+.titulo_antiphishing {
+    color:  #F4722B;
+    font-weight: bold;
+}
+
+.parrafo_antiphishing {
+    font-weight: bold;
+    color:  #F4722B;
+    line-height: 20px;
+}
+.parrafo_antiphishing.azul{
+    color:#3766AF !important;
+}
+
+
+
+.ui-menu {
+
+    padding: 0px !important;
+    margin-top: 7px !important;
+    position: relative !important;
+}
+
+.ui-menu .ui-menuitem-link {
+    display: block !important;
+    width: 87% !important;
+    text-decoration: none !important;
+    font-weight: 400 !important;
+    float: left !important;
+    line-height: 16px !important;
+    padding: 0.3em 10px !important;
+    cursor: pointer !important;
+}
+
+.ui-tabs-left > .ui-tabs-nav {
+    float: none !important;
+    width: 25% !important;
+    height: 100% !important;
+    background-image: none !important;
+    padding-top: 1px !important;
+}
+
+button[disabled=disabled], button[disabled=disabled]:hover {
+    background: #DDD url("/portaljuridico/javax.faces.resource//Triangulo-blanco-20.png.xhtml?ln=images") no-repeat right bottom;
+    text-shadow: none;
+    cursor: default;
+}
+
+.calendario {
+
+}
+
+.calendario button {
+    background-position: -113px -112px;
+    height: 21px;
+    width: 19px;
+    background-image: url("/portaljuridico/javax.faces.resource//ui-icons_616161_256x240.png.xhtml?ln=images");
+}
+
+.ui-datepicker-prev {
+    background-image: url("/portaljuridico/javax.faces.resource//ui-icons_616161_256x240.png.xhtml?ln=images");
+    background-position: -79px 50px !important;
+    width: 18px !important;
+    cursor:pointer;
+}
+
+.ui-datepicker-next{
+    background-image: url("/portaljuridico/javax.faces.resource//ui-icons_616161_256x240.png.xhtml?ln=images");
+    background-position: -48px 50px !important;
+    width: 18px !important;
+    cursor:pointer;
+}
+
+#tabs_serv a {
+
+    color: #FFF !important;
+    font-size: 10px !important;
+}
+
+#tabs_serv li {
+    background: #3766AF;
+    margin-bottom: 5px;
+    -webkit-border-radius: 5px !important;
+    border-radius: 5px !important;
+}
+
+.ui-datepicker-calendar {
+    background: #FFF;
+    border: solid 1px #DDD;
+    box-shadow: 2px 2px 10px #DDD;
+    -webkit-box-shadow: 2px 2px 10px #DDD;
+}
+
+.ui-datepicker-header {
+    background: #EEE;
+    font-weight: bold;
+}
+
+.ui-datepicker-calendar a {
+    text-align: center !important;
+}
+
+.ui-datepicker-calendar a:hover {
+    background: #3766AF;
+    color: #FFF;
+}
+
+.ui-panelmenu .ui-panelmenu-content {
+    overflow: hidden !important;
+}
+
+.clave_dinamica {
+    padding: 10px 31px !important;
+    background:  #F4722B !important;
+    display: inline-block !important;
+    color: #FFF !important;
+    margin: 20px 0 !important;
+}
+
+.mensaje_formulario_usuario{
+
+    position: relative;
+    float: left;
+    margin-left: 18px;
+}
+
+.mensaje_autogestion {
+    min-height: 60px;
+    background-color: #F2F2F2;
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 560px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.ui-datatable th div.ui-dt-c {
+    padding: 4px 8px !important;
+}
+
+.botones_formulario
+{
+    position: absolute;
+    right: 220px;
+    bottom: -40px;
+}
+
+.mensaje_formulario
+{
+    position: absolute;
+    left: 166px;
+    width: 230px;
+}
+
+.mensaje_teclado{
+    position: absolute;
+    right: 42%;
+    bottom: 178px;
+}
+
+
+.margen_superior{
+    margin-top:40px;
+}
+
+h1.contrato_title{
+    font-size:24px;
+    text-align: center;
+    border-bottom: solid 1px #3766AF;
+    padding-bottom: 15px;
+}
+
+/* --- Scrollbar --*/
+
+/* Let's get this party started */
+.contrato::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+.contrato::-webkit-scrollbar-track {
+    -webkit-border-radius: 10px;
+    border-radius: 0px;
+    border:solid 1px #999;
+}
+
+/* Handle */
+.contrato::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    background: rgba(0,0,0,0.3);
+}
+.contrato::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(0,0,0,0.1);
+}
+
+.confirmacion_datos{
+    padding:15px 10px 15px 10px;
+    color: #3766AF;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.confirmacion_datos:nth-child(odd){
+    background: #3766AF;
+    color:#FFF;
+}
+
+.confirmacion_datosie8Azul{
+    background: #3766AF !important;
+    color:#FFF !important;
+}
+
+.confirmacion_datos .item_datos{
+    width: 50%;
+    text-align: center;
+    float:left;
+}
+
+.inputPregunta{
+    width: 218px !important;
+    margin: 10px 17px 10px 0 !important;
+}
+
+.tabla_usuario tbody tr td, table tbody tr td{
+    position:relative;
+}
+.imagen_login{
+    margin-top: 110px;
+}
+
+
+.ui-icon-seek-prev, .ui-icon-seek-next{
+    color: #ffffff;
+    background:#FFF;
+    text-indent:0 !important;
+}
+
+.ui-icon-seek-prev:after{
+    content:"Anterior";
+    color: #3766AF;
+    text-indent:0 !important;
+    padding:10px;
+    margin:0;
+}
+
+.ui-icon-seek-next:after{
+    content:"Siguiente";
+    color: #3766AF;
+    text-indent:0 !important;
+    padding:10px;
+    margin:0;
+}
+
+.ui-paginator-prev, .ui-paginator-next{
+    background:none !important;
+    font-weight: bold;
+}
+
+
+.ui-paginator-prev{
+    border-right:solid 1px #F4722B;
+}
+.ui-paginator-next{
+    border-left:solid 1px #F4722B;
+}
+
+.subtitulo_busqueda{
+    font-weight: bold;
+    color:#F4722B;
+}
+
+.detalle_busqueda{
+    margin:20px 0 20px 50px;
+}
+
+.ui-datepicker-trigger{
+    background: url("/portaljuridico/javax.faces.resource//icon_calendar.png.xhtml?ln=images") no-repeat 4px 2px;
+    border:none;
+}
+
+
+/* Modal */
+
+#modal_sesion {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #FFF;
+    background: rgba(255,255,255,0.7) !important;
+    z-index: -1;
+    opacity:0;
+    pointer-events: none;
+
+}
+
+#modal_sesion div {
+    display:none;
+}
+
+.mostrar_modal {
+    opacity:1 !important;
+    pointer-events: auto !important;
+    z-index:9999 !important;
+}
+
+.mostrar_modal > div {
+    width: 400px;
+    position: relative;
+    margin: 15% auto;
+    padding: 20px 20px;
+    background: #fff;
+    border:solid 1px #DDD !important;
+    border:solid 1px rgba(0,0,0,0.3);
+    box-shadow:2px 2px 2px 0 rgba(0,0,0,0.3);
+    -webkit-box-shadow:1px 1px 5px 0 rgba(0,0,0,0.3);
+    -moz-box-shadow:1px 1px 5px 0 rgba(0,0,0,0.3);
+
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+
+    display:block !important;
+}
+
+/*style de tab menu*/
+
+.separacionMenu {
+    height: 3px !important;
+    background:  #f7925b !important;
+    margin: -2px 0px 0px 0px;
+    width: 600px;
+    display: inline-block;
+}
+
+.pestanas{
+    display: inline-block;
+}
+
+.pestanas span{
+    text-align: center !important;
+    text-align: center;
+    display: inline-block;
+}
+
+.pestanasActP{
+    background:#f7925b ;
+    color: #ffffff !important;
+    border-radius: 10px 0px 0px 0px;
+    border-color: #F4722B;
+    font-weight:bold;
+    text-align: center;
+    display: inline-block;
+}
+
+.pestanasDesP{
+    border-radius: 0px 10px 0px 0px !important;
+    border: 1px solid #F4722B;
+    color: #3766AF !important;
+}
+.pestanasActA{
+    background:#f7925b ;
+    color: #ffffff !important;
+    border-radius: 0px 10px 0px 0px;
+    border-color: #F4722B;
+    font-weight:bold;
+    text-align: center;
+    display: inline-block;
+}
+
+.pestanasDesA{
+    border-radius: 10px 0px 0px 0px !important;
+    border: 1px solid #F4722B;
+    color: #3766AF !important;
+}
+
+.pestanas ul{
+    text-align:left !important;
+    margin:0 auto !important;
+}
+
+/*style para campos cedula rif*/
+
+.campoRifAbierto{
+    display: block;
+}
+
+.campoRifCerrado{
+    display: none;
+}
+
+.outputReferencia{
+    display: block !important;
+    color:#3766AF;
+    float:right;
+    text-transform: uppercase;
+    margin-right: 80px;
+    font-weight: bold;
+    background:  white !important;
+    text-align: center !important;
+}
+
+/*style pagina de error*/
+
+.errorNav{
+    position: relative;
+    text-align: center !important;
+    margin: 0 auto !important;
+    right: -30px !important;
+}
+
+.errorNav div{
+    display: inline !important;
+    float: left !important;
+    margin-left: 40px;
+    text-align: center !important;
+}
+
+.cajaError{
+
+    position: relative !important;
+    width: 500px !important;
+    border: 1px solid #bdafc9 !important;
+    text-align: center;
+    margin: 100px !important;
+    height: 350px;
+    padding: 10px ;
+    background: #FBFBFB !important;
+    box-shadow: 0 0 0 10px rgba(150, 150, 150, 0.1), 0 1px 3px rgba(25, 25, 25, 0.3), 0 10px 15px rgba(200, 200, 200, 0.1) inset;
+    right: -160px;
+}
+
+.ultimateTooltip{
+    color: #3766AF !important;
+}
+
+
+.modeloSpac a{
+    padding-left: 35px !important;
+    display: inline !important;
+    margin: 0 auto !important;
+}
+
+
+/*style para link*/
+
+.centrandoLabel{
+    right: 30px !important;
+}
+
+.link-redireccion{
+    font-size: 10px !important;
+    font-weight: bold !important;
+    padding-top: 20px;
+    position: absolute;
+}
+
+.link-redireccion:hover{
+    text-decoration: none !important;
+    color: #3766AF !important;
+}
+
+.img_Antiphishing{
+    height: 150px;
+    width: 150px;
+}
+
+.img_login628x280{
+    height: 280px;
+    width: 628px;
+}
+
+.img_login304x150{
+    height: 150px;
+    width: 304px;
+}
+/* --- Fin de estilo --- */

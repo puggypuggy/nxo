@@ -1,0 +1,234 @@
+/*
+ * Validaciones basicas
+ */
+var mensajeUsuario = "Disculpe, el click derecho se encuentra deshabilitado";
+
+
+/**
+ * Funcion que se encarga de validar las teclas presionadas en la p�gina web
+ *
+ * @param event
+ * @returns {Boolean}
+ */
+function validarTeclas(event) {
+
+	var alt = false;
+	var ctrl = false;
+	var kcode = "";
+	var navegador = "";
+	if (event) {
+		if (event.which)// Netscape
+		{
+			navegador = "N";
+			kcode = event.which;
+
+			// Tecla Alt presionada
+			if (event.altKey)
+				alt = true;
+
+			// Tecla Control presionada
+			if (event.ctrlKey)
+				ctrl = true;
+		}
+	} else if (window.event.keyCode)// Internet Explorer
+	{
+		navegador = "IE";
+		kcode = window.event.keyCode;
+
+		// Tecla Alt presionada
+		if (window.event.altKey)
+			alt = true;
+
+		// Tecla Control presionada
+		if (window.event.ctrlKey)
+			ctrl = true;
+	}
+
+
+	// Deshabilia Alt + Flecha Izq y/o Der (Atras, Adelante)
+	if (alt == true && (kcode == 37 || kcode == 39)) {
+		return false;
+	}
+
+	// Deshabilia Contol + C,V,X,I (Copiar, Pegar, Cortar)
+	if (ctrl == true
+			&& (kcode == 67 || kcode == 86 || kcode == 88 || kcode == 73)) {
+		return false;
+	}
+
+	// Deshabilia F1 -> F12
+	if (kcode >= 112 && kcode <= 123) {
+		if (navegador == "N") {
+			return false;
+		} else if (navegador == "IE") {
+			window.event.keyCode = 505;
+			return false;
+		}
+	}
+
+	if (kcode == 8) // BackSpace
+	{
+		valor = document.activeElement.value;
+
+		if (valor == undefined) // Evita Back en p�gina.
+		{
+			if (navegador == "N")// Netscape
+			{
+				event.preventDefault();
+				event.returnValue = false;
+			}
+			return false;
+		} else {
+			var type = document.activeElement.type;
+			type = type.toUpperCase();
+
+			if (type == 'SELECT-ONE') // Evita Back en select.
+			{
+				if (navegador == "N")// Netscape
+				{
+					event.preventDefault();
+					event.returnValue = false;
+				}
+				return false;
+			} else if (type == 'BUTTON') // Evita Back en button.
+			{
+				if (navegador == "N")// Netscape
+				{
+					event.preventDefault();
+					event.returnValue = false;
+				}
+				return false;
+			} else if (type == 'RADIO') // Evita Back en radio.
+			{
+				if (navegador == "N")// Netscape
+				{
+					event.preventDefault();
+					event.returnValue = false;
+				}
+				return false;
+			} else if (type == 'CHECKBOX') // Evita Back en checkbox.
+			{
+				if (navegador == "N")// Netscape
+				{
+					event.preventDefault();
+					event.returnValue = false;
+				}
+				return false;
+			} else if (type == 'FILE') // Evita Back en file.
+			{
+				if (navegador == "N")// Netscape
+				{
+					event.preventDefault();
+					event.returnValue = false;
+				}
+				return false;
+			} else if (type == 'RESET') // Evita Back en reset.
+			{
+				if (navegador == "N")// Netscape
+				{
+					event.preventDefault();
+					event.returnValue = false;
+				}
+				return false;
+			} else if (type == 'SUBMIT') // Evita Back en submit.
+			{
+				if (navegador == "N")// Netscape
+				{
+					event.preventDefault();
+					event.returnValue = false;
+				}
+				return false;
+			} else // Text, textarea o password
+			{
+				if (document.activeElement.value.length == 0) // No realiza el
+				// backspace(largo
+				// igual a 0).
+				{
+					if (navegador == "N")// Netscape
+					{
+						event.preventDefault();
+						event.returnValue = false;
+					}
+					return false;
+				}
+
+			}
+
+		}
+	}
+
+}// fin desabilitar teclas
+
+/**
+ * Funcion que se encarga de validar el click derecho en la pagina web
+ * 
+ * @param event
+ * @returns {Boolean}
+ */
+function validarClicks(event) {
+	if (event.button == 2) {
+		alert(mensajeUsuario);
+		return false;
+	}
+}
+if (document.layers) {
+	document.captureEvents(Event.MOUSEDOWN);
+}
+
+
+/**
+ * Funcion para habilitar el boton para continuar la afiliacion
+ * @param componente
+ */
+function aceptoContrato(componente){
+    if (componente.checked)
+    {
+        $('.boton_aceptar_contrato').removeAttr('disabled');
+        $('.boton_cancelar_contrato').attr('disabled',true);
+
+    }
+    else
+    {
+        $(".boton_cancelar_contrato").removeAttr('disabled');
+        $(".boton_aceptar_contrato").attr('disabled',true);
+    }
+
+}
+
+/**
+ * Permite limpiar los campos de contrase�a donde aparece el teclado virtual
+ * @param campoUno
+ * @param campoDos
+ * @param campoTres
+ */
+function limpiarCamposPassword(campoUno,campoDos,campoTres){
+
+    var campo1= document.getElementById(campoUno);
+    var campo2 = document.getElementById(campoDos);
+    var campo3 = document.getElementById(campoTres);
+
+    campo1.value = '';
+    campo2.value = '';
+    campo3.value = '';
+
+    campo1.parentNode.id = "teclado_virtual_CambioClave";
+    campo2.parentNode.id = "sin_foco1";
+    campo3.parentNode.id = "sin_foco2";
+
+    campo1.className = "password input_seleccionado";
+    campo2.className = "password";
+    campo3.className = "password";
+}
+
+/*bloquear boton derecho*/
+document.oncontextmenu = function(){return false;}
+
+/*bloquear F5*/
+document.onkeydown = function(){
+    if(window.event && window.event.keyCode == 116){
+        window.event.keyCode = 505;
+    }
+    if(window.event && window.event.keyCode == 505){
+        return false;
+    }
+}

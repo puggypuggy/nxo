@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ventana Emergente</title>
+</head>
+<body>
+  <h2>Hola desde la ventana emergente</h2>
+  <button onclick="cerrarVentana()">Cerrar</button>
+
+  <script>
+    window.onload = function() {
+      // Verifica si la ventana emergente fue abierta
+      if (localStorage.getItem('popupAbierto') === 'true') {
+        alert('La ventana emergente está abierta.');
+        localStorage.removeItem('popupAbierto'); // Limpia el valor después de la verificación
+      } else {
+        alert('La ventana emergente no está abierta.');
+      }
+    };
+    function cerrarVentana() {
+      window.close(); // Esto cierra la ventana emergente
+    }
+  </script>
+</body>
+</html>

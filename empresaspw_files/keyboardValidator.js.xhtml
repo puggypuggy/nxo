@@ -1,0 +1,289 @@
+
+/*bloquear boton derecho*/
+document.oncontextmenu = function(){return false;}
+
+/**
+ * Variables
+ */
+var valoresTecladoVirtual = [];
+var valoresIdTecladoVirtual = [];
+
+var valoresNumpadVirtual = [];
+var valoresIdNumpadVirtual = [];
+
+var tecladoCargado = false;
+var numpadCargado = false;
+
+var password = "";
+
+/**
+ * Teclado Virtual
+ */
+
+/**
+ * Funcion que se encarga de bloquear el teclado virtual en el evento
+ * onmouseover
+ * 
+ * @param formulario
+ */
+    function bloquearTecladoVirtual(teclado) {
+    //var teclado = tecla.parentNode;
+    var hijosForm = teclado.childNodes;
+
+	for ( var i = 0; i < hijosForm.length; i++) {
+        if (!tecladoCargado)
+        {
+            valoresTecladoVirtual[i] = hijosForm.item(i).value;
+            valoresIdTecladoVirtual[i] = hijosForm.item(i).id;
+        }
+
+       var element = document.getElementById(hijosForm.item(i).id);
+
+        if ( element != null )
+        {
+          element.value = '*';
+        }
+	}
+    tecladoCargado = true;
+}
+
+/**
+ * Funcion que se encarga de desbloquear el teclado virtual en el evento
+ * onmouseout
+ * 
+ * @param formulario
+ */
+function desbloquearTecladoVirtual(teclado) {
+    //var teclado = tecla.parentNode;
+	var hijosForm = teclado.childNodes;
+
+	for ( var i = 0; i < hijosForm.length; i++) {
+
+        var element = document.getElementById(hijosForm.item(i).id);
+
+        if ( element != null )
+        {
+            element.value = valoresTecladoVirtual[i];
+        }
+	}
+}
+
+/**
+ * Funcion que se encarga de agregar la letra al textbox
+ * 
+ * @param elemento
+ */
+function agregarLetra(elemento,idDiv) {
+	agregarValor(obtenerValorLetra(elemento.id), obtenerTextbox(idDiv));
+}
+
+/**
+ * Funcion que se encarga de obtener la letra perteneciente al id predeterminado
+ * 
+ * @param id
+ * @returns {String}
+ */
+function obtenerValorLetra(id) {
+	
+	var retorno = "";
+
+	for ( var i = 0; i < valoresIdTecladoVirtual.length; i++) {
+		if (id == valoresIdTecladoVirtual[i]) {
+			retorno = valoresTecladoVirtual[i];
+			i = valoresIdTecladoVirtual.length;
+		}
+	}
+	return retorno;
+}
+
+/**
+ * Numpad Virtual
+ */
+
+/**
+ * Funcion que se encarga de bloquear el numpad virtual en el evento onmouseover
+ * 
+ * @param formulario
+ */
+function bloquearNumpadVirtual(teclado) {
+    //var teclado = tecla.parentNode;
+	var hijosForm = teclado.childNodes;
+
+	for ( var i = 0; i < hijosForm.length; i++) {
+        if (!numpadCargado)
+        {
+            valoresNumpadVirtual[i] = hijosForm.item(i).value;
+            valoresIdNumpadVirtual[i] = hijosForm.item(i).id;
+        }
+
+        var element = document.getElementById(hijosForm.item(i).id);
+
+        if ( element != null )
+        {
+            element.value = '*';
+        }
+	}
+    numpadCargado = true;
+}
+
+/**
+ * Funcion que se encarga de desbloquear el numpad virtual en el evento
+ * onmouseout
+ * 
+ * @param formulario
+ */
+function desbloquearNumpadVirtual(teclado) {
+    //var teclado = tecla.parentNode;
+    var hijosForm = teclado.childNodes;
+
+	for ( var i = 0; i < hijosForm.length; i++) {
+		//hijosForm.item(i).value = valoresNumpadVirtual[i];
+
+        var element = document.getElementById(hijosForm.item(i).id);
+
+        if ( element != null )
+        {
+            element.value = valoresNumpadVirtual[i];
+        }
+	}
+}
+
+/**
+ * Funcion que se encarga de obtener el numero perteneciente al id
+ * predeterminado
+ * 
+ * @param id
+ * @returns {String}
+ */
+function obtenerValorNumero(id) {
+	var retorno = "";
+
+	for ( var i = 0; i < valoresIdNumpadVirtual.length; i++) {
+		if (id == valoresIdNumpadVirtual[i]) {
+			retorno = valoresNumpadVirtual[i];
+			i = valoresIdNumpadVirtual.length;
+		}
+	}
+	return retorno;
+}
+
+/**
+ * Funcion que se encarga de agregar el numero al textbox
+ * 
+ * @param elemento
+ */
+function agregarNumero(elemento,idDiv) {
+
+	agregarValor(obtenerValorNumero(elemento.id), obtenerTextbox(idDiv));
+}
+
+/**
+ * Funcion que se encarga de obtener el textbox donde se agrega el password
+ * 
+ * @returns textbox
+ */
+function obtenerTextbox(idDiv) {
+    var divPadre = document.getElementById(idDiv);
+
+    if(null!=divPadre)
+
+        var input = divPadre.childNodes.item(0);
+
+    return input;
+}
+
+/**
+ * Funcion que agrega un valor al textbox destinado al password
+ * 
+ * @param valor
+ * @param textbox
+ */
+function agregarValor(valor, textbox) {
+	textbox.type = 'password';
+//	password = password + valor;
+//	textbox.value = textbox.value + "*";
+	textbox.value = textbox.value + valor;
+}
+
+/**
+ * Funcion que se encarga de limpiar el password agregado
+ * 
+ */
+function limpiarClave(idDiv) {
+	obtenerTextbox(idDiv).value = "";
+}
+
+function bloqueoTeclado(){
+	
+	return (false);
+}
+
+function hideDiv() {
+    if (document.getElementById) { // DOM3 = IE5, NS6
+        document.getElementById('tecladoVirtualContrasena').style.visibility = 'hidden';
+    }
+    else {
+        if (document.layers) { // Netscape 4
+            document.hideShow.visibility = 'hidden';
+        }
+        else { // IE 4
+            document.all.hideShow.style.visibility = 'hidden';
+        }
+    }
+}
+
+function showDiv() {
+    if (document.getElementById) { // DOM3 = IE5, NS6
+        document.getElementById('tecladoVirtualContrasena').style.visibility = 'visible';
+    }
+    else {
+        if (document.layers) { // Netscape 4
+            document.hideShow.visibility = 'visible';
+        }
+        else { // IE 4
+            document.all.hideShow.style.visibility = 'visible';
+        }
+    }
+
+
+}
+
+function cambioFocus(input) {
+    var divInputOld = document.getElementById('teclado_virtual_CambioClave');
+
+    divInputOld.id = "Sin_Foco";
+
+    input.parentNode.id = "teclado_virtual_CambioClave";
+    input.className = "password input_seleccionado";
+
+    obtenerTextbox("Sin_Foco").className = "password";
+}
+
+function inputTextSeleccionado(input) {
+
+    var divInputOld = document.getElementById('teclado_virtual_CambioClave');
+    divInputOld.id = "sin_foco";
+
+    input.parentNode.id = "teclado_virtual_CambioClave";
+    input.className = "password input_seleccionado";
+
+    if ( input.id == "form:claveAnterior" )
+    {
+        document.getElementById("form:claveNueva").className = "password";
+        document.getElementById("form:confirmarClave").className = "password";
+    }
+
+    if ( input.id == "form:claveNueva" )
+    {
+        document.getElementById("form:claveAnterior").className = "password";
+        document.getElementById("form:confirmarClave").className = "password";
+    }
+
+    if ( input.id == "form:confirmarClave" )
+    {
+        document.getElementById("form:claveAnterior").className = "password";
+        document.getElementById("form:claveNueva").className = "password";
+    }
+}
+
+

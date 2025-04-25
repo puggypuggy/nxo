@@ -1,0 +1,110 @@
+.elementor-kit-11921{--e-global-color-primary:#0075C9;--e-global-color-secondary:#1F4283;--e-global-color-text:#222222;--e-global-color-accent:#F58300;--e-global-color-bc7632b:#FFFFFF;--e-global-color-df7fdf4:#000000;--e-global-color-8836eb1:#E56000;--e-global-color-57b8ee4:#F9F9F9;--e-global-color-5c26594:#DDDDDD;--e-global-typography-primary-font-family:"BE-Font Elementor";--e-global-typography-primary-font-size:16px;--e-global-typography-primary-font-weight:400;--e-global-typography-primary-line-height:20px;--e-global-typography-primary-letter-spacing:0px;--e-global-typography-primary-word-spacing:0px;--e-global-typography-secondary-font-family:"BE-Font Elementor";--e-global-typography-secondary-font-size:16px;--e-global-typography-secondary-font-weight:600;--e-global-typography-secondary-line-height:20px;--e-global-typography-secondary-letter-spacing:0px;--e-global-typography-secondary-word-spacing:0px;--e-global-typography-text-font-family:"BE-Font Elementor";--e-global-typography-text-font-size:14px;--e-global-typography-text-font-weight:400;--e-global-typography-text-line-height:20px;--e-global-typography-text-letter-spacing:0px;--e-global-typography-text-word-spacing:0px;--e-global-typography-accent-font-family:"BE-Font Elementor";--e-global-typography-accent-font-size:14px;--e-global-typography-accent-font-weight:600;--e-global-typography-accent-line-height:20px;--e-global-typography-accent-letter-spacing:0px;--e-global-typography-accent-word-spacing:0px;--e-global-typography-f339b09-font-family:"BE-Font Elementor";--e-global-typography-f339b09-font-size:32px;--e-global-typography-f339b09-font-weight:700;--e-global-typography-f339b09-line-height:36px;--e-global-typography-f339b09-letter-spacing:0px;--e-global-typography-f339b09-word-spacing:0px;--e-global-typography-97f2d12-font-family:"BE-Font Elementor";--e-global-typography-97f2d12-font-size:20px;--e-global-typography-97f2d12-font-weight:700;--e-global-typography-97f2d12-line-height:24px;--e-global-typography-97f2d12-letter-spacing:0px;--e-global-typography-97f2d12-word-spacing:0px;--e-global-typography-633c785-font-family:"BE-Font Elementor";--e-global-typography-633c785-font-size:16px;--e-global-typography-633c785-font-weight:600;--e-global-typography-633c785-line-height:20px;--e-global-typography-633c785-letter-spacing:0px;--e-global-typography-633c785-word-spacing:0px;color:var( --e-global-color-text );font-family:var( --e-global-typography-text-font-family ), Sans-serif;font-size:var( --e-global-typography-text-font-size );font-weight:var( --e-global-typography-text-font-weight );line-height:var( --e-global-typography-text-line-height );letter-spacing:var( --e-global-typography-text-letter-spacing );word-spacing:var( --e-global-typography-text-word-spacing );}.elementor-kit-11921 p{margin-bottom:16px;}.elementor-kit-11921 a{color:var( --e-global-color-primary );font-family:var( --e-global-typography-accent-font-family ), Sans-serif;font-size:var( --e-global-typography-accent-font-size );font-weight:var( --e-global-typography-accent-font-weight );line-height:var( --e-global-typography-accent-line-height );letter-spacing:var( --e-global-typography-accent-letter-spacing );word-spacing:var( --e-global-typography-accent-word-spacing );}.elementor-kit-11921 a:hover{color:var( --e-global-color-secondary );font-family:var( --e-global-typography-accent-font-family ), Sans-serif;font-size:var( --e-global-typography-accent-font-size );font-weight:var( --e-global-typography-accent-font-weight );line-height:var( --e-global-typography-accent-line-height );letter-spacing:var( --e-global-typography-accent-letter-spacing );word-spacing:var( --e-global-typography-accent-word-spacing );}.elementor-kit-11921 h1{color:var( --e-global-color-text );font-family:var( --e-global-typography-f339b09-font-family ), Sans-serif;font-size:var( --e-global-typography-f339b09-font-size );font-weight:var( --e-global-typography-f339b09-font-weight );line-height:var( --e-global-typography-f339b09-line-height );letter-spacing:var( --e-global-typography-f339b09-letter-spacing );word-spacing:var( --e-global-typography-f339b09-word-spacing );}.elementor-kit-11921 h2{color:var( --e-global-color-text );font-family:var( --e-global-typography-97f2d12-font-family ), Sans-serif;font-size:var( --e-global-typography-97f2d12-font-size );font-weight:var( --e-global-typography-97f2d12-font-weight );line-height:var( --e-global-typography-97f2d12-line-height );letter-spacing:var( --e-global-typography-97f2d12-letter-spacing );word-spacing:var( --e-global-typography-97f2d12-word-spacing );}.elementor-kit-11921 h3{color:var( --e-global-color-text );font-family:var( --e-global-typography-633c785-font-family ), Sans-serif;font-size:var( --e-global-typography-633c785-font-size );font-weight:var( --e-global-typography-633c785-font-weight );line-height:var( --e-global-typography-633c785-line-height );letter-spacing:var( --e-global-typography-633c785-letter-spacing );word-spacing:var( --e-global-typography-633c785-word-spacing );}.elementor-kit-11921 button,.elementor-kit-11921 input[type="button"],.elementor-kit-11921 input[type="submit"],.elementor-kit-11921 .elementor-button{font-family:var( --e-global-typography-633c785-font-family ), Sans-serif;font-size:var( --e-global-typography-633c785-font-size );font-weight:var( --e-global-typography-633c785-font-weight );line-height:var( --e-global-typography-633c785-line-height );letter-spacing:var( --e-global-typography-633c785-letter-spacing );word-spacing:var( --e-global-typography-633c785-word-spacing );color:var( --e-global-color-bc7632b );background-color:var( --e-global-color-accent );border-style:none;border-radius:8px 8px 8px 8px;padding:8px 24px 8px 24px;}.elementor-kit-11921 button:hover,.elementor-kit-11921 button:focus,.elementor-kit-11921 input[type="button"]:hover,.elementor-kit-11921 input[type="button"]:focus,.elementor-kit-11921 input[type="submit"]:hover,.elementor-kit-11921 input[type="submit"]:focus,.elementor-kit-11921 .elementor-button:hover,.elementor-kit-11921 .elementor-button:focus{color:var( --e-global-color-bc7632b );background-color:transparent;background-image:linear-gradient(180deg, var( --e-global-color-accent ) 0%, var( --e-global-color-8836eb1 ) 100%);border-radius:8px 8px 8px 8px;}.elementor-section.elementor-section-boxed > .elementor-container{max-width:1140px;}.e-con{--container-max-width:1140px;}.elementor-widget:not(:last-child){margin-bottom:20px;}.elementor-element{--widgets-spacing:20px;}{}h1.entry-title{display:var(--page-title-display);}.site-header{padding-right:0px;padding-left:0px;}@media(max-width:1024px){.elementor-kit-11921{font-size:var( --e-global-typography-text-font-size );line-height:var( --e-global-typography-text-line-height );letter-spacing:var( --e-global-typography-text-letter-spacing );word-spacing:var( --e-global-typography-text-word-spacing );}.elementor-kit-11921 a{font-size:var( --e-global-typography-accent-font-size );line-height:var( --e-global-typography-accent-line-height );letter-spacing:var( --e-global-typography-accent-letter-spacing );word-spacing:var( --e-global-typography-accent-word-spacing );}.elementor-kit-11921 a:hover{font-size:var( --e-global-typography-accent-font-size );line-height:var( --e-global-typography-accent-line-height );letter-spacing:var( --e-global-typography-accent-letter-spacing );word-spacing:var( --e-global-typography-accent-word-spacing );}.elementor-kit-11921 h1{font-size:var( --e-global-typography-f339b09-font-size );line-height:var( --e-global-typography-f339b09-line-height );letter-spacing:var( --e-global-typography-f339b09-letter-spacing );word-spacing:var( --e-global-typography-f339b09-word-spacing );}.elementor-kit-11921 h2{font-size:var( --e-global-typography-97f2d12-font-size );line-height:var( --e-global-typography-97f2d12-line-height );letter-spacing:var( --e-global-typography-97f2d12-letter-spacing );word-spacing:var( --e-global-typography-97f2d12-word-spacing );}.elementor-kit-11921 h3{font-size:var( --e-global-typography-633c785-font-size );line-height:var( --e-global-typography-633c785-line-height );letter-spacing:var( --e-global-typography-633c785-letter-spacing );word-spacing:var( --e-global-typography-633c785-word-spacing );}.elementor-kit-11921 button,.elementor-kit-11921 input[type="button"],.elementor-kit-11921 input[type="submit"],.elementor-kit-11921 .elementor-button{font-size:var( --e-global-typography-633c785-font-size );line-height:var( --e-global-typography-633c785-line-height );letter-spacing:var( --e-global-typography-633c785-letter-spacing );word-spacing:var( --e-global-typography-633c785-word-spacing );}.elementor-section.elementor-section-boxed > .elementor-container{max-width:1024px;}.e-con{--container-max-width:1024px;}}@media(max-width:767px){.elementor-kit-11921{font-size:var( --e-global-typography-text-font-size );line-height:var( --e-global-typography-text-line-height );letter-spacing:var( --e-global-typography-text-letter-spacing );word-spacing:var( --e-global-typography-text-word-spacing );}.elementor-kit-11921 a{font-size:var( --e-global-typography-accent-font-size );line-height:var( --e-global-typography-accent-line-height );letter-spacing:var( --e-global-typography-accent-letter-spacing );word-spacing:var( --e-global-typography-accent-word-spacing );}.elementor-kit-11921 a:hover{font-size:var( --e-global-typography-accent-font-size );line-height:var( --e-global-typography-accent-line-height );letter-spacing:var( --e-global-typography-accent-letter-spacing );word-spacing:var( --e-global-typography-accent-word-spacing );}.elementor-kit-11921 h1{font-size:var( --e-global-typography-f339b09-font-size );line-height:var( --e-global-typography-f339b09-line-height );letter-spacing:var( --e-global-typography-f339b09-letter-spacing );word-spacing:var( --e-global-typography-f339b09-word-spacing );}.elementor-kit-11921 h2{font-size:var( --e-global-typography-97f2d12-font-size );line-height:var( --e-global-typography-97f2d12-line-height );letter-spacing:var( --e-global-typography-97f2d12-letter-spacing );word-spacing:var( --e-global-typography-97f2d12-word-spacing );}.elementor-kit-11921 h3{font-size:var( --e-global-typography-633c785-font-size );line-height:var( --e-global-typography-633c785-line-height );letter-spacing:var( --e-global-typography-633c785-letter-spacing );word-spacing:var( --e-global-typography-633c785-word-spacing );}.elementor-kit-11921 button,.elementor-kit-11921 input[type="button"],.elementor-kit-11921 input[type="submit"],.elementor-kit-11921 .elementor-button{font-size:var( --e-global-typography-633c785-font-size );line-height:var( --e-global-typography-633c785-line-height );letter-spacing:var( --e-global-typography-633c785-letter-spacing );word-spacing:var( --e-global-typography-633c785-word-spacing );}.elementor-section.elementor-section-boxed > .elementor-container{max-width:767px;}.e-con{--container-max-width:767px;}}/* Start custom CSS */@font-face {font-display: swap !important;}
+.elementskit-menu-toggler svg {width:24px;}
+.btn-nav-nexo>a, .btn-nav-nexo>a:hover { padding:6px 10px !important; background: #fff !important; color:var(--e-global-color-primary) !important; border-radius:8px !important; }
+.btn-nav-nexo .elementskit-submenu-indicator { color: var(--e-global-color-primary) !important; }
+.ekit_menu_responsive_tablet .active li.btn-nav-nexo{margin:16px 12px !important; border:0 !important;}
+.elementskit-nav-identity-panel{background:#00000020;}
+.elementskit-menu-toggler{background: none;}
+.elementskit-menu-toggler svg {fill:#fff !important;}
+.elementskit-menu-toggler, .elementskit-menu-toggler:hover {background:none !important;color:#fff !important; font-weight:700;}
+button.elementskit-menu-hamburger{padding: 8px 8px 6px 8px;}
+#ekit-megamenu-cabecero.active {box-shadow:0 10px 30px 0 #000000;}
+#ekit-megamenu-cabecero .active .btn-nav-nexo {margin-top:16px;}
+ul.elementskit-menu-po-left{padding:0 16px !important;}
+#ekit-megamenu-cabecero.active .menu-item{border-bottom:1px solid #ffffff14;}
+#ekit-megamenu-cabecero.active ul.elementskit-submenu-panel {
+    background:none!important; border:none!important; box-shadow:none!important; padding:0 16px !important;
+}
+#ekit-megamenu-cabecero.active ul.elementskit-submenu-panel a{padding:12px 16px !important;}
+.elementskit-submenu-indicator {border:none!important;font-size: 8px !important;}
+.lista-menu-footer a{
+    border-bottom:1px solid #ffffff30;
+}
+.lista-menu-footer ul.sub-menu{
+    display: block !important;
+    position: relative !important;
+    top:0;
+    left: 0;
+    background: none !important;
+    width: 100% !important;
+    padding-top:2px !important;
+    padding-bottom:8px !important;
+}
+.lista-menu-footer ul.sub-menu a{line-height:12px; border:0;}
+.lista-menu-footer ul.sub-menu a:hover {
+    background: none !important;
+    border:0 !important;
+}
+.breadcrumb_last{display: none;}
+.listado-check-naranja ul { list-style: none !important; }
+.listado-check-naranja ul li:before { font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f00c"; padding: 0 10px 0 0; color: var(--e-global-color-accent); }
+.listado-check-naranja ol {margin-left:64px; padding:16px;}
+.foto-producto img { border-radius:40px; }
+.card-body { border-radius: 0px !important; border: 0 !important; border-bottom: 1px solid #ccc !important; box-shadow: none !important; padding: 20px !important; }
+.card-body>div { text-align: left !important; }
+#wp_widget_gd_map {
+    border-radius:4px;
+}
+.gd_place>div {
+    display: block !important;
+}
+.gd-box-titulo h2 {margin:0 !important;}
+.gd-box-contenido, .gd-box-contenido a {font-size: 12px !important;line-height: 16px !important;}
+.gd-box-horario {font-size: 12px !important;line-height: 16px !important; padding-top:8px; border-top:1px solid #dddddd;}
+.gd-box-horario a {font-size: 12px !important;line-height: 16px !important;}
+.balance-memoria p { border-top:1px solid #dddddd; padding-top:4px;}/* End custom CSS */
+/* Start Custom Fonts CSS */@font-face {
+	font-family: 'BE-Font Elementor';
+	font-style: normal;
+	font-weight: 400;
+	font-display: auto;
+	src: url('https://www.bancoexterior.com/wp-content/uploads/2023/02/Montserrat-Regular.woff2') format('woff2'),
+		url('https://www.bancoexterior.com/wp-content/uploads/2023/02/Montserrat-Regular.woff') format('woff'),
+		url('https://www.bancoexterior.com/wp-content/uploads/2023/02/Montserrat-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'BE-Font Elementor';
+	font-style: italic;
+	font-weight: 400;
+	font-display: auto;
+	src: url('https://www.bancoexterior.com/wp-content/uploads/2023/02/Montserrat-Italic.woff2') format('woff2'),
+		url('https://www.bancoexterior.com/wp-content/uploads/2023/02/Montserrat-Italic.woff') format('woff'),
+		url('https://www.bancoexterior.com/wp-content/uploads/2023/02/Montserrat-Italic.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'BE-Font Elementor';
+	font-style: normal;
+	font-weight: 600;
+	font-display: auto;
+	src: url('https://www.bancoexterior.com/wp-content/uploads/2023/02/Montserrat-SemiBold.woff2') format('woff2'),
+		url('https://www.bancoexterior.com/wp-content/uploads/2023/02/Montserrat-SemiBold.woff') format('woff'),
+		url('https://www.bancoexterior.com/wp-content/uploads/2023/02/Montserrat-SemiBold.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'BE-Font Elementor';
+	font-style: italic;
+	font-weight: 600;
+	font-display: auto;
+	src: url('https://www.bancoexterior.com/wp-content/uploads/2023/02/Montserrat-SemiBoldItalic.woff2') format('woff2'),
+		url('https://www.bancoexterior.com/wp-content/uploads/2023/02/Montserrat-SemiBoldItalic.woff') format('woff'),
+		url('https://www.bancoexterior.com/wp-content/uploads/2023/02/Montserrat-SemiBoldItalic.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'BE-Font Elementor';
+	font-style: normal;
+	font-weight: 700;
+	font-display: auto;
+	src: url('https://www.bancoexterior.com/wp-content/uploads/2023/02/Montserrat-Bold.woff2') format('woff2'),
+		url('https://www.bancoexterior.com/wp-content/uploads/2023/02/Montserrat-Bold.woff') format('woff'),
+		url('https://www.bancoexterior.com/wp-content/uploads/2023/02/Montserrat-Bold.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'BE-Font Elementor';
+	font-style: italic;
+	font-weight: 700;
+	font-display: auto;
+	src: url('https://www.bancoexterior.com/wp-content/uploads/2023/02/Montserrat-BoldItalic.woff2') format('woff2'),
+		url('https://www.bancoexterior.com/wp-content/uploads/2023/02/Montserrat-BoldItalic.woff') format('woff'),
+		url('https://www.bancoexterior.com/wp-content/uploads/2023/02/Montserrat-BoldItalic.ttf') format('truetype');
+}
+/* End Custom Fonts CSS */

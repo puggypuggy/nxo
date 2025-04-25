@@ -1,0 +1,51 @@
+/**
+ * Javascript encargado de setear el cursor en espera durante solicitudes AJAX
+ */
+$(document).ajaxStart(function(){
+    document.body.style.cursor = 'progress';
+});
+
+/**
+ * Javascript encargado de setear el cursor en default al completar solicitudes AJAX
+ */
+$(document).ajaxComplete(function(){
+    document.body.style.cursor = 'default';
+});
+
+/*bloquear boton derecho*/
+
+document.oncontextmenu = function(){return false;}
+
+/*bloquear F5*/
+
+document.onkeydown = function (evt){
+
+    if (navigator.appName != "Netscape"){
+        evt = window.event;
+    }
+    if (evt){
+    var tecla = evt.keyCode;
+    if ((tecla == 116 || tecla == 114
+        || (evt.ctrlKey == true && (tecla == 88 || tecla == 86 ||
+        tecla == 67 ))) ){
+        evt.keyCode=0;
+        evt.returnValue=false;
+        return false;
+    }
+
+    if(tecla == 8){
+        var d = evt.srcElement || evt.target;
+        if (d.tagName.toUpperCase() == 'INPUT') {
+            return true;
+        } else {
+            evt.keyCode=0;
+            evt.returnValue=false;
+        return false;
+        }
+    }
+    }
+    evt.returnValue=true;
+    return true;
+
+}
+

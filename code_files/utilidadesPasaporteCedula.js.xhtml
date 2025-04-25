@@ -1,0 +1,37 @@
+function cedulaInvisible(control, selectPasaporte, divCedula, divPasaporte, inputCedula, inputPasaporte)
+{
+    if (control.value=="P")
+    {
+        document.getElementById(selectPasaporte).value = control.value;
+        document.getElementById(divCedula).style.display="none";
+        document.getElementById(divPasaporte).style.display="block";
+    }
+    document.getElementById(inputCedula).value = "";
+    document.getElementById(inputPasaporte).value = "";
+}
+
+function pasaporteInvisible(control,selectCedula,inputCedula,inputPasaporte,divCedula,divPasaporte)
+{
+    document.getElementById(selectCedula).value = control.value;
+    document.getElementById(inputCedula).value = "";
+    document.getElementById(inputPasaporte).value = "";
+    document.getElementById(divCedula).style.display="block";
+    document.getElementById(divPasaporte).style.display="none";
+}
+
+function copiarValor(divCedula,selectCedula,selecPasaporte,inputCedula,inputPasaporte)
+{
+    if (document.getElementById(divCedula).style.display == "none")
+    {
+        document.getElementById(selectCedula).value = "P";
+        document.getElementById(inputCedula).value =
+            document.getElementById(inputPasaporte).value;
+    }
+    else
+    {
+        document.getElementById(selecPasaporte).value =
+            document.getElementById(selectCedula).value;
+        document.getElementById(inputPasaporte).value =
+            document.getElementById(inputCedula).value;
+    }
+}

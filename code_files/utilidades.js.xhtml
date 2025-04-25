@@ -1,0 +1,564 @@
+/*bloquear boton derecho*/
+document.oncontextmenu = function(){return false;}
+
+/*bloquear F5*/
+
+
+document.onkeydown = function(){
+    var tecla = window.event.keyCode;
+    if (window.event && (tecla == 116 || tecla == 114
+        || (window.event.ctrlKey == true && (tecla == 88 || tecla == 86 ||
+        tecla == 67 ))) ){
+        event.keyCode=0;
+        event.returnValue=false;
+        return false;
+    }
+
+    if(window.event && tecla == 8){
+        var d = event.srcElement || event.target;
+        if (d.tagName.toUpperCase() == 'INPUT') {
+            return true;
+        } else {
+            event.keyCode=0;
+            event.returnValue=false;
+            return false;
+        }
+    }
+    return true;
+}
+
+function esperarYredireccionar(url , tiempo) {
+
+    setTimeout(function() {
+        window.location = url;
+    }, tiempo);
+}
+
+/**
+ * Funcion que asigna la visibilidad de un objeto de la pagina dado su id
+ * @param idObjeto identificador del objeto
+ * @param esVisible true si es visible false sino
+ */
+function AsignarVisibilidad(idObjeto, esVisible) {
+	var div = document.getElementById(idObjeto);
+	div.style.display = esVisible ? "" : "none";
+}
+
+/**
+ * Permite seleccionar o deseleccionar el check principal si todos los demas estan seleccionados o deseleccionados
+ * @param contenedor
+ * @param checkAll
+ */
+function checkAll(contenedor,checkAll)
+{
+    var checkboxes = new Array();
+    var contador = 0;
+
+    checkboxes = document.getElementById(contenedor).getElementsByTagName('input');
+
+    for (var i=0; i<checkboxes.length; i++)
+    {
+        if (checkboxes[i].type == 'checkbox' &&  checkboxes[i].checked == true && i != 0)
+        {
+            contador++;
+        }
+    }
+
+    var check = document.getElementById(checkAll);
+
+    if (contador == checkboxes.length - 1 )
+    {
+        check.children[1].className = 'ui-chkbox-box ui-widget ui-corner-all ui-state-default ui-state-active';
+        check.children[1].children[0].className = 'ui-chkbox-icon ui-icon ui-icon-check';
+    }
+    else
+    {
+        check.children[1].className = 'ui-chkbox-box ui-widget ui-corner-all ui-state-default';
+        check.children[1].children[0].className = 'ui-chkbox-icon ui-icon';
+    }
+}
+
+
+/**
+ * Funcion que permite seleccionar los check contenidos en una tabla
+ * @param ids  this
+ * @param idCheck div que contiene a la tabla
+ */
+function seleccionarChecks(ids,idCheck)
+{
+    var arreglo = ids.split(",");
+    var check = document.getElementById(idCheck + "_input");
+
+    for (var i = 0; i < arreglo.length; i++) {
+
+        if(check.checked == false)
+        {
+            var checkear = "prod" + arreglo[i] + ".uncheck()";
+            eval(checkear);
+
+        }else
+        {
+            var checkear = "prod" + arreglo[i] + ".check()";
+            eval(checkear);
+        }
+    }
+}
+
+
+function limpiarClave(id)
+{
+    var clave = div.getElementsByTagName('id');
+    clave.value = null;
+
+}
+
+
+/**
+ * Metodo que oculta todos los controles que estan involucrados con
+ * el tipo de pago personalizado
+ */
+function ocultarTodos(){
+
+    var frecuencias = document.getElementById("frecuencias");
+    var fechaPrimerpago = document.getElementById("fechaPrimerpago");
+    var diaPago = document.getElementById("diaPago");
+    var hastaPago = document.getElementById("hastaPago");
+    var numeroPago = document.getElementById("numeroPago");
+    fechaPrimerpago.style.display = "none";
+    fechaPrimerpago.style.display = "none";
+    diaPago.style.display = "none";
+    hastaPago.style.display = "none";
+    numeroPago.style.display = "none";
+}
+
+
+/**
+ * Funcion que ajusta la visibilidad de los controles
+ */
+function ajustarVisibilidad() {
+    ocultarTodos();
+    var doc2 = document.getElementById("#{tipoPago.clientId}:0");
+    var doc= document.getElementById("#{frecuencia.clientId}");
+
+    var doc3= document.getElementById("apoyo");
+    var frecuencias = document.getElementById("frecuencias");
+    var fechaPrimerpago = document.getElementById("fechaPrimerpago");
+    var diaPago = document.getElementById("diaPago");
+    var hastaPago = document.getElementById("hastaPago");
+    var numeroPago = document.getElementById("numeroPago");
+
+
+    var esVisible = !doc2.checked;
+    var frecuenciaSeleccionado = doc.value;
+    frecuencias.style.display = esVisible ? "" : "none";
+    doc3.value = frecuenciaSeleccionado + ";" +doc2.checked;
+
+
+
+    if(frecuenciaSeleccionado == "Solo Uno" || frecuenciaSeleccionado == null)
+        fechaPrimerpago.style.display = esVisible ? "" : "none";
+    else if(frecuenciaSeleccionado == "Diario")	{
+
+        hastaPago.style.display = esVisible ? "" : "none";
+        numeroPago.style.display = esVisible ? "" : "none";
+    }
+    else if(frecuenciaSeleccionado == "Semanal"){
+        diaPago.style.display = esVisible ? "" : "none";
+        hastaPago.style.display = esVisible ? "" : "none";
+        numeroPago.style.display = esVisible ? "" : "none";
+    }
+    else if(frecuenciaSeleccionado == "Mensual")
+    {
+        hastaPago.style.display = esVisible ? "" : "none";
+        numeroPago.style.display = esVisible ? "" : "none";
+    }
+    else{
+        fechaPrimerpago.style.display = esVisible ? "" : "none";
+    }
+}
+
+
+/**
+ * Funcion que ajusta la visibilidad del recibo segun las opciones seleccionadas
+ */
+function ajustarVisibilidadRecibo(){
+
+    var doc3= document.getElementById("apoyo");
+    var valores = doc3.value.split(";");
+
+    var frecuenciasRecibo = document.getElementById("FrecuenciaRecibo");
+    var fechaPrimerPagoRecibo = document.getElementById("FechaPrimerPagoRecibo");
+    var hastaPagoRecibo = document.getElementById("FechaHastaRecibo");
+    var numeroPagoRecibo = document.getElementById("NumeroPagosRecibo");
+    var esVisible = !(valores[1] == "true");
+    var frecuenciaSeleccionado = valores[0];
+
+    fechaPrimerPagoRecibo.style.display = "none";
+    hastaPagoRecibo.style.display = "none";
+    numeroPagoRecibo.style.display = "none";
+
+    frecuenciasRecibo.style.display = esVisible ? "" : "none";
+
+
+    if(frecuenciaSeleccionado == "Solo Uno" || frecuenciaSeleccionado == null)
+        fechaPrimerPagoRecibo.style.display = esVisible ? "" : "none";
+    else if(frecuenciaSeleccionado == "Diario")	{
+
+        hastaPagoRecibo.style.display = esVisible ? "" : "none";
+        numeroPagoRecibo.style.display = esVisible ? "" : "none";
+    }
+    else if(frecuenciaSeleccionado == "Semanal"){
+        hastaPagoRecibo.style.display = esVisible ? "" : "none";
+        numeroPagoRecibo.style.display = esVisible ? "" : "none";
+    }
+    else if(frecuenciaSeleccionado == "Mensual")
+    {
+        hastaPagoRecibo.style.display = esVisible ? "" : "none";
+        numeroPagoRecibo.style.display = esVisible ? "" : "none";
+    }
+    else{
+        fechaPrimerPagoRecibo.style.display = esVisible ? "" : "none";
+    }
+}
+
+
+/**
+ * Funcion que se encarga del evento onchange del radioboton
+ * del tipo de pago para encargarse de la visibilidad
+ * de los controles
+ */
+function mostrarMonto() {
+
+    var doc = document.getElementById("monto");
+    var tipoMonto =   document.getElementById("#{tipoMonto.clientId}").value;
+    doc.style.display = (tipoMonto == "Otro Monto") ? "" : "none";
+
+}
+
+
+/**
+ * Permite obtener elementos por nombre de clase css
+ * @param node documento que contiene los elementos
+ * @param classname nombre de la clase css
+ * @returns {Array} arreglo de elementos
+ */
+function obtenerElementoPorClase(node, classname)
+{
+    var a = [];
+    var re = new RegExp('(^| )'+classname+'( |$)');
+    var els = node.getElementsByTagName("*");
+
+    for(var i=0,j=els.length; i<j; i++)
+    {
+        if(re.test(els[i].className))
+            a.push(els[i]);
+    }
+
+    return a;
+ }
+
+
+/**
+ * funcion que oculta todas las opciones del menu
+ */
+function reiniciarMenu()
+{
+    var padre = document.getElementById("menu:hbMenu");
+    var hijos = obtenerElementoPorClase( document.body , "ui-panelmenu-panel item_raiz");
+
+    for (var i = 0; i < hijos.length; i++)
+    {
+        var h3 = hijos[i].childNodes.item(0);
+        var span = h3.childNodes.item(0);
+        var div = hijos[i].childNodes.item(1);
+        h3.className = "ui-panelmenu-header ui-state-default ui-corner-all";
+        span.className = "ui-icon ui-icon-triangle-1-e";
+        div.style.display = 'none';
+
+    }
+}
+
+
+function marcarMenu()
+{
+    var nombre = document.getElementById("opcionMenuActual").value;
+    alert(nombre + " al principio"  );
+
+    if(nombre.length > 0)
+    {
+
+        var hijos = obtenerElementoPorClase( document.body , "ui-menuitem ui-widget ui-corner-all");
+
+        for (var i = 0; i < hijos.length; i++)
+        {
+            var valor = hijos[i].childNodes.item(0).value;
+            alert(valor);
+        }
+    }
+}
+
+
+
+/**
+ * Funcion que ajusta la visibilidad de los montos con decimales
+ */
+
+var amountformat = true;
+var decSeparator = ',';
+var grpSeparator = '.';
+
+function tipodato(name, tipo){
+
+    var elemento = document.getElementsByName(name)[0];
+    if(tipo == '1')
+        enterInteger();
+
+    if(tipo == '2')
+        enterDecimal();
+}
+
+function replaceAll(value,char){
+
+    var result = value;
+    var posi = value.indexOf(char);
+    if(posi > -1){
+        while(posi > -1){
+            result = value.substring(0,posi);
+            result = result + value.substring(posi+1);
+            posi = result.indexOf(char);
+            value = result;
+        }
+    }
+
+    return(result);
+
+}
+
+function formatValor(campo,preformat){
+    var	vr = campo.value;
+    vr = vr.replace( decSeparator, "" );
+    vr = replaceAll( vr, grpSeparator );
+    var sign = "";
+    if (vr.indexOf('-') != -1) {
+        vr = replaceAll( vr, "-" );
+        sign = "-";
+    }
+    var	tam = (preformat) ? vr.length : vr.length + 1;
+    if ( 2 >= tam ){
+        campo.maxLength = 15;
+        if (tam == 1) campo.value = "0" + decSeparator + "0" + vr ;
+        if (tam == 2) campo.value = "0" + decSeparator + vr ; }
+    if ( (tam <= 5) && (tam > 2) ){
+        campo.maxLength = 16;
+        campo.value = vr.substr( 0, tam - 2 ) + decSeparator + vr.substr( tam - 2, tam ) ; }
+    if ( (tam <= 8) && (tam >= 6) ){
+        campo.maxLength = 17;
+        campo.value = vr.substr( 0, tam - 5 ) + grpSeparator + vr.substr( tam - 5, 3 ) + decSeparator + vr.substr( tam - 2, tam ) ; }
+    if ( (tam <= 11) && (tam >= 9) ){
+        campo.maxLength = 18;
+        campo.value = vr.substr( 0, tam - 8 ) + grpSeparator + vr.substr( tam - 8, 3 ) + grpSeparator + vr.substr( tam - 5, 3 ) + decSeparator + vr.substr( tam - 2, tam ) ; }
+    if ( (tam <= 14) && (tam >= 12) ){
+        campo.maxLength = 19;
+        campo.value = vr.substr( 0, tam - 11 ) + grpSeparator + vr.substr( tam - 11, 3 ) + grpSeparator + vr.substr( tam - 8, 3 ) + grpSeparator + vr.substr( tam - 5, 3 ) + decSeparator + vr.substr( tam - 2, tam ) ; }
+    if ( (tam <= 17) && (tam >= 15) ){
+        campo.maxLength = 20;
+        campo.value = vr.substr( 0, tam - 14 ) + grpSeparator + vr.substr( tam - 14, 3 ) + grpSeparator + vr.substr( tam - 11, 3 ) + grpSeparator + vr.substr( tam - 8, 3 ) + grpSeparator + vr.substr( tam - 5, 3 ) + decSeparator + vr.substr( tam - 2, tam ) ;}
+    var pos = campo.value.indexOf(decSeparator);
+    if (pos != -1) {
+        vr = campo.value.substr( 0, pos );
+        if (vr == "00" || ((vr.length == 2) && (vr.substr( 0, 1) == "0"))) campo.value =  campo.value.substr(1, tam);
+    }
+    campo.value = sign + campo.value;
+}
+
+function enterDecimal(){
+    var elem=event.srcElement;
+    var kcode=event.keyCode;
+    var val;
+    var newVal="";
+
+    var kdata = String.fromCharCode(kcode);
+    if (amountformat) {
+        elem.value = replaceAll(elem.value, grpSeparator );
+        //elem.blur();
+        //elem.focus();
+    }
+
+    switch (kcode){
+        case 66:
+        case 98:
+        {
+            event.returnValue = false;
+            if(elem.value.indexOf(decSeparator)==-1) {
+                if (elem.value.length > 0) {
+                    if (parseInt(elem.value)==0)  elem.value = "1000000000.00";
+                    else if (elem.maxLength - elem.value.length > 12) elem.value = elem.value + "000000000.00";
+                }else elem.value = "1000000000.00";
+            } else {
+                val = parseFloat(elem.value) * 1000000000.00;
+                newVal = "" + val;
+                if(newVal.indexOf(decSeparator)==-1) newVal=newVal+".00";
+                else {
+                    val = newVal.length - newVal.indexOf(decSeparator);
+                    if(val == 2) newVal = newVal+"0";
+                }
+                if (newVal=="0.00") elem.value = "1000000000.00";
+                else if (elem.maxLength > newVal.length) elem.value = newVal;
+            }
+            if (amountformat) formatValor(elem,true);
+            break;
+        }
+        case 72:
+        case 104:
+        {
+            event.returnValue = false;
+            if(elem.value.indexOf(decSeparator)==-1) {
+                if (elem.value.length > 0) {
+                    if (parseInt(elem.value)==0)  elem.value = "100.00";
+                    else if (elem.maxLength - elem.value.length > 5) elem.value = elem.value + "00.00";
+                }else elem.value = "100.00";
+            } else {
+                val = parseFloat(elem.value) * 100.00;
+                newVal = "" + val;
+                if(newVal.indexOf(decSeparator)==-1) newVal=newVal+".00";
+                else {
+                    val = newVal.length - newVal.indexOf(decSeparator);
+                    if(val == 2) newVal = newVal+"0";
+                }
+                if (newVal=="0.00") elem.value = "100.00";
+                else if (elem.maxLength > newVal.length) elem.value = newVal;
+            }
+            if (amountformat) formatValor(elem,true);
+            break;
+        }
+        case 77:
+        case 109:
+        {
+            event.returnValue = false;
+            if(elem.value.indexOf(decSeparator)==-1) {
+                if (elem.value.length > 0) {
+                    if (parseInt(elem.value)==0)  elem.value = "1000000.00";
+                    else if (elem.maxLength - elem.value.length > 9) elem.value = elem.value + "000000.00";
+                }else elem.value = "1000000.00";
+            } else {
+                val = parseFloat(elem.value) * 1000000.00;
+                newVal = "" + val;
+                if(newVal.indexOf(decSeparator)==-1) newVal=newVal+".00";
+                else {
+                    val = newVal.length - newVal.indexOf(decSeparator);
+                    if(val == 2) newVal = newVal+"0";
+                }
+                if (newVal=="0.00") elem.value = "1000000.00";
+                else if (elem.maxLength > newVal.length) elem.value = newVal;
+            }
+            if (amountformat) formatValor(elem,true);
+            break;
+        }
+        case 84:
+        case 116:
+        {
+            event.returnValue = false;
+            if(elem.value.indexOf(decSeparator)==-1) {
+                if (elem.value.length > 0) {
+                    if (parseInt(elem.value)==0)  elem.value = "1000.00";
+                    else if (elem.maxLength - elem.value.length > 6) elem.value = elem.value + "000.00";
+                }else elem.value = "1000.00";
+            } else {
+                val = parseFloat(elem.value) * 1000.00;
+                newVal = "" + val;
+                if(newVal.indexOf(decSeparator)==-1) newVal=newVal+".00";
+                else {
+                    val = newVal.length - newVal.indexOf(decSeparator);
+                    if(val == 2) newVal = newVal+"0";
+                }
+                if (newVal=="0.00") elem.value = "1000.00";
+                else if (elem.maxLength > newVal.length) elem.value = newVal;
+            }
+            if (amountformat) formatValor(elem,true);
+            break;
+        }
+        default: {
+            if (amountformat) {
+                if ((kcode < 48 || kcode > 57) && kcode != 13){
+                    event.returnValue = false;
+                    formatValor(elem,true);
+                } else if (kcode != 13) {
+                    formatValor(elem,false);
+                    elem.value = elem.value +  kdata;
+                    event.returnValue = false;
+                }
+            } else {
+                if ((kcode < 48 || kcode > 57) && kcode != 46 && kcode != 13){
+                    event.returnValue = false;
+                } else if (kcode == 46 && elem.value.indexOf(decSeparator)!==-1) {
+                    event.returnValue = false;
+                }
+            }
+        }
+    }
+
+}
+
+
+/**
+ * js que permite el campo de rif de formulario
+ */
+function handleChange() {
+
+    if (document.getElementById('formulario:bloq'))
+    {
+        var campo = $("select[name$='formulario:numeroDocumento:tipoDoc'] option:selected").val();
+        var elemento =  document.getElementById('formulario:bloq');
+        var cadena= document.getElementById('valoresPersonaJuridica').value;
+        var personaJuridica = cadena.split(';');
+        var len = personaJuridica.length;
+
+        for (var i = 0; i < len; i++) {
+            if ( campo == personaJuridica[i])
+            {
+                elemento.className = "campoRifCerrado";
+                break;
+            }
+            else{
+                elemento.className = "campoRifAbierto";
+            }
+        }
+    }
+}
+
+/**
+ * metodo que carga el campo del rif al cargar la pagina
+ */
+function cargarCampoRIf() {
+    var campo = document.getElementById("campoRif").value;
+    var elemento = document.getElementById('formulario:bloq');
+    var cadena= document.getElementById('valoresPersonaJuridica').value;
+    var personaJuridica = cadena.split(';');
+    var len = personaJuridica.length;
+
+    for (var i = 0; i < len; i++) {
+        if ( campo == personaJuridica[i]){
+            elemento.className = "campoRifCerrado";
+            break;
+        }
+        else{
+            elemento.className = "campoRifAbierto";
+            break;
+        }
+    }
+}
+
+function SeleccionarCuenta(id){
+    var doc = document.getElementById("transferenciaCuentasPropias:amountInput");
+    doc.value= id;
+}
+
+function ValidaNavegadorAutenticacion(){
+        var modoDemo = document.documentMode;
+        if(8 >= modoDemo)
+        {
+            location.href ="../login/errorNavegador.xhtml";
+        }
+}
+
+
