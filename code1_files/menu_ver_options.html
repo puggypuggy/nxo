@@ -1,0 +1,1135 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"><script x-apm-ba-response-bt="servertime%3D1745524562173%2CapmAgentHost%3Dsdk2bhvmlfmNKBf9HrBkOSd0FF91Lk1zSZS0%2Bn4k3vA%3D%2CapmServletName%3D6EAn9yz%2FJcRxDCQUH9urlg%3D%3D%2CapmAgentProcess%3DObOejRBtGSSLitYjHHCNFA%3D%3D%2CapmAgentName%3DE4v67U9%2FhMLmPUW0qIEqww%3D%3D%2CapmWebAppName%3DZdaznoiTG4bP7c%2FBfozKQXokFyGa63TUQrT1kMKUN18%3D" type="text/javascript" id="ca_eum_ba" src="bajs" data-profileurl="http://localhost:80/api/1/urn:ca:tenantId:default-tenant/urn:ca:appId:default-app/profile?agent=browser" data-tenantid="default-tenant" data-appid="default-app" data-appkey="b0361800-4736-11e6-b8e5-bddc75280658"></script>
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<link rel="stylesheet" href="style.css">
+
+
+
+
+
+
+<script language="Javascript"> 
+document.oncontextmenu=new Function("return false");
+document.onmousedown=blurify;
+
+document.ondragstart=new Function("return false");
+document.onselectstart=new Function("return false");
+
+var ACTIVEOPTION="";
+function switchOpt(id) {	
+  var oldid = document.forms[0].ACTIVEOPT.value;
+  if (oldid != "") {
+	document.all["suboption" + oldid].style.display = "none";
+	if (oldid != id) {
+	  document.all["suboption" + id].style.display = "";
+
+	  document.forms[0].ACTIVEOPT.value = id;
+	} else {
+      document.forms[0].ACTIVEOPT.value = "";
+	}    
+  } else {
+	  document.all["suboption" + id].style.display = "";
+
+	  document.forms[0].ACTIVEOPT.value = id;
+  }
+
+  ACTIVEOPTION = document.forms[0].ACTIVEOPT.value;
+}
+
+
+function switchOpt_SameOption(id) {	
+  document.all["suboption" + id].style.display = "";
+  document.forms[0].ACTIVEOPT.value = id;
+  ACTIVEOPTION = id;
+}
+	
+function go(url) {
+  parent.body.location.href = "body_wait.jsp?ServletName=" + url;
+}
+ 
+function setTableHeight() {
+  var minValue= mainTable.offsetTop + 30;
+  var h = document.body.clientHeight - minValue ;
+  Container.style.height= h + ""; 
+}
+
+function sload(){
+   Nifty("table.menuitemd a","transparent small");
+}
+
+
+var niftyOk=(document.getElementById && document.createElement && Array.prototype.push);
+var niftyCss=false;
+
+String.prototype.find=function(what){
+return(this.indexOf(what)>=0 ? true : false);
+}
+
+var oldonload=window.onload;
+if(typeof(NiftyLoad)!='function') NiftyLoad=function(){};
+if(typeof(oldonload)=='function')
+    window.onload=function(){oldonload();AddCss();NiftyLoad()};
+else window.onload=function(){AddCss();NiftyLoad()};
+
+function AddCss(){
+niftyCss=true;
+var l=CreateEl("link");
+l.setAttribute("type","text/css");
+l.setAttribute("rel","stylesheet");
+//l.setAttribute("href","css/niftyCorners.css");
+//l.setAttribute("href","css/style.css");
+l.setAttribute("media","screen");
+document.getElementsByTagName("head")[0].appendChild(l);
+}
+
+function Nifty(selector,options){
+if(niftyOk==false) return;
+if(niftyCss==false) AddCss();
+var i,v=selector.split(","),h=0;
+if(options==null) options="";
+if(options.find("fixed-height"))
+    h=getElementsBySelector(v[0])[0].offsetHeight;
+
+
+
+for(i=0;i < v.length;i++)
+    Rounded(v[i],options);
+    
+
+if(options.find("height")) SameHeight(selector,h);
+}
+
+function Rounded(selector,options){
+
+
+var i,top="",bottom="",v=new Array();
+if(options!=""){
+    options=options.replace("left","tl bl");
+    options=options.replace("right","tr br");
+    options=options.replace("top","tr tl");
+    options=options.replace("bottom","br bl");
+    options=options.replace("transparent","alias");
+    if(options.find("tl")){
+        top="both";
+        if(!options.find("tr")) top="left";
+        }
+    else if(options.find("tr")) top="right";
+    if(options.find("bl")){
+        bottom="both";
+        if(!options.find("br")) bottom="left";
+        }
+    else if(options.find("br")) bottom="right";
+    }
+if(top=="" && bottom=="" && !options.find("none")){top="both";bottom="both";}
+v=getElementsBySelector(selector);
+
+for(i=0;i < v.length;i++){
+    FixIE(v[i]);
+    if(top!="") AddTop(v[i],top,options);
+    if(bottom!="") AddBottom(v[i],bottom,options);
+    }
+}
+
+function AddTop(el,side,options){
+
+var d=CreateEl("b"),lim=4,border="",p,i,btype="r",bk,color;
+d.style.marginLeft="-"+getPadding(el,"Left")+"px";
+d.style.marginRight="-"+getPadding(el,"Right")+"px";
+if(options.find("alias") || (color=getBk(el))=="transparent"){
+    color="transparent";bk="transparent"; border=getParentBk(el);btype="t";
+    }
+else{
+    bk=getParentBk(el); border=Mix(color,bk);
+    }
+d.style.background=bk;
+d.className="niftycorners";
+p=getPadding(el,"Top");
+
+if(options.find("small")){
+    d.style.marginBottom=(p-2)+"px";
+    btype+="s"; lim=2;
+    }
+else if(options.find("big")){
+    d.style.marginBottom=(p-10)+"px";
+    btype+="b"; lim=8;
+    }
+else d.style.marginBottom=(p-5)+"px";
+for(i=1;i<=lim;i++)
+    d.appendChild(CreateStrip(i,side,color,border,btype));
+el.style.paddingTop="0";
+el.insertBefore(d,el.firstChild);
+
+}
+
+function AddBottom(el,side,options){
+var d=CreateEl("b"),lim=4,border="",p,i,btype="r",bk,color;
+d.style.marginLeft="-"+getPadding(el,"Left")+"px";
+d.style.marginRight="-"+getPadding(el,"Right")+"px";
+if(options.find("alias") || (color=getBk(el))=="transparent"){
+    color="transparent";bk="transparent"; border=getParentBk(el);btype="t";
+    }
+else{
+    bk=getParentBk(el); border=Mix(color,bk);
+    }
+
+d.style.background=bk;
+d.className="niftycorners";
+p=getPadding(el,"Bottom");
+if(options.find("small")){
+    d.style.marginTop=(p-2)+"px";
+    btype+="s"; lim=2;
+    }
+else if(options.find("big")){
+    d.style.marginTop=(p-10)+"px";
+    btype+="b"; lim=8;
+    }
+else d.style.marginTop=(p-5)+"px";
+
+for(i=lim;i>0;i--)
+    d.appendChild(CreateStrip(i,side,color,border,btype));
+
+    
+el.style.paddingBottom=0;
+el.appendChild(d);
+
+}
+
+function CreateStrip(index,side,color,border,btype){
+var x=CreateEl("b");
+x.className=btype+index;
+x.style.backgroundColor=color;
+x.style.borderColor=border;
+if(side=="left"){
+    x.style.borderRightWidth="0";
+    x.style.marginRight="0";
+    }
+else if(side=="right"){
+    x.style.borderLeftWidth="0";
+    x.style.marginLeft="0";
+    }
+return(x);
+}
+
+function CreateEl(x){
+return(document.createElement(x));
+}
+
+function FixIE(el){
+if(el.currentStyle!=null && el.currentStyle.hasLayout!=null && el.currentStyle.hasLayout==false)
+    el.style.display="inline-block";
+}
+
+function SameHeight(selector,maxh){
+var i,v=selector.split(","),t,j,els=[],gap;
+for(i=0;i < v.length;i++){
+    t=getElementsBySelector(v[i]);
+    els=els.concat(t);
+    }
+for(i=0;i < els.length;i++){
+    if(els[i].offsetHeight>maxh) maxh=els[i].offsetHeight;
+    els[i].style.height="auto";
+    }
+for(i=0;i < els.length;i++){
+    gap=maxh-els[i].offsetHeight;
+    if(gap > 0){
+        t=CreateEl("b");t.className="niftyfill";t.style.height=gap+"px";
+        nc=els[i].lastChild;
+        if(nc.className=="niftycorners")
+            els[i].insertBefore(t,nc);
+        else els[i].appendChild(t);
+        }
+    }
+}
+
+function getElementsBySelector(selector){
+var i,j,selid="",selclass="",tag=selector,tag2="",v2,k,f,a,s=[],objlist=[],c;
+if(selector.find("#")){ //id selector like "tag#id"
+    if(selector.find(" ")){  //descendant selector like "tag#id tag"
+        s=selector.split(" ");
+        var fs=s[0].split("#");
+        if(fs.length==1) return(objlist);
+        f=document.getElementById(fs[1]);
+        if(f){
+            v=f.getElementsByTagName(s[1]);
+            for(i=0;i < v.length;i++) objlist.push(v[i]);
+            }
+        return(objlist);
+        }
+    else{
+        s=selector.split("#");
+        tag=s[0];
+        selid=s[1];
+        if(selid!=""){
+            f=document.getElementById(selid);
+            if(f) objlist.push(f);
+            return(objlist);
+            }
+        }
+    }
+if(selector.find(".")){      //class selector like "tag.class"
+    s=selector.split(".");
+    tag=s[0];
+    selclass=s[1];
+    if(selclass.find(" ")){   //descendant selector like tag1.classname tag2
+        s=selclass.split(" ");
+        selclass=s[0];
+        tag2=s[1];
+        }
+    }
+var v=document.getElementsByTagName(tag);  // tag selector like "tag"
+if(selclass==""){
+    for(i=0;i < v.length;i++) objlist.push(v[i]);
+    return(objlist);
+    }
+for(i=0;i < v.length;i++){
+    c=v[i].className.split(" ");
+    for(j=0;j < c.length;j++){
+        if(c[j]==selclass){
+            if(tag2=="") objlist.push(v[i]);
+            else{
+                v2=v[i].getElementsByTagName(tag2);
+                for(k=0;k < v2.length;k++) objlist.push(v2[k]);
+                }
+            }
+        }
+    }
+return(objlist);
+}
+
+function getPadding(x,side){
+var p=getStyleProp(x,"padding"+side);
+if(p==null || !p.find("px")) return(0);
+return(parseInt(p));
+}
+
+function getStyleProp(x,prop){
+if(x.currentStyle)
+    return(x.currentStyle[prop]);
+if(document.defaultView.getComputedStyle)
+    return(document.defaultView.getComputedStyle(x,'')[prop]);
+return(null);
+}
+
+function getParentBk(x){
+var el=x.parentNode,c;
+while(el.tagName.toUpperCase()!="HTML" && (c=getBk(el))=="transparent")
+    el=el.parentNode;
+if(c=="transparent") c="#FFFFFF";
+return(c);
+}
+
+function getBk(x){
+var c=getStyleProp(x,"backgroundColor");
+if(c==null || c=="transparent" || c.find("rgba(0, 0, 0, 0)"))
+    return("transparent");
+if(c.find("rgb")) c=rgb2hex(c);
+return(c);
+}
+
+var msgRightClick = "Banco Exterior";
+
+
+function blurify(e) 
+{
+  if(e) //Netscape    
+  { 
+	 if(e.which == 3 || e.which == 2)
+     {
+	    alert(msgRightClick); 
+	    return false;
+     }
+  }  
+  else
+  if(window.event) //Internet Explorer
+  { 
+	 if (window.event.button == 2) 
+	 {
+	  	alert(msgRightClick);	
+	 	return false;
+	 }
+  }
+
+}
+
+function rgb2hex(value){
+var hex="",v,h,i;
+var regexp=/([0-9]+)[, ]+([0-9]+)[, ]+([0-9]+)/;
+var h=regexp.exec(value);
+for(i=1;i<4;i++){
+    v=parseInt(h[i]).toString(16);
+    if(v.length==1) hex+="0"+v;
+    else hex+=v;
+    }
+return("#"+hex);
+}
+
+
+/* Crea el objeto AJAX.*/
+function nuevoAjax()
+{ 	
+var xmlhttp=false; 
+try 
+{ 
+// Creacion del objeto AJAX para navegadores no IE
+xmlhttp=new ActiveXObject("Msxml2.XMLHTTP"); 
+
+}
+catch(e)
+{ 
+try
+{ 
+// Creacion del objet AJAX para IE 
+xmlhttp=new ActiveXObject("Microsoft.XMLHTTP"); 
+
+} 
+catch(E) { xmlhttp=false; }
+}
+if (!xmlhttp && typeof XMLHttpRequest!='undefined') { xmlhttp=new XMLHttpRequest(); } 
+
+return xmlhttp; 
+}
+
+function LogOut()
+{	
+	var request;
+	request = nuevoAjax();	
+	var url = "/internetbanking/JSLogOut";
+	var parametros = '';
+	
+	request.open("POST", url, true);	
+	request.onreadystatechange = function() 
+	{	
+   		if ((request.readyState == 4) && (request.status == 200)) 
+		{	   										
+
+	  	}else{
+			
+		}
+    }
+    
+	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");	
+	request.send(parametros);
+	
+}
+
+function cerrarIB()
+{
+  LogOut();
+  setTimeout("window.top.location='login_logout.jsp';",100);
+}
+</script>
+
+
+
+
+
+<link type="text/css" rel="stylesheet" media="screen"></head> 
+
+<body style="background-repeat: repeat-y;" onload="javascript:sload();">
+<form>
+  <input type="HIDDEN" name="ServletName" value="">
+  <input type="hidden" name="ACTIVEOPT" value="4     ">
+  <table border="0" cellspacing="0" cellpadding="0" width="115">
+    <tbody><tr valign="top">
+      <td valign="top">
+        <table id="mainTable" cellspacing="0" cellpadding="0" border="0" width="115">
+          <tbody><tr valign="top"> 
+            <td height="4" width="3"></td>
+          </tr>
+          <tr valign="top"> 
+            <td valign="top"> 
+              <div id="Container" style="overflow-y:auto"> 
+                <div id="Menu"> 
+                  	
+                  		<div id="mainoption1     "> 
+                    		<table class="menuitemd">
+                      			<tbody><tr> 
+                        			<td> 
+                          			<a onclick="switchOpt('1     ');" id="td1     " style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>Tus Productos<b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a> 
+                          			</td>
+                      			</tr>
+                    		</tbody></table>
+                  		</div>
+                  		<div id="suboption1     " style="display:none"> 
+                    			<table class="submenu">
+                      				
+                      									<tbody><tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSSummary&amp;PB=00&amp;OPT=1-1')">Resumen</a> 
+                        									</td>
+                      									</tr>
+                      							
+
+                    			</tbody></table>
+                  		</div>
+
+                  
+                  		<div id="mainoption2     "> 
+                    		<table class="menuitemd">
+                      			<tbody><tr> 
+                        			<td> 
+                          			<a onclick="switchOpt('2     ');" id="td2     " style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>Transferencias Inmediatas<b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a> 
+                          			</td>
+                      			</tr>
+                    		</tbody></table>
+                  		</div>
+                  		<div id="suboption2     " style="display:none"> 
+                    			<table class="submenu">
+                      				
+                      									<tbody><tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSTransfersList&amp;TYPE=1&amp;OPT=2-1')">Cuentas Propias</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSTransfersList&amp;TYPE=3&amp;OPT=2-2')">Cuentas Terceros Banco Exterior</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSTransfersListOB&amp;TYPE=3&amp;OPT=2-5')">Cuentas Otros Bancos</a> 
+                        									</td>
+                      									</tr>
+                      							
+
+                    			</tbody></table>
+                  		</div>
+
+                  
+                  		<div id="mainoption3     "> 
+                    		<table class="menuitemd">
+                      			<tbody><tr> 
+                        			<td> 
+                          			<a onclick="switchOpt('3     ');" id="td3     " style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>Pagos<b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a> 
+                          			</td>
+                      			</tr>
+                    		</tbody></table>
+                  		</div>
+                  		<div id="suboption3     " style="display:none"> 
+                    			<table class="submenu">
+                      				
+                      									<tbody><tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECAPayTC&amp;PB=1&amp;OPT=3-1')">Tarjetas Propias</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECAPayTCThird&amp;PB=1&amp;OPT=3-2')">Tarjetas Terceros y otros Bancos</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECAPayCP&amp;PB=1&amp;OPT=3-3')">Crédito Personal</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECAPayCANTV&amp;PB=1&amp;OPT=3-5')">CANTV</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECAPayMovilnet&amp;PB=1&amp;OPT=3-6')">Movilnet</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECAPaySENIAT&amp;PB=1&amp;OPT=3-10')">Pago de SENIAT</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECARecargaMovistar&amp;PB=5&amp;OPT=3-11')">Movistar</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECAPayBilletera&amp;PB=1&amp;OPT=3-16')">Billetera Móvil</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECAPaySAREN&amp;PB=1&amp;OPT=3-20')">SAREN</a> 
+                        									</td>
+                      									</tr>
+                      							
+
+                    			</tbody></table>
+                  		</div>
+
+                  
+                  		<div id="mainoption4     "> 
+                    		<table class="menuitemd">
+                      			<tbody><tr> 
+                        			<td> 
+                          			<a onclick="switchOpt('4     ');" id="td4     " style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>Afiliación Transf. y Pagos<b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a> 
+                          			</td>
+                      			</tr>
+                    		</tbody></table>
+                  		</div>
+                  		<div id="suboption4     " style=""> 
+                    			<table class="submenu">
+                      				
+                      									<tbody><tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECAAccThird&amp;PB=1&amp;FM=Y&amp;OPT=4-1')">Agregar/Editar Beneficiarios Transf</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECATCThird&amp;PB=1&amp;FM=Y&amp;OPT=4-2')">Agregar/Editar Beneficiarios TDC</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECAAfiliarServicios&amp;PB=1&amp;OPT=4-3')">Afiliación de Servicios</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECAAfiliarSeniat&amp;PB=1&amp;OPT=4-4')">Afiliación Contribuyentes SENIAT</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECABilleteraMovil&amp;PB=1&amp;OPT=4-8')">Afiliación/Desafiliación Billetera</a> 
+                        									</td>
+                      									</tr>
+                      							
+
+                    			</tbody></table>
+                  		</div>
+
+                  
+                  		<div id="mainoption5     "> 
+                    		<table class="menuitemd">
+                      			<tbody><tr> 
+                        			<td> 
+                          			<a onclick="switchOpt('5     ');" id="td5     " style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>Consulta Transf. y Pagos<b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a> 
+                          			</td>
+                      			</tr>
+                    		</tbody></table>
+                  		</div>
+                  		<div id="suboption5     " style="display:none"> 
+                    			<table class="submenu">
+                      				
+                      									<tbody><tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSTransfersList&amp;TYPE=8&amp;OPT=5-1')">Consulta Transf Realizadas</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECAConsultPayTC&amp;PB=1&amp;OPT=5-3')">Consulta Pagos TDC Realizados</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSPagosSaren&amp;TYPE=8&amp;OPT=5-8')">Consulta Pagos SAREN</a> 
+                        									</td>
+                      									</tr>
+                      							
+
+                    			</tbody></table>
+                  		</div>
+
+                  
+                  		<div id="mainoption6     "> 
+                    		<table class="menuitemd">
+                      			<tbody><tr> 
+                        			<td> 
+                          			<a onclick="switchOpt('6     ');" id="td6     " style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>Cheques<b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a> 
+                          			</td>
+                      			</tr>
+                    		</tbody></table>
+                  		</div>
+                  		<div id="suboption6     " style="display:none"> 
+                    			<table class="submenu">
+                      				
+                      									<tbody><tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECACheckServicesList&amp;PB=5&amp;OPT=6-2')">Confirmar Cheque Gerencia</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECACheckServicesList&amp;PB=4&amp;OPT=6-3')">Conformar Cheque</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECACheckServicesList&amp;PB=6&amp;OPT=6-4')">Suspender Cheques/Chequeras</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECACheckServicesList&amp;PB=7&amp;OPT=6-5')">Consulta de Cheques</a> 
+                        									</td>
+                      									</tr>
+                      							
+
+                    			</tbody></table>
+                  		</div>
+
+                  
+                  		<div id="mainoption7     "> 
+                    		<table class="menuitemd">
+                      			<tbody><tr> 
+                        			<td> 
+                          			<a onclick="switchOpt('7     ');" id="td7     " style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>Exterior NEXO Mensaje<b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a> 
+                          			</td>
+                      			</tr>
+                    		</tbody></table>
+                  		</div>
+                  		<div id="suboption7     " style="display:none"> 
+                    			<table class="submenu">
+                      				
+                      									<tbody><tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSUserOPass&amp;PB=23&amp;via=1&amp;OPT=7-1')">Afiliación</a> 
+                        									</td>
+                      									</tr>
+                      							
+
+                    			</tbody></table>
+                  		</div>
+
+                  
+                  		<div id="mainoption8     "> 
+                    		<table class="menuitemd">
+                      			<tbody><tr> 
+                        			<td> 
+                          			<a onclick="switchOpt('8     ');" id="td8     " style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>Información Personal<b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a> 
+                          			</td>
+                      			</tr>
+                    		</tbody></table>
+                  		</div>
+                  		<div id="suboption8     " style="display:none"> 
+                    			<table class="submenu">
+                      				
+                      									<tbody><tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSServicesList&amp;PB=2&amp;OPT=8-1')">Editar Alias Tus Productos</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSUserOPass&amp;PB=21&amp;OPT=8-2')">Cambio Imagen Anti Phishing</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSUserOPass&amp;PB=13&amp;OPT=8-3')">Cambio de Preguntas Desafío</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSServicesList&amp;PB=1&amp;OPT=8-4')">Cambio de Clave</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSUserOPass&amp;PB=11&amp;OPT=8-6')">Suspender Operac Especiales</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECAConsultLogTrans&amp;PB=1&amp;OPT=8-11')">Histórico Transacciones</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECATripNotification&amp;PB=1&amp;OPT=8-12')">Notificación de Viaje</a> 
+                        									</td>
+                      									</tr>
+                      							
+
+                    			</tbody></table>
+                  		</div>
+
+                  
+                  		<div id="mainoption11    "> 
+                    		<table class="menuitemd">
+                      			<tbody><tr> 
+                        			<td> 
+                          			<a onclick="switchOpt('11    ');" id="td11    " style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>Claves Dinámicas<b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a> 
+                          			</td>
+                      			</tr>
+                    		</tbody></table>
+                  		</div>
+                  		<div id="suboption11    " style="display:none"> 
+                    			<table class="submenu">
+                      				
+                      									<tbody><tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECAClaveDinamica&amp;PB=7&amp;OPT=11-3')">Actualizar Número de Celular</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECAClaveDinamicaCorreo&amp;PB=8&amp;OPT=11-4')">Actualizar Correo Electrónico</a> 
+                        									</td>
+                      									</tr>
+                      							
+
+                    			</tbody></table>
+                  		</div>
+
+                  
+                  		<div id="mainoption12    "> 
+                    		<table class="menuitemd">
+                      			<tbody><tr> 
+                        			<td> 
+                          			<a onclick="switchOpt('12    ');" id="td12    " style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>Servicios Especiales<b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a> 
+                          			</td>
+                      			</tr>
+                    		</tbody></table>
+                  		</div>
+                  		<div id="suboption12    " style="display:none"> 
+                    			<table class="submenu">
+                      				
+                      									<tbody><tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECASolicitudReferenciaBancaria&amp;PB=1&amp;OPT=12-1')">Solicitud de Referencias Bancarias</a> 
+                        									</td>
+                      									</tr>
+                      							
+
+                    			</tbody></table>
+                  		</div>
+
+                  
+                  		<div id="mainoption13    "> 
+                    		<table class="menuitemd">
+                      			<tbody><tr> 
+                        			<td> 
+                          			<a onclick="switchOpt('13    ');" id="td13    " style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>Exterior NEXO pago móvil<b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a> 
+                          			</td>
+                      			</tr>
+                    		</tbody></table>
+                  		</div>
+                  		<div id="suboption13    " style="display:none"> 
+                    			<table class="submenu">
+                      				
+                      									<tbody><tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECAP2P&amp;PB=1&amp;OPT=13-1')">Afiliación/Desafiliación Pago Móvil</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECADesbloqueoC2P&amp;PB=1&amp;OPT=13-2')">Desbloquear cobro comercio (C2P)</a> 
+                        									</td>
+                      									</tr>
+                      							
+
+                    			</tbody></table>
+                  		</div>
+
+                  
+                  		<div id="mainoption15    "> 
+                    		<table class="menuitemd">
+                      			<tbody><tr> 
+                        			<td> 
+                          			<a onclick="switchOpt('15    ');" id="td15    " style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>Tarjetas de Débito en Bs o Divisas<b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a> 
+                          			</td>
+                      			</tr>
+                    		</tbody></table>
+                  		</div>
+                  		<div id="suboption15    " style="display:none"> 
+                    			<table class="submenu">
+                      				
+                      									<tbody><tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECAActTDD&amp;PB=1&amp;OPT=15-2')">Crear/Cambiar Clave Tarjeta Débito</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECAActTDD&amp;PB=1&amp;OPT=15-3')">Bloquear Tarjeta de Débito</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECAActTDD&amp;PB=1&amp;OPT=15-4')">Desbloquear Tarjeta de Débito</a> 
+                        									</td>
+                      									</tr>
+                      							
+
+                    			</tbody></table>
+                  		</div>
+
+                  
+                  		<div id="mainoption16    "> 
+                    		<table class="menuitemd">
+                      			<tbody><tr> 
+                        			<td> 
+                          			<a onclick="switchOpt('16    ');" id="td16    " style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>Tarjeta Exterior Divisas(Prepagada)<b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a> 
+                          			</td>
+                      			</tr>
+                    		</tbody></table>
+                  		</div>
+                  		<div id="suboption16    " style="display:none"> 
+                    			<table class="submenu">
+                      				
+                      									<tbody><tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECATarjetaPPD&amp;PB=3&amp;OPT=16-3')">Activación de Tarjeta</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECATarjetaPPD&amp;PB=4&amp;OPT=16-4')">Recarga de Saldo</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECATarjetaPPD&amp;PB=5&amp;OPT=16-5')">Saldo y Movimientos</a> 
+                        									</td>
+                      									</tr>
+                      							
+                      									<tr> 
+                        									<td align="left" background="menu_ver_options_data/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;"><a href="javascript:go('/internetbanking/JSBECATarjetaPPD&amp;PB=10&amp;OPT=16-10')">Candado Virtual</a> 
+                        									</td>
+                      									</tr>
+                      							
+
+                    			</tbody></table>
+                  		</div>
+
+                  
+                  <!-- 
+
+                  		<div id="mainoption10"> 
+                    		<table class="menuitemd">
+                      			<tr> 
+                        			<td> 
+                          			<a onClick="switchOpt('10');" id="td10">Autogestión de Divisas</a> 
+                          			</td>
+                      			</tr>
+
+							</table>
+						</div>
+						
+                  		<div id="suboption10" style="display:none"> 
+                    			<table class="submenu">
+
+                      				<tr> 
+                        				<td  align="left" background="images/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;" ><a href="javascript:go('JSBECABonos?PB=1&MODULOBONOSPILOTO=')">Generar Oferta</a> 
+                        				</td>
+                      				</tr>
+                      				<tr> 
+                        				<td  align="left" background="images/menu2.gif" style="background-repeat:no-repeat;margin:0;padding:0;font-size:11px;cursor:hand;text-decoration:none;padding-left:25px;" ><a href="javascript:go('JSBECABonos?PB=2&MODULOBONOSPILOTO=')">Consultar Ofertas</a> 
+                        				</td>
+                      				</tr>
+                    			</table>
+                  		</div>
+
+						-->
+                  
+                  		<div id="mainoption99 %&gt;"> 
+                    		<table class="menuitemd">
+								<tbody><tr>
+									<td align="left" valign="top">
+										<a onclick="cerrarIB();" target="_top" onmouseover="window.status='';return true" style="padding-top: 0px; padding-bottom: 0px;"><b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-bottom: 0px;" class="niftycorners"><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b>Salir de Exterior NEXO En Línea<b style="margin-left: -3px; margin-right: -2px; background: transparent; margin-top: 0px;" class="niftycorners"><b class="ts2" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b><b class="ts1" style="background-color: transparent; border-color: rgb(255, 255, 255);"></b></b></a>							
+									</td>
+                      			</tr>
+                    		</tbody></table>
+                  		</div>
+
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr> 
+            <td></td>
+          </tr>
+        </tbody></table>
+      </td>
+    </tr>
+  </tbody></table>
+  </form>
+
+<script language="JavaScript">  
+  //setTableHeight();  
+  //window.onresize=setTableHeight;     
+</script>
+
+
+
+
+
+<script language="JavaScript">
+  //Deshabilitar teclas 
+  document.onkeydown = function(event){  		
+	
+	var alt=false;
+	var ctrl=false;
+	var kcode;		
+	var navegador="";
+	if(event)
+	{	
+		if(event.which)//Netscape    	
+		{
+			navegador="N";
+		    kcode=event.which; 	
+			
+			//Tecla Alt presionada
+			if(event.altKey)
+	  	   	  alt=true;
+
+			//Tecla Control presionada
+			if(event.ctrlKey)
+	  	   	  ctrl=true;
+		}
+	}
+	else
+	if(window.event.keyCode)//Internet Explorer 	
+	{
+		navegador="IE";
+	    kcode=window.event.keyCode; 
+		
+		//Tecla Alt presionada
+		if(window.event.altKey)
+	  	  alt=true;
+
+		//Tecla Control presionada
+		if(window.event.ctrlKey)
+	  	  ctrl=true;
+	}
+
+	//alert(kcode)
+	
+
+	//Deshabilia Alt + Flecha Izq y/o Der (Atras, Adelante)
+	if(alt==true && (kcode==37 || kcode==39))
+	{				  
+		return false;				
+	}
+
+	//Deshabilia Contol + C,V,X (Copiar, Pegar, Cortar)
+	if(ctrl==true && (kcode==67 || kcode==86 || kcode==88))
+	{
+		return false;
+	}
+
+	//Deshabilia F1 -> F12
+	if (kcode >= 112 && kcode <= 123)
+	{ 		
+		if(navegador=="N")
+		{				  
+		   return false;		
+		}
+		else
+		if(navegador=="IE")
+		{		   			   
+		   window.event.keyCode = 505;
+		   return false;  
+		}
+	} 
+		
+
+	if (kcode == 8) //BackSpace
+	{ 
+		valor = document.activeElement.value; 
+
+		if (valor==undefined) //Evita Back en página. 
+		{ 
+			if(navegador=="N")//Netscape 
+			{
+			  event.preventDefault();
+ 		      event.returnValue = false;
+			}
+			return false;
+		}
+		else 
+		{ 	
+			var type = document.activeElement.type;
+			type = type.toUpperCase();					
+
+			if (type=='SELECT-ONE') //Evita Back en select. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else
+			if (type=='BUTTON') //Evita Back en button. 
+			{
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='RADIO') //Evita Back en radio. 
+			{
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='CHECKBOX') //Evita Back en checkbox. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='FILE') //Evita Back en file. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='RESET') //Evita Back en reset. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='SUBMIT') //Evita Back en submit. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			} 
+			else //Text, textarea o password 
+			{ 
+			    if (document.activeElement.value.length==0) //No realiza el backspace(largo igual a 0). 
+			    { 
+					if(navegador=="N")//Netscape 
+					{
+					  event.preventDefault();
+		 		      event.returnValue = false;
+					}
+					return false;	
+				}
+			    /*else //Realiza el backspace. 
+			    { 
+				  document.activeElement.value.keyCode = 8; 
+				}*/ 
+			} 
+			
+		} 
+	} 
+
+   }//fin desabilitar teclas 
+
+</script>
+
+
+</body></html>

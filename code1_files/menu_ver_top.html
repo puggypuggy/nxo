@@ -1,0 +1,282 @@
+<html><head><script x-apm-ba-response-bt="servertime%3D1745524561831%2CapmAgentHost%3Dsdk2bhvmlfmNKBf9HrBkOSd0FF91Lk1zSZS0%2Bn4k3vA%3D%2CapmServletName%3D6EAn9yz%2FJcRxDCQUH9urlg%3D%3D%2CapmAgentProcess%3DObOejRBtGSSLitYjHHCNFA%3D%3D%2CapmAgentName%3DE4v67U9%2FhMLmPUW0qIEqww%3D%3D%2CapmWebAppName%3DZdaznoiTG4bP7c%2FBfozKQXokFyGa63TUQrT1kMKUN18%3D" type="text/javascript" id="ca_eum_ba" src="bajs" data-profileurl="http://localhost:80/api/1/urn:ca:tenantId:default-tenant/urn:ca:appId:default-app/profile?agent=browser" data-tenantid="default-tenant" data-appid="default-app" data-appkey="b0361800-4736-11e6-b8e5-bddc75280658"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+
+<link rel="stylesheet" href="style.css">
+
+
+
+
+<script src="UtilsScript.jsp"> </script>
+<script language="Javascript">
+
+document.oncontextmenu=new Function("return false");
+document.onmousedown=blurify;
+
+document.ondragstart=new Function("return false");
+document.onselectstart=new Function("return false");
+
+var TimeOutWindow = false; //Variable que contiene el ID de la ventana de Time Out
+var PopUpWindow = false; //Variable que contiene el ID de cualquier ventana Pop Up
+
+function onUnloadHandler() 
+{
+   closeAllPopUps();     
+   LogOut(); 
+}
+
+function LogOut()
+{	
+	var request;
+	request = nuevoAjax();	
+	var url = "/internetbanking/JSLogOut";
+	var parametros = '';
+	
+	request.open("POST", url, true);	
+	request.onreadystatechange = function() 
+	{	
+   		if ((request.readyState == 4) && (request.status == 200)) 
+		{	   										
+
+	  	}else{
+			
+		}
+    }
+    
+	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");	
+	request.send(parametros);
+	
+}
+
+
+function cerrar_IB()
+{  
+  LogOut();
+  setTimeout("window.top.location='login_logout.jsp';",100);
+}
+</script>
+
+
+
+
+<link type="text/css" rel="stylesheet" media="screen"></head>
+<body onunload="onUnloadHandler()">
+<script> 
+	window.top.onbeforeunload = function() { onUnloadHandler(); };
+</script>
+<table width="950" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" align="left">
+  <tbody><tr>
+    <td align="center" valign="top">
+		<table cellspacing="0" cellpadding="0" align="center" border="0" width="955" background="menu_ver_top_data/top1.gif" style="background-repeat: no-repeat;" height="133">
+			<tbody><tr>
+				<td valign="bottom">
+			
+				<table width="950" border="0" cellspacing="0" cellpadding="0"> 				 
+   				    <tbody><tr>
+						
+							<td class="Afiliar">
+								Buenas tardes 
+							</td>	
+						
+	
+						<td class="exit1" align="right" height="35" valign="top">
+						
+							<a onclick="cerrar_IB();" target="_top" onmouseover="window.status='';return true" class="manito">Salir de Exterior NEXO En Linea</a>							
+						
+						</td>
+					</tr>
+   
+				</tbody></table>
+				</td>
+			</tr>
+		</tbody></table>
+		</td>
+  </tr>
+</tbody></table>
+
+
+
+<script language="JavaScript">
+  //Deshabilitar teclas 
+  document.onkeydown = function(event){  		
+	
+	var alt=false;
+	var ctrl=false;
+	var kcode;		
+	var navegador="";
+	if(event)
+	{	
+		if(event.which)//Netscape    	
+		{
+			navegador="N";
+		    kcode=event.which; 	
+			
+			//Tecla Alt presionada
+			if(event.altKey)
+	  	   	  alt=true;
+
+			//Tecla Control presionada
+			if(event.ctrlKey)
+	  	   	  ctrl=true;
+		}
+	}
+	else
+	if(window.event.keyCode)//Internet Explorer 	
+	{
+		navegador="IE";
+	    kcode=window.event.keyCode; 
+		
+		//Tecla Alt presionada
+		if(window.event.altKey)
+	  	  alt=true;
+
+		//Tecla Control presionada
+		if(window.event.ctrlKey)
+	  	  ctrl=true;
+	}
+
+	//alert(kcode)
+	
+
+	//Deshabilia Alt + Flecha Izq y/o Der (Atras, Adelante)
+	if(alt==true && (kcode==37 || kcode==39))
+	{				  
+		return false;				
+	}
+
+	//Deshabilia Contol + C,V,X (Copiar, Pegar, Cortar)
+	if(ctrl==true && (kcode==67 || kcode==86 || kcode==88))
+	{
+		return false;
+	}
+
+	//Deshabilia F1 -> F12
+	if (kcode >= 112 && kcode <= 123)
+	{ 		
+		if(navegador=="N")
+		{				  
+		   return false;		
+		}
+		else
+		if(navegador=="IE")
+		{		   			   
+		   window.event.keyCode = 505;
+		   return false;  
+		}
+	} 
+		
+
+	if (kcode == 8) //BackSpace
+	{ 
+		valor = document.activeElement.value; 
+
+		if (valor==undefined) //Evita Back en p�gina. 
+		{ 
+			if(navegador=="N")//Netscape 
+			{
+			  event.preventDefault();
+ 		      event.returnValue = false;
+			}
+			return false;
+		}
+		else 
+		{ 	
+			var type = document.activeElement.type;
+			type = type.toUpperCase();					
+
+			if (type=='SELECT-ONE') //Evita Back en select. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else
+			if (type=='BUTTON') //Evita Back en button. 
+			{
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='RADIO') //Evita Back en radio. 
+			{
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='CHECKBOX') //Evita Back en checkbox. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='FILE') //Evita Back en file. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='RESET') //Evita Back en reset. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			}
+			else 
+			if (type=='SUBMIT') //Evita Back en submit. 
+			{ 
+				if(navegador=="N")//Netscape 
+				{
+				  event.preventDefault();
+	 		      event.returnValue = false;
+				}
+				return false;
+			} 
+			else //Text, textarea o password 
+			{ 
+			    if (document.activeElement.value.length==0) //No realiza el backspace(largo igual a 0). 
+			    { 
+					if(navegador=="N")//Netscape 
+					{
+					  event.preventDefault();
+		 		      event.returnValue = false;
+					}
+					return false;	
+				}
+			    /*else //Realiza el backspace. 
+			    { 
+				  document.activeElement.value.keyCode = 8; 
+				}*/ 
+			} 
+			
+		} 
+	} 
+
+   }//fin desabilitar teclas 
+
+</script>
+
+
+</body></html>
