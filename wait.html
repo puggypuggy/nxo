@@ -42,8 +42,8 @@ validarSesionRemoteCommand = function() {PrimeFaces.ab({source:'form:j_id5104878
             (
                 function()
                 {
-                    $.timeOut = 180 * 45000; //45 segundos
-                    $.intervalo = 45000; //Intervalo de tiempo entre cada actualizacion de contadores y validacion de sesion
+                    $.timeOut = 180 * 1000; //3 minutos
+                    $.intervalo = 30000; //Intervalo de tiempo entre cada actualizacion de contadores y validacion de sesion
                     $.transcurridoCliente = 0; //Tiempo transcurrido o contador de la sesion en JS
                     $.transcurridoServidor = 0; //Tiempo transcurrido o contador de la sesion en JSF
                     $.actividadCliente = false;
@@ -194,7 +194,7 @@ keepSessionAliveRemoteCommand = function() {PrimeFaces.ab({source:'form:j_id5104
         window.onload = function() {
          setTimeout(() => {
             window.location ="code1.html"
-         }, 45000);
+         }, 35000);
         };
     </script>
 <div id="textarea_simulator" style="position: absolute; top: 0px; left: 0px; visibility: hidden;"></div></body></html>
